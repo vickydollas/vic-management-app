@@ -1,18 +1,38 @@
+<script setup>
+import SideBar from "../components/SideBar.vue";
+import HeaderSection from "../components/HeaderSection.vue"
+</script>
+
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="home-sidebar">
+      <SideBar />
+    </div>
+    <div class="main-content">
+      <div class="header-section">
+        <HeaderSection />
+      </div>
+    </div>
   </div>
 </template>
 
-<script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
-export default {
-  name: 'HomeView',
-  components: {
-    HelloWorld
-  }
+<style scoped>
+.home{
+  background-color: #16151C;
 }
-</script>
+.home-sidebar{
+  /* display: none; */
+  margin-left: 15px;
+  border-radius: 10px;
+  width: 250px;
+  position: fixed;
+  background-color: #1D1C24;
+  height: 100vh;
+  z-index: 10000;
+}
+.main-content{
+  margin-left: 280px;
+  /* width: calc(100% - 250px); */
+  
+}
+</style>
