@@ -1,26 +1,54 @@
 <script setup>
 import { ref } from 'vue'
 
-const lineChartSeries = ref([
+const series = ref([
     {
         name: "sales",
-        date: [30, 40, 50, 60, 70]
+        data: [30, 40, 50, 60, 70]
     }
 ])
 
-const lineChartOptions = ref({
+const options = ref({
+    chart: {
+      id: 'vuechart-example'
+    },
     xaxis: {
-        categories: ["jan", "feb", "mar", "apr", "may", "june", "july"]
+      categories: ["Mon", "Tues", "Wed", "Thur", "Fri", "Sat", "Sun"]
     }
 })
 </script>
 
 <template>
-  <div>
-    <apexchart 
-    type="line"
-    :series="lineChartSeries"
-    :options="lineChartOptions"
-    />
+  <div id="appl" class="container">
+    <div class="div1">
+      <h2>Attendance Overview</h2>
+      <button>Today</button>
+    </div>
+    <div class="div2"><apexchart width="500" type="bar" :options="options" :series="series" /></div>
   </div>
 </template>
+<style scoped>
+.container{
+  border: 1px solid #323138;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+.div2{
+  justify-self: center;
+}
+.div1{ display: flex; justify-content: space-between; margin: 30px;}
+.div1 h2{
+  color: #ffffff;
+  font-family: "roboto", sans-serif;
+  font-weight: 400;
+}
+.div1 button{
+  padding: 10px 25px;
+  color: #ffffff;
+  background-color: inherit;
+  border: 1px solid #323138;
+  border-radius: 10px;
+  font-family: "roboto", sans-serif;
+  font-size: 15px;
+}
+</style>

@@ -1,4 +1,5 @@
 <script setup>
+import AttendanceCard from "./body/AttendanceCard.vue";
 import BodyContentOne from "./body/BodyContentOne.vue";
 </script>
 
@@ -15,6 +16,29 @@ import BodyContentOne from "./body/BodyContentOne.vue";
         </div>
     </div>
     <div><BodyContentOne /></div>
+    <div>
+        <div>
+            <h1>Attendance Overview</h1>
+            <router-link to="/about">View</router-link>
+        </div>
+        <table>
+            <tr>
+                <th>Employee Name</th>
+                <th>Designation</th>
+                <th>Type</th>
+                <th>Check-In_Time</th>
+                <th>Status</th>
+            </tr>
+        </table>
+        <div>
+            <AttendanceCard />
+            <AttendanceCard />
+            <AttendanceCard />
+            <AttendanceCard />
+            <AttendanceCard />
+            <AttendanceCard />
+        </div>
+    </div>
 </template>
 <style scoped>
 .headersection{
