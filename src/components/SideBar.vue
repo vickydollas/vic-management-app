@@ -26,21 +26,28 @@ a{
     text-decoration: none;
     color: #ffffff;
     display: block;
+    font-family: "roboto", sans-serif;
     /* background-color: red; */
     padding: 10px 0;
-    margin: 10px 20px 0 0;
-    font-size: 18px;
+    margin: 5px 20px 0 0;
+    font-size: 16px;
     /* width: 100%; */
     /* border-color: #ffffff;
     border-width: 2px; */
     /* margin: 20px; */
 }
 .header{
-    margin: 30px 30px 0 30px;
-    font-size: 25px;
+    margin: 20px 30px 20px 30px;
+    /* font-size: 25px; */
+    color: #ffffff;
 }
 .pi{
     text-align: center;
+    font-size: 18px;
     padding-right: 20px;
+}
+.pi-bitcoin{
+    font-size: 30px;
+    /* padding: 0; */
 }
 </style>

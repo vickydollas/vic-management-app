@@ -22,7 +22,7 @@ import HeaderSection from "../components/HeaderSection.vue"
 }
 .home-sidebar{
   /* display: none; */
-  margin-left: 15px;
+  margin: 10px 0 0 15px;
   border-radius: 10px;
   width: 250px;
   position: fixed;

@@ -18,9 +18,10 @@ import DisplayGraph from "./DisplayGraph.vue"
 <style scoped>
 .home{
 display: grid;
-grid-template-columns: 6fr 6fr 3fr 1fr 1fr;
-grid-column-gap: 10px;
+grid-template-columns: 6.5fr 6.5fr 3fr 1fr 1fr;
+grid-column-gap: 20px;
 grid-row-gap: 10px;
+margin-right: 20px;
 }
 .div1, .div2, .div3, .div4{
 
@@ -30,5 +31,5 @@ grid-row-gap: 10px;
 .div3 { grid-area: 2 / 1 / 3 / 2; }
 .div4 { grid-area: 2 / 2 / 3 / 3; }
 .div5 { grid-area: 3 / 1 / 5 / 3; }
-.div6 { grid-area: 1 / 3 / 5 / 5; }
+.div6 { grid-area: 1 / 3 / 5 / 6; }
 </style>

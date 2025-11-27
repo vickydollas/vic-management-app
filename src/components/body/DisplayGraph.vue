@@ -4,7 +4,7 @@ import { ref } from 'vue'
 const series = ref([
     {
         name: "sales",
-        data: [30, 40, 50, 60, 70]
+        data: [30, 40, 50, 60, 70, 30, 55]
     }
 ])
 
