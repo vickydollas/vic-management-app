@@ -6,10 +6,10 @@ import DisplayGraph from "./DisplayGraph.vue"
 
 <template>
   <div class="home">
-    <div class="div1"><BodyDetails /></div>
-    <div class="div2"><BodyDetails /></div>
-    <div class="div3"><BodyDetails /></div>
-    <div class="div4"><BodyDetails /></div>
+    <div class="div1"><BodyDetails :icon="'pi-users'" details="Total Employee" numbering="560" percentage="16%" /></div>
+    <div class="div2"><BodyDetails :icon="'pi-th-large'" details="Total Applicant" numbering="1060" percentage="8%" /></div>
+    <div class="div3"><BodyDetails :icon="'pi-calendar'" details="Total Attendance" numbering="420" percentage="10%" /></div>
+    <div class="div4"><BodyDetails :icon="'pi-building-columns'" details="Total Projects" numbering="600" percentage="2%" /></div>
     <div class="div5"><DisplayGraph /></div>
     <div class="div6"><DisplayCalendar /></div>
   </div>

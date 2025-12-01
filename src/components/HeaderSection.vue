@@ -4,34 +4,46 @@ import BodyContentOne from "./body/BodyContentOne.vue";
 </script>
 
 <template>
-    <div class="headersection">
-        <div class="headersection1">
-            <h1>Hello Victor 👋</h1>
-            <h3>Good morning</h3>
+    <div class="container">
+        <div class="headersection">
+            <div class="headersection1">
+                <h1>Hello Victor 👋</h1>
+                <h3>Good morning</h3>
+            </div>
+            <div class="headersection2">
+                <input type="text" placeholder="Search">
+                <i class="pi pi-bell"></i>
+                <input type="text" class="txt1">
+            </div>
         </div>
-        <div class="headersection2">
-            <input type="text" placeholder="Search">
-            <i class="pi pi-bell"></i>
-            <input type="text" class="txt1">
-        </div>
+        <div class="bodycontentone"><BodyContentOne /></div>
+        <div class="attendance"><AttendanceView /></div>
     </div>
-    <div><BodyContentOne /></div>
-    <div class="attendance"><AttendanceView /></div>
 </template>
 <style scoped>
+.container{
+    padding: 0 0 30px 0;
+}
+.bodycontentone{
+    padding: 120px 0 0 0;
+}
 .attendance{
     border: 1px solid #323138;
     border-radius: 10px;
-    margin: 20px 20px 0 0;
-    padding-bottom: 20px;
+    margin: 20px 20px 0px 0;
+    /* padding-bottom: 20px; */
 }
 .headersection{
+    position: fixed;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 40px;
+    background-color: #16151C;
+    /* margin: 0 0 80px 0; */
+    /* border: 3px solid #ddd; */
+    width: 80%;
 }
 .headersection1{
-    margin: 20px 0;
+    margin: 20px 0 30px 0;
 }
 .headersection1 h1{
     color: #ffffff;
@@ -58,7 +70,7 @@ import BodyContentOne from "./body/BodyContentOne.vue";
     /* align-content: center; */
 }
 .headersection2{
-    margin-right: 20px;
+    /* margin-right: 20px; */
     align-content: center;
     padding-left: 100px;
 }

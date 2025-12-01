@@ -9,14 +9,16 @@ import HeaderSection from "../components/HeaderSection.vue"
       <SideBar />
     </div>
     <div class="main-content">
-      <div class="header-section">
-        <HeaderSection />
-      </div>
+      <HeaderSection />
     </div>
   </div>
 </template>
 
 <style scoped>
+body{
+  padding: 0;
+  margin: 0;
+}
 .home{
   background-color: #16151C;
 }
@@ -33,6 +35,6 @@ import HeaderSection from "../components/HeaderSection.vue"
 .main-content{
   margin-left: 280px;
   /* width: calc(100% - 250px); */
-  
+  /* background-color: #1D1C24; */
 }
 </style>

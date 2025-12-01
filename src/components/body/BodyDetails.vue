@@ -1,16 +1,23 @@
 <script setup>
+import { defineProps } from "vue"
 
+defineProps({
+  details: String,
+  numbering: Number,
+  icon: String,
+  percentage: Number
+})
 </script>
 
 <template>
   <div class="container">
     <div class="div1">
-        <i class="pi pi-users"></i>
-        <h3>Total Employees</h3>
-    </div>
+        <i class="pi" :class="`${icon}`"></i>
+        <h3>{{ details }}</h3>
+    </div>  
     <div class="div2">
-        <p class="txt1">560</p>
-        <p class="txt2">12%</p>
+        <p class="txt1">{{ numbering }}</p>
+        <p class="txt2">{{ percentage }}</p>
     </div>
     <p class="txt3">Update: November 21, 2025</p>
   </div>

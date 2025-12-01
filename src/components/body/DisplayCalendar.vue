@@ -112,15 +112,19 @@ import { CalendarComponent as EjsCalendar } from '@syncfusion/ej2-vue-calendars'
 /* div 4 styling  */
 .div4{
   display: flex;
-  justify-content: space-between;
+
+  /* justify-content: space; */
   margin: 20px 20px;
+}
+.div4 div{
+  padding-left: 30px;
 }
 .div4 > p{
   color: #ffffff;
   font-family: "roboto", sans-serif;
   font-size: 18px;
   font-weight: 800;
-  padding: 10px 60px 10px 0px;
+  padding: 10px 30px 10px 0px;
   border-right: 3px solid #5E45C4;
   align-self: center
 }
