@@ -1,16 +1,25 @@
 <script setup>
-import profile1 from '../../../assets/profile1.jpg'
+import { defineProps } from 'vue'
+
+defineProps({
+  name: String,
+  designation: String,
+  type: String,
+  time: String,
+  status: Boolean,
+  image: String
+})
 </script>
 
 <template>
   <div class="container">
     <div class="txt1">
-      <img :src="profile1" alt="">
-      <p>Leasie Watson</p>
+      <img :src="image" alt="">
+      <p>{{ name }}</p>
     </div>
-    <p class="txt2">Team Lead - Design</p>
-    <p class="txt3">Office</p>
-    <p class="txt4">9:00 AM</p>
+    <p class="txt2">{{ designation }}</p>
+    <p class="txt3">{{ type }}</p>
+    <p class="txt4">{{ time }}</p>
     <button class="txt5">On Time</button>
   </div>
 </template>
@@ -42,5 +51,11 @@ import profile1 from '../../../assets/profile1.jpg'
 .txt2{ flex: 0 0 23%;}
 .txt3{ flex: 0 0 11%;}
 .txt4{ flex: 0 0 16.5%;}
-.txt5{ flex: 20%;}
+.txt5{ flex: 20%;
+  background-color: #1F2A33;
+  color: #3FA558;
+  border-radius: 10px;
+  border: none !important;
+  width: 20px !important;
+}
 </style>

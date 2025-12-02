@@ -1,4 +1,11 @@
 <script setup>
+import profile1 from '../../../assets/profile1.jpg'
+import profile2 from '../../../assets/profile2.jpg'
+import profile3 from '../../../assets/profile3.png'
+import profile4 from '../../../assets/profile4.png'
+import profile5 from '../../../assets/profile5.jpg'
+import profile6 from '../../../assets/profile6.jpg'
+import profile7 from '../../../assets/profile7.jpg'
 import AttendanceCard from './AttendanceCard.vue'
 </script>
 
@@ -17,14 +24,14 @@ import AttendanceCard from './AttendanceCard.vue'
         </div>
     </div>
     <div class="div3">
-        <AttendanceCard />
-        <AttendanceCard />
-        <AttendanceCard />
-        <AttendanceCard />
-        <AttendanceCard />
-        <AttendanceCard />
-        <AttendanceCard />
-        <AttendanceCard />
+        <AttendanceCard :image="profile1" name="Leasie Watson" designation="Team Lead - Design" type="Office" time="9:00 AM" />
+        <AttendanceCard :image="profile2" name="Darlene Robertson" designation="Web Designer" type="Remote" time="10:15 AM AM" />
+        <AttendanceCard :image="profile3" name="John Stones" designation="Medical Assistant" type="Office" time="8:45 AM" />
+        <AttendanceCard :image="profile4" name="Gabreil Jesus" designation="Marketing Coordinator" type="Remote" time="9:30 AM" />
+        <AttendanceCard :image="profile5" name="Peter Parker" designation="Technical Director" type="Hybrid" time="10:05 AM" />
+        <AttendanceCard :image="profile6" name="Phil Foden" designation="Data analyst" type="Remote" time="7:45 AM" />
+        <AttendanceCard :image="profile7" name="Bukayo Saka" designation="UI/UX design" type="Office" time="11:00 AM" />
+        <AttendanceCard :image="profile5" name="Declan Rice" designation="Marketing Consultant" type="Hybrid" time="10:15 AM" />
     </div>
 </template>
 <style scoped>
