@@ -1,31 +1,14 @@
 <script setup>
 import AttendanceView from "./body/attendance_overview/AttendanceView.vue";
 import BodyContentOne from "./body/BodyContentOne.vue";
+import FixedHeader from "./body/FixedHeader.vue"
 import profile1 from '../assets/profile1.jpg'
 </script>
 
 <template>
     <div class="container">
-        <div class="headersection">
-            <div class="headersection1">
-                <h1>Hello Victor 👋</h1>
-                <h3>Good morning</h3>
-            </div>
-            <div class="headersection2">
-                <div class="search-wrapper">
-                    <i class="pi pi-search"></i>
-                    <input type="text" placeholder="Search">
-                </div>
-                <i class="pi pi-bell"></i>
-                <div class="profile-wrapper">
-                    <img :src="profile1" alt="">
-                    <div>
-                        <h3>Victor John</h3>
-                        <p>HR Manager</p>
-                    </div>
-                    <i class="pi pi-angle-down"></i>
-                </div>
-            </div>
+        <div>
+            <FixedHeader />
         </div>
         <div class="bodycontentone"><BodyContentOne /></div>
         <div class="attendance"><AttendanceView /></div>
@@ -84,15 +67,6 @@ import profile1 from '../assets/profile1.jpg'
     border-radius: 10px;
     margin: 20px 20px 0px 0;
     /* padding-bottom: 20px; */
-}
-.headersection{
-    position: fixed;
-    display: flex;
-    justify-content: space-between;
-    background-color: #16151C;
-    /* margin: 0 0 80px 0; */
-    /* border: 3px solid #ddd; */
-    width: 80%;
 }
 .headersection1{
     margin: 20px 0 30px 0;
