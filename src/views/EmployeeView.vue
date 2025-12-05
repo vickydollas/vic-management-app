@@ -30,7 +30,7 @@ import EmployeeRecord from '../components/employees/EmployeeRecord.vue'
   /* background-color: #1D1C24; */
 }
 .employee-record{
-    padding: 100px 0 0 0;
+    padding: 100px 0 20px 0;
     
 }
 </style>

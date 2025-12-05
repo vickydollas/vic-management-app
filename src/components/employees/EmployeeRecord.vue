@@ -38,26 +38,26 @@ import profile7 from '../../assets/profile7.jpg'
         <h2 class="txt7">Action</h2>
       </div>
       <div class="div4">
-        <EmployeeDetail idNum="65743214" :src="profile5"/>
-        <EmployeeDetail idNum="65743214" :src="profile6"/>
-        <EmployeeDetail idNum="65743214" :src="profile7"/>
-        <EmployeeDetail idNum="65743214" :src="profile4"/>
-        <EmployeeDetail idNum="65743214" :src="profile3"/>
-        <EmployeeDetail idNum="65743214" :src="profile2"/>
-        <EmployeeDetail idNum="65743214" :src="profile7"/>
-        <EmployeeDetail idNum="65743214" :src="profile6"/>
-        <EmployeeDetail idNum="65743214" :src="profile5"/>
-        <EmployeeDetail idNum="65743214" :src="profile1"/>
-        <EmployeeDetail idNum="65743214" :src="profile2"/>
-        <EmployeeDetail idNum="65743214" :src="profile3"/>
-        <EmployeeDetail idNum="65743214" :src="profile4"/>
-        <EmployeeDetail idNum="65743214" :src="profile7"/>
-        <EmployeeDetail idNum="65743214" :src="profile6"/>
-        <EmployeeDetail idNum="65743214" :src="profile5"/>
-        <EmployeeDetail idNum="65743214" :src="profile4"/>
-        <EmployeeDetail idNum="65743214" :src="profile3"/>
-        <EmployeeDetail idNum="65743214" :src="profile1"/>
-        <EmployeeDetail idNum="65743214" :src="profile2"/>
+        <EmployeeDetail idNum="65743214" :src="profile5" name="Victor john" department="Manager" designation="HR Manager" type="Hybrid" status="Permanent"/>
+        <EmployeeDetail idNum="74925462" :src="profile6" name="Innoocent Joy" department="Sales" designation="Sales Rep" type="Office" status="Contract"/>
+        <EmployeeDetail idNum="12085832" :src="profile7" name="Sccot parker" department="Design" designation="Product Manager" type="Hybrid" status="Permanent"/>
+        <EmployeeDetail idNum="55739856" :src="profile4" name="Kai hatverz" department="Design" designation="UI/UX designer" type="Office" status="Permanent"/>
+        <EmployeeDetail idNum="00963417" :src="profile3" name="Gabriel Jesus" department="Design" designation="Front End Developer" type="Hybird" status="Permanent"/>
+        <EmployeeDetail idNum="22885563" :src="profile2" name="Mikel Johnsom" department="Design" designation="Backend Dev" type="Hybrid" status="Permanent"/>
+        <EmployeeDetail idNum="00667564" :src="profile7" name="Ben White" department="Design" designation="Full Stack Dev" type="Hybrid" status="Permanent"/>
+        <EmployeeDetail idNum="33445198" :src="profile6" name="Lewis Skelly" department="security" designation="Cyber security" type="Hybrid" status="Permanent"/>
+        <EmployeeDetail idNum="11220076" :src="profile5" name="Bukayo Saka" department="Design" designation="Asst product Manager" type="Remote" status="Contract"/>
+        <EmployeeDetail idNum="65836451" :src="profile1" name="John Stones" department="Design" designation="Asst Backend" type="Remote" status="Contract"/>
+        <EmployeeDetail idNum="09123109" :src="profile2" name="Jude Bellingham" department="Design" designation="Asst Fronend Dev" type="Remote" status="Contract"/>
+        <EmployeeDetail idNum="12095638" :src="profile3" name="Ruben Dias" department="Customer Care" designation="Front End desk" type="Office" status="Contract"/>
+        <!-- <EmployeeDetail idNum="74539123" :src="profile4" name="Areola Dave"/> -->
+        <!-- <EmployeeDetail idNum="12098789" :src="profile7" name="Jarrod Bowen"/> -->
+        <!-- <EmployeeDetail idNum="09894312" :src="profile6" name="Harry maguire"/> -->
+        <!-- <EmployeeDetail idNum="34561209" :src="profile5" name="Recce James"/> -->
+        <!-- <EmployeeDetail idNum="90897867" :src="profile4" name="Declan Rice"/> -->
+        <!-- <EmployeeDetail idNum="56432321" :src="profile3" name="Martin Zubimendi"/> -->
+        <!-- <EmployeeDetail idNum="878653261" :src="profile1" name="Noni Mandueke"/> -->
+        <!-- <EmployeeDetail idNum="469263548" :src="profile2" name="Micheal Richard"/> -->
       </div>
     </div>
   </div>
@@ -66,8 +66,7 @@ import profile7 from '../../assets/profile7.jpg'
 .container{
     border: 1px solid #323138;
     border-radius: 10px;
-    padding-bottom: 15px;
-    margin-bottom: 15px;
+    margin: 0 15px 0 0;
 }
 .container1{
     display: flex;
@@ -124,6 +123,7 @@ input[type="text"]{
 }
 .div3{
     display: flex;
+    margin-bottom: 20px;
 }
 .div3 h2{
     color: #655B9E;
@@ -148,6 +148,7 @@ input[type="text"]{
 }
 .txt6{
     flex: 0 0 12%;
+    /* text-align: center; */
 }
 .txt7{
     flex: 0 0 12%;

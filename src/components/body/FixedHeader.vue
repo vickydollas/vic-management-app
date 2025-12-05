@@ -41,6 +41,7 @@ import profile1 from '../../assets/profile1.jpg'
 .headersection2{
     display: flex;
     align-content: center;
+    position: relative;
 }
 .headersection{
     position: fixed;

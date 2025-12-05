@@ -11,16 +11,16 @@ defineProps({
 })
 </script>
 <template>
-    <div class="container">
+    <div class="main">
         <p class="txt1">{{ idNum }}</p>
         <div class="txt2">
             <img :src="`${src}`" alt="">
-            <p>Alice Johnson</p>
+            <p>{{ name }}</p>
         </div>
-        <p class="txt3">Sales</p>
-        <p class="txt4">Sales Associate</p>
-        <p class="txt5">Office</p>
-        <p class="txt6">Contract</p>
+        <p class="txt3">{{ department }}</p>
+        <p class="txt4">{{ designation }}</p>
+        <p class="txt5">{{ type }}</p>
+        <p class="txt6">{{ status }}</p>
         <div class="txt7">
             <i class="pi pi-eye" style="color: #ddd; padding-right: 10px;"></i>
             <i class="pi pi-trash" style="color: #ddd; padding-right: 10px;"></i>
@@ -29,13 +29,12 @@ defineProps({
     </div>
 </template>
 <style scoped>
-.container{
+.main{
     display: flex;
     /* align-content: center; */
-    border-bottom: 1px solid #323138;
+    /* border-bottom: 1px solid #323138; */
     border-top: 1px solid #323138;
-    padding: 11px 0;
-    margin-top: 20px;
+    padding: 13px 0;
 }
 .container p{
     color: #ddd;
@@ -62,7 +61,7 @@ defineProps({
     align-self: center;
 }
 .txt4{
-    flex: 0 0 20%;
+    flex: 0 0 21%;
     align-self: center;
 }
 .txt5{
@@ -70,11 +69,18 @@ defineProps({
     align-self: center;
 }
 .txt6{
-    flex: 0 0 12%;
+    font-size: 13px !important;
+    background-color: #251E3E;
+    color: #6752E8 !important;
+    flex: 0 0 9%;
     align-self: center;
+    border-radius: 10px;
+    padding: 10px 0 10px 0px;
+    text-align: center;
+    margin-right: 20px;
 }
 .txt7{
-    flex: 0 0 12%;
+    flex: 0 0 14%;
     align-self: center;
 }
 </style>
