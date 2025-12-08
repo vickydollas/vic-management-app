@@ -1,13 +1,19 @@
 <script setup>
-import { defineProps } from 'vue'
+import { defineProps, computed } from 'vue'
 
-defineProps({
+const props = defineProps({
   name: String,
   designation: String,
   type: String,
   time: String,
   status: Boolean,
-  image: String
+  image: String,
+  truth: String
+})
+const onTimeFunc = computed(() => {
+  if (props.truth === 'Late'){
+    return{ backgroundColor: '#321F30', color: '#F45558'}
+  }
 })
 </script>
 
@@ -15,12 +21,12 @@ defineProps({
   <div class="container">
     <div class="txt1">
       <img :src="image" alt="">
-      <p>{{ name }}</p>
+      <p>{{ props.name }}</p>
     </div>
-    <p class="txt2">{{ designation }}</p>
-    <p class="txt3">{{ type }}</p>
-    <p class="txt4">{{ time }}</p>
-    <button class="txt5">On Time</button>
+    <p class="txt2">{{ props.designation }}</p>
+    <p class="txt3">{{ props.type }}</p>
+    <p class="txt4">{{ props.time }}</p>
+    <button class="txt5" ><i class="txt6" :style="onTimeFunc">{{ props.truth }}</i></button>
   </div>
 </template>
 <style scoped>
@@ -52,10 +58,19 @@ defineProps({
 .txt3{ flex: 0 0 11%;}
 .txt4{ flex: 0 0 16.5%;}
 .txt5{ flex: 20%;
-  background-color: #1F2A33;
-  color: #3FA558;
+  background-color: inherit;
+  /* color: #3FA558; */
   border-radius: 10px;
   border: none !important;
-  width: 20px !important;
+  /* width: 10px !important; */
+}
+.txt6{
+  display: inline-block;
+  justify-items: left;
+  background-color: #1F2A33;
+  color: #3FA558;
+  padding: 15px 30px;
+  border-radius: 10px;
+  /* margin: 0 100px 0 0; */
 }
 </style>

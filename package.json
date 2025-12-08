@@ -9,6 +9,7 @@
   "dependencies": {
     "@syncfusion/ej2-vue-calendars": "^31.2.12",
     "apexcharts": "^5.3.6",
+    "axios": "^1.13.2",
     "primeicons": "^7.0.0",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",

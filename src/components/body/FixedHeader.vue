@@ -1,5 +1,27 @@
 <script setup>
+import { ref, onMounted } from 'vue'
 import profile1 from '../../assets/profile1.jpg'
+import LogoutDisplay from './LogoutDisplay.vue'
+
+const togglelogout = ref(false)
+const openLogout = () => {
+    togglelogout.value = !togglelogout.value
+}
+const closeFunc = () => {
+    togglelogout.value = false
+}
+const closeLogout = (e) => {
+    if (e.key === 'Escape'){
+        closeFunc()
+    }
+}
+const clickLogout = (e) => {
+        closeFunc()
+}
+onMounted(() => {
+    document.addEventListener('keydown', closeLogout)
+    // document.addEventListener('click', clickLogout)
+})
 </script>
 <template>
     <div class="headersection">
@@ -10,7 +32,7 @@ import profile1 from '../../assets/profile1.jpg'
         <div class="headersection2">
             <div class="search-wrapper">
                 <i class="pi pi-search"></i>
-                <input type="text" placeholder="Search">
+                <input type="text" placeholder="Search...">
             </div>
             <i class="pi pi-bell"></i>
             <div class="profile-wrapper">
@@ -19,12 +41,37 @@ import profile1 from '../../assets/profile1.jpg'
                     <h3>Victor John</h3>
                     <p>HR Manager</p>
                 </div>
-                <i class="pi pi-angle-down"></i>
+                <i class="pi pi-angle-down" @click="openLogout"></i>
             </div>
+        </div>
+        <div class="headersection3" v-show="togglelogout" @click="clickLogout">
+            <div class="fade" @click.stop><LogoutDisplay /></div>
         </div>
     </div>
 </template>
 <style scoped>
+.headersection3{
+    background-color: rgba(0, 0, 0, 0.6); 
+    backdrop-filter: blur(5px);
+    
+    /* Ensure it's on top of all regular content */
+    z-index: 9999;
+
+    /* Center the modal content using Flexbox */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    /* left: 500px; */
+    /* bottom: 300px; */
+    height: 100vh;
+    width: 100vw;
+}
+.headersection3 div{
+position: relative;
+    left: 170px;
+    bottom: 130px;
+}
 .headersection1{
     margin: 20px 0 30px 0;
 }
@@ -54,11 +101,11 @@ import profile1 from '../../assets/profile1.jpg'
 }
 input[type="text"]{
     font-size: 15px;
-    height: 1vh;
-    width: 250px;
+    height: 1.2vh;
+    width: 220px;
     padding: 15px 0px 15px 35px;
     background-color: inherit;
-    border: 1px solid #ffffff;
+    border: 1px solid #D1D5DC;
     border-radius: 10px;
 }
 .txt1{
@@ -67,7 +114,7 @@ input[type="text"]{
 .profile-wrapper{
     display: flex;
     width: 60%;
-    border: 1px solid #ffffff;
+    border: 1px solid #D1D5DC;
     border-radius: 10px;
     align-self: center;
 }
@@ -114,7 +161,7 @@ input[type="text"]{
     width: 30px;
     height: 4vh;
     background-color: #25232A;
-    border: 1px solid #ffffff;
+    border: 1px solid #D1D5DC;
     border-radius: 10px;
     display: block;
     align-self: center;

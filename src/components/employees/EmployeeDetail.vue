@@ -1,26 +1,20 @@
 <script setup>
 import { defineProps } from 'vue'
-defineProps({
-    idNum: Number,
-    name: String,
-    department: String,
-    designation: String,
-    type: String,
-    status: String,
-    src: String
+const props = defineProps({
+    job: Object
 })
 </script>
 <template>
     <div class="main">
-        <p class="txt1">{{ idNum }}</p>
+        <p class="txt1">{{ props.job.identityNum }}</p>
         <div class="txt2">
-            <img :src="`${src}`" alt="">
-            <p>{{ name }}</p>
+            <!-- <img :src="`${src}`" alt=""> -->
+            <p>name </p>
         </div>
-        <p class="txt3">{{ department }}</p>
-        <p class="txt4">{{ designation }}</p>
-        <p class="txt5">{{ type }}</p>
-        <p class="txt6">{{ status }}</p>
+        <p class="txt3">department</p>
+        <p class="txt4">designation</p>
+        <p class="txt5">type</p>
+        <p class="txt6">status</p>
         <div class="txt7">
             <i class="pi pi-eye" style="color: #ddd; padding-right: 10px;"></i>
             <i class="pi pi-trash" style="color: #ddd; padding-right: 10px;"></i>

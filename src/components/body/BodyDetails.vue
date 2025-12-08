@@ -1,23 +1,28 @@
 <script setup>
-import { defineProps } from "vue"
+import { defineProps, computed } from "vue"
 
-defineProps({
+const props = defineProps({
   details: String,
   numbering: Number,
   icon: String,
   percentage: Number
+})
+const percentageState = computed(() => {
+  if (props.percentage <= 5 ){
+    return{ backgroundColor: '#321F30', color: '#F45558'}
+  }
 })
 </script>
 
 <template>
   <div class="container">
     <div class="div1">
-        <i class="pi" :class="`${icon}`"></i>
-        <h3>{{ details }}</h3>
+        <i class="pi" :class="`${props.icon}`"></i>
+        <h3>{{ props.details }}</h3>
     </div>  
     <div class="div2">
-        <p class="txt1">{{ numbering }}</p>
-        <p class="txt2">{{ percentage }}</p>
+        <p class="txt1">{{ props.numbering }}</p>
+        <p class="txt2" :style="percentageState">{{ props.percentage }} %</p>
     </div>
     <p class="txt3">Update: November 21, 2025</p>
   </div>
