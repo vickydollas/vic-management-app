@@ -1,18 +1,25 @@
 <script setup>
+import SideBar from "../components/SideBar.vue";
 import FixedHeader from '../components/body/FixedHeader.vue'
-import SideBar from '../components/SideBar.vue'
-import EmployeeRecord from '../components/employees/EmployeeRecord.vue'
+import DepartmentRecord from "../components/departments/DepartmentRecord.vue";
 </script>
 <template>
     <div class="home">
-        <div class="home-sidebar"><SideBar /></div>
-        <div class="main-content"><FixedHeader name="Employees" greeting="All Employee" /></div>
-        <div class="main-content employee-record"><EmployeeRecord /></div>
+        <div class="home-sidebar">
+            <SideBar />
+        </div>
+        <div class="main-content">
+            <FixedHeader name="All Departments" greeting="All Department Information" />
+        </div>
+        <div class="main-content department-record">
+            <DepartmentRecord />
+        </div>
     </div>
 </template>
 <style scoped>
 .home{
   background-color: #16151C;
+  padding-bottom: 20px;
 }
 .home-sidebar{
   /* display: none; */
@@ -29,8 +36,7 @@ import EmployeeRecord from '../components/employees/EmployeeRecord.vue'
   /* width: calc(100% - 250px); */
   /* background-color: #1D1C24; */
 }
-.employee-record{
+.department-record{
     padding: 100px 0 20px 0;
-    
 }
 </style>

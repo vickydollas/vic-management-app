@@ -8,7 +8,7 @@ import profile1 from '../assets/profile1.jpg'
 <template>
     <div class="container">
         <div>
-            <FixedHeader />
+            <FixedHeader name="Hello Victor" greeting="Good Morning" />
         </div>
         <div class="bodycontentone"><BodyContentOne /></div>
         <div class="attendance"><AttendanceView /></div>

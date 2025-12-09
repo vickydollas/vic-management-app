@@ -1,8 +1,12 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, defineProps } from 'vue'
 import profile1 from '../../assets/profile1.jpg'
 import LogoutDisplay from './LogoutDisplay.vue'
 
+const props = defineProps({
+    name: String,
+    greeting: String
+})
 const togglelogout = ref(false)
 const openLogout = () => {
     togglelogout.value = !togglelogout.value
@@ -26,8 +30,8 @@ onMounted(() => {
 <template>
     <div class="headersection">
         <div class="headersection1">
-            <h1>Hello Victor 👋</h1>
-            <h3>Good morning</h3>
+            <h1>{{ props.name }} 👋</h1>
+            <h3>{{ props.greeting }}</h3>
         </div>
         <div class="headersection2">
             <div class="search-wrapper">

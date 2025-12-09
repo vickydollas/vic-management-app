@@ -8,13 +8,13 @@ const props = defineProps({
     <div class="main">
         <p class="txt1">{{ props.job.identityNum }}</p>
         <div class="txt2">
-            <!-- <img :src="`${src}`" alt=""> -->
-            <p>name </p>
+            <img :src="`${props.job.imagePath}`" alt="">
+            <p>{{ props.job.name }}</p>
         </div>
-        <p class="txt3">department</p>
-        <p class="txt4">designation</p>
-        <p class="txt5">type</p>
-        <p class="txt6">status</p>
+        <p class="txt3">{{ props.job.department }}</p>
+        <p class="txt4">{{ props.job.title }}</p>
+        <p class="txt5">{{ props.job.type }}</p>
+        <p class="txt6">{{ props.job.status }}</p>
         <div class="txt7">
             <i class="pi pi-eye" style="color: #ddd; padding-right: 10px;"></i>
             <i class="pi pi-trash" style="color: #ddd; padding-right: 10px;"></i>
