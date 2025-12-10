@@ -12,8 +12,8 @@ const isActive = (routePath) => {
         <div class="container2">
             <router-link :class="[isActive('/') ? 'bg-active' : 'bg-not']" to="/"><i class="pi pi-th-large"></i>Dashboard</router-link>
             <router-link :class="[isActive('/employee') ? 'bg-active' : 'bg-not']" to="/employee"><i class="pi pi-users"></i>All Employees</router-link>
-            <router-link to="/department"><i class="pi pi-microsoft"></i>All Departments</router-link>
-            <router-link to="/about"><i class="pi pi-calendar-clock"></i>Attendance</router-link>
+            <router-link :class="[isActive('/department') ? 'bg-active' : 'bg-not']" to="/department"><i class="pi pi-microsoft"></i>All Departments</router-link>
+            <router-link :class="[isActive('/attendance') ? 'bg-active' : 'bg-not']" to="/attendance"><i class="pi pi-calendar-clock"></i>Attendance</router-link>
             <router-link to="/about"><i class="pi pi-dollar"></i>Payroll</router-link>
             <router-link to="/about"><i class="pi pi-briefcase"></i>Jobs</router-link>
             <router-link to="/about"><i class="pi pi-user"></i>Candidate</router-link>

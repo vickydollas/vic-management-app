@@ -86,7 +86,8 @@ position: relative;
 }
 .headersection1 h3{
     color: #6A717F;
-    font-weight: 50;
+    font-family: "roboto", sans-serif;
+    font-weight: 300;
     font-size: 15px;
 }
 .headersection2{

@@ -21,6 +21,7 @@ body{
 }
 .home{
   background-color: #16151C;
+  min-height: 100vh;
 }
 .home-sidebar{
   /* display: none; */

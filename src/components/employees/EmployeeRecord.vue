@@ -1,6 +1,6 @@
 <script setup>
 import { RouterLink } from "vue-router";
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 import axios from 'axios'
 import EmployeeDetail from "./EmployeeDetail.vue";
 import profile3 from "../../assets/profile3.png";
@@ -12,6 +12,10 @@ import profile6 from "../../assets/profile6.jpg";
 import profile7 from "../../assets/profile7.jpg";
 
 const jobs = ref([])
+const limitNumber = ref(5)
+const updateLimit = computed(() => {
+  return limitNumber.value
+})
 onMounted(async() => {
     try {
         const response = await axios.get('/jobs2.json')
@@ -59,14 +63,13 @@ onMounted(async() => {
         <h2 class="txt7">Action</h2>
       </div>
       <div class="div4">
-        <EmployeeDetail class="listings" v-for="job in jobs" :key="job.id" :job="job" />
+        <EmployeeDetail class="listings" v-for="job in jobs.slice(0, updateLimit)" :key="job.id" :job="job" />
       </div>
     </div>
     <div class="container3">
       <div>
         <label>Showing</label>
-        <select name="" id="">
-          <!-- <option value="">10</option> -->
+        <select name="" v-model="limitNumber" id="">
           <option value="5">5</option>
           <option value="10">10</option>
           <option value="15">15</option>

@@ -2,17 +2,20 @@
 import FixedHeader from '../components/body/FixedHeader.vue'
 import SideBar from '../components/SideBar.vue'
 import EmployeeRecord from '../components/employees/EmployeeRecord.vue'
+// import AttendanceList from '../components/body/attendance_overview/AttendanceList.vue'
 </script>
 <template>
     <div class="home">
         <div class="home-sidebar"><SideBar /></div>
         <div class="main-content"><FixedHeader name="Employees" greeting="All Employee" /></div>
         <div class="main-content employee-record"><EmployeeRecord /></div>
+        <!-- <div class="main-content"><AttendanceList /></div> -->
     </div>
 </template>
 <style scoped>
 .home{
   background-color: #16151C;
+  min-height: 100vh;
 }
 .home-sidebar{
   /* display: none; */
@@ -26,6 +29,7 @@ import EmployeeRecord from '../components/employees/EmployeeRecord.vue'
 }
 .main-content{
   margin-left: 280px;
+  /* min-height: 10vh; */
   /* width: calc(100% - 250px); */
   /* background-color: #1D1C24; */
 }

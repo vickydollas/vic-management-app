@@ -1,7 +1,7 @@
 <script setup>
 import SideBar from "../components/SideBar.vue";
 import FixedHeader from '../components/body/FixedHeader.vue'
-import DepartmentRecord from "../components/departments/DepartmentRecord.vue";
+import AttendanceRecord from "../components/attendance/AttendanceRecord.vue";
 </script>
 <template>
     <div class="home">
@@ -9,10 +9,10 @@ import DepartmentRecord from "../components/departments/DepartmentRecord.vue";
             <SideBar />
         </div>
         <div class="main-content">
-            <FixedHeader name="All Departments" greeting="All Department Information" />
+            <FixedHeader name="Attendance" greeting="All Employee Attendance" />
         </div>
-        <div class="main-content department-record">
-            <DepartmentRecord />
+        <div class="main-content attendance-record">
+            <AttendanceRecord />
         </div>
     </div>
 </template>
@@ -34,10 +34,8 @@ import DepartmentRecord from "../components/departments/DepartmentRecord.vue";
 }
 .main-content{
   margin-left: 280px;
-  /* width: calc(100% - 250px); */
-  /* background-color: #1D1C24; */
 }
-.department-record{
+.attendance-record{
     padding: 100px 0 20px 0;
 }
 </style>
