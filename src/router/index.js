@@ -3,6 +3,8 @@ import HomeView from '../views/HomeView.vue'
 import EmployeeView from '../views/EmployeeView.vue'
 import DepartmentView from '../views/DepartmentView.vue'
 import AttendanceView from '../views/AttendanceView.vue'
+import DesignDepartment from '../views/departments/DesignDepartment.vue'
+import EngineeringDepartment from '../views/departments/EngineeringDepartment.vue'
 
 const routes = [
   {
@@ -12,13 +14,25 @@ const routes = [
   },
   {
     path: '/employee',
-    name: 'employee',
+    name: 'employees',
     component: EmployeeView
   },
   {
     path: '/department',
     name: 'department',
     component: DepartmentView
+  },
+  {
+    path: '/department/design',
+    name: 'department-design',
+    component: DesignDepartment,
+    props: true
+  },
+  {
+    path: '/department/engineering',
+    name: 'department-engineering',
+    component: EngineeringDepartment,
+    props: true
   },
   {
     path: '/attendance',

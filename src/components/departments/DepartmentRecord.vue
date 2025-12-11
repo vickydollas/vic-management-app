@@ -8,11 +8,11 @@ import DepartmentCard from './DepartmentCard.vue'
       <input type="text" placeholder="Search..." />
     </div>
     <div class="div2">
-        <DepartmentCard />
-        <DepartmentCard />
-        <DepartmentCard />
-        <DepartmentCard />
-        <DepartmentCard />
+        <DepartmentCard path="/department/design" department="Design Department" />
+        <DepartmentCard path="/department/engineering" department="Engineering Department" />
+        <!-- <DepartmentCard path="sales" department="Engineering Department" /> -->
+        <!-- <DepartmentCard path="project" department="Project management Department" /> -->
+        <!-- <DepartmentCard path="marketing" department="Marketing Department" /> -->
     </div>
   </div>
 </template>

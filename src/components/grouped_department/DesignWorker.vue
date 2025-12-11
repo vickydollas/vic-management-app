@@ -1,9 +1,15 @@
 <script setup>
 import { RouterLink } from "vue-router";
-import { ref, onMounted, computed } from 'vue'
+import { ref, onMounted, computed, defineProps } from 'vue'
 import axios from 'axios'
-import EmployeeDetail from "./EmployeeDetail.vue";
+import GroupDetail from './GroupDetail.vue'
 
+const props = defineProps({
+  department: {
+    type: String,
+    required: true
+  }
+})
 const jobs = ref([])
 const limitNumber = ref(5)
 const updateLimit = computed(() => {
@@ -14,12 +20,20 @@ onMounted(async() => {
         const response = await axios.get('/jobs2.json')
         jobs.value = response.data
         const well = jobs.value
-        console.log(well.department)
+        console.log(well)
     } catch (error) {
         console.log(error, "error here")
     }
 })
-// console.log('happy')
+const targetDepartment = ref(props.department)
+const marketingEmployees = computed(() => {
+    if (!jobs.value || jobs.value.length === 0) {
+    return [];
+  }
+    return jobs.value.filter(employee => {
+        return employee.department === targetDepartment.value
+    })
+})
 </script>
 <template>
   <div class="container">
@@ -56,7 +70,7 @@ onMounted(async() => {
         <h2 class="txt7">Action</h2>
       </div>
       <div class="div4">
-        <EmployeeDetail class="listings" v-for="job in jobs.slice(0, updateLimit)" :key="job.id" :job="job" />
+        <GroupDetail class="listings" v-for="employee in marketingEmployees.slice(0, updateLimit)" :key="employee.id" :job="employee" />
       </div>
     </div>
     <div class="container3">

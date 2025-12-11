@@ -1,15 +1,24 @@
 <script setup>
+import { defineProps } from 'vue'
 import { RouterLink } from "vue-router";
 import DepartmentFetch from "./DepartmentFetch.vue";
+
+const props = defineProps({
+  path: {
+    type: String
+  },
+  department: String
+})
+
 </script>
 <template>
   <div class="department-card">
     <div class="department-card-1">
       <div class="card-1">
-        <h3>Design Department</h3>
+        <h3>{{ props.department }}</h3>
         <p>12 Members</p>
       </div>
-      <router-link to="/about">View All</router-link>
+      <router-link :to="`${props.path}`">View All</router-link>
     </div>
     <div class="department-card-2">
       <DepartmentFetch />
