@@ -5,6 +5,9 @@ import DepartmentView from '../views/DepartmentView.vue'
 import AttendanceView from '../views/AttendanceView.vue'
 import DesignDepartment from '../views/departments/DesignDepartment.vue'
 import EngineeringDepartment from '../views/departments/EngineeringDepartment.vue'
+import SalesDepartment from '../views/departments/SalesDepartment.vue'
+import MarketingDepartment from '../views/departments/MarketingDepartment.vue'
+import ProjectManagement from '../views/departments/ProjectManagement.vue'
 
 const routes = [
   {
@@ -33,6 +36,21 @@ const routes = [
     name: 'department-engineering',
     component: EngineeringDepartment,
     props: true
+  },
+  {
+    path: '/department/sales',
+    name: 'department-sales',
+    component: SalesDepartment
+  },
+  {
+    path: '/department/marketing',
+    name: 'department-marketing',
+    component: MarketingDepartment
+  },
+  {
+    path: '/department/management',
+    name: 'department-project-management',
+    component: ProjectManagement
   },
   {
     path: '/attendance',

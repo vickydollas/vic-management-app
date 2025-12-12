@@ -11,7 +11,7 @@ const props = defineProps({
             <img :src="`${props.job.imagePath}`" alt="">
             <p>{{ props.job.name }}</p>
         </div>
-        <p class="txt3">{{ props.job.department }}</p>
+        <!-- <p class="txt3">{{ props.job.department }}</p> -->
         <p class="txt4">{{ props.job.title }}</p>
         <p class="txt5">{{ props.job.type }}</p>
         <p class="txt6">{{ props.job.status }}</p>
@@ -55,7 +55,7 @@ const props = defineProps({
     align-self: center;
 }
 .txt4{
-    flex: 0 0 21%;
+    flex: 0 0 22%;
     align-self: center;
 }
 .txt5{
@@ -66,7 +66,7 @@ const props = defineProps({
     font-size: 13px !important;
     background-color: #251E3E;
     color: #6752E8 !important;
-    flex: 0 0 9%;
+    flex: 0 0 12%;
     align-self: center;
     border-radius: 10px;
     padding: 10px 0 10px 0px;

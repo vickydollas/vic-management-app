@@ -63,7 +63,7 @@ const marketingEmployees = computed(() => {
       <div class="div3">
         <h2 class="txt1">Employee ID</h2>
         <h2 class="txt2">Employee Name</h2>
-        <h2 class="txt3">Department</h2>
+        <!-- <h2 class="txt3">Department</h2> -->
         <h2 class="txt4">Designation</h2>
         <h2 class="txt5">Type</h2>
         <h2 class="txt6">Status</h2>
@@ -168,13 +168,13 @@ input[type="text"] {
   flex: 0 0 13%;
 }
 .txt4 {
-  flex: 0 0 20%;
+  flex: 0 0 22%;
 }
 .txt5 {
-  flex: 0 0 10%;
+  flex: 0 0 11%;
 }
 .txt6 {
-  flex: 0 0 12%;
+  flex: 0 0 14%;
   /* text-align: center; */
 }
 .txt7 {
