@@ -90,8 +90,6 @@ const getDepartment = computed(() => {
 .card-2 {
   display: flex;
   align-items: center;
-  /* justify-content: space-between; */
-  /* margin: 0 20px 8px 20px; */
 }
 .card-2 img {
 width: 14%;

@@ -8,6 +8,7 @@ import EngineeringDepartment from '../views/departments/EngineeringDepartment.vu
 import SalesDepartment from '../views/departments/SalesDepartment.vue'
 import MarketingDepartment from '../views/departments/MarketingDepartment.vue'
 import ProjectManagement from '../views/departments/ProjectManagement.vue'
+import PayrollView from '../views/PayrollView.vue'
 
 const routes = [
   {
@@ -56,6 +57,11 @@ const routes = [
     path: '/attendance',
     name: 'attendance',
     component: AttendanceView
+  },
+  {
+    path: '/payroll',
+    name: 'payroll',
+    component: PayrollView
   },
   {
     path: '/about',
