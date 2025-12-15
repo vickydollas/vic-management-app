@@ -30,7 +30,7 @@ onMounted(() => {
 <template>
     <div class="headersection">
         <div class="headersection1">
-            <h1>{{ props.name }} 👋</h1>
+            <h1>{{ props.name }}</h1>
             <h3>{{ props.greeting }}</h3>
         </div>
         <div class="headersection2">

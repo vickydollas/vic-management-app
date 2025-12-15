@@ -6,6 +6,7 @@ const props = defineProps({
 });
 const onTimeFunc = computed(() => {
   if (props.data.truth === "Late") {
+    console.log("truth")
     return { backgroundColor: "#321F30", color: "#F45558" };
   }
 });

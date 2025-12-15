@@ -1,7 +1,7 @@
 <script setup>
-import SideBar from "../../components/SideBar.vue";
-import FixedHeader from '../../components/body/FixedHeader.vue'
-import DesignWorker from '../../components/grouped_department/DesignWorker.vue'
+import SideBar from "../components/SideBar.vue";
+import FixedHeader from '../components/body/FixedHeader.vue'
+import DepartmentRecord from "../components/departments/DepartmentRecord.vue";
 </script>
 <template>
     <div class="home">
@@ -12,7 +12,7 @@ import DesignWorker from '../../components/grouped_department/DesignWorker.vue'
             <FixedHeader name="All Departments" greeting="All Department Information" />
         </div>
         <div class="main-content department-record">
-            <DesignWorker department="Sales" />
+            <DepartmentRecord />
         </div>
     </div>
 </template>

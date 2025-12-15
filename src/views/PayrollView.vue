@@ -1,6 +1,7 @@
 <script setup>
 import SideBar from "../components/SideBar.vue";
 import FixedHeader from '../components/body/FixedHeader.vue'
+import PayrollRecord from "../components/payroll/PayrollRecord.vue";
 </script>
 <template>
     <div class="home">
@@ -8,10 +9,11 @@ import FixedHeader from '../components/body/FixedHeader.vue'
             <SideBar />
         </div>
         <div class="main-content">
-            <FixedHeader name="All Departments" greeting="All Department Information" />
+            <FixedHeader name="Payroll" greeting="All Employee Record" />
         </div>
-        <div class="main-content payroll">
-            
+        <div class="main-content payroll-record">
+            <PayrollRecord />
+            <!-- <h1>halleluyah</h1> -->
         </div>
     </div>
 </template>
@@ -33,10 +35,8 @@ import FixedHeader from '../components/body/FixedHeader.vue'
 }
 .main-content{
   margin-left: 280px;
-  /* width: calc(100% - 250px); */
-  /* background-color: #1D1C24; */
 }
-.department-record{
+.payroll-record{
     padding: 100px 0 20px 0;
 }
 </style>
