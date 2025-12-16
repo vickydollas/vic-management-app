@@ -9,6 +9,8 @@ import SalesDepartment from '../views/departments/SalesDepartment.vue'
 import MarketingDepartment from '../views/departments/MarketingDepartment.vue'
 import ProjectManagement from '../views/departments/ProjectManagement.vue'
 import PayrollView from '../views/PayrollView.vue'
+import JobsView from '../views/JobsView.vue'
+import CandidateView from '../views/CandidateView.vue'
 
 const routes = [
   {
@@ -62,6 +64,16 @@ const routes = [
     path: '/payroll',
     name: 'payroll',
     component: PayrollView
+  },
+  {
+    path: '/jobs',
+    name: 'jobs',
+    component: JobsView
+  },
+  {
+    path: '/candidate',
+    name: 'candidate',
+    component: CandidateView
   },
   {
     path: '/about',

@@ -1,7 +1,7 @@
 <script setup>
 import SideBar from "../components/SideBar.vue";
 import FixedHeader from '../components/body/FixedHeader.vue'
-import JobsRecord from "../components/jobs/JobsRecord.vue"
+import CandidateRecord from "../components/candidate/CandidateRecord.vue";
 </script>
 <template>
     <div class="home">
@@ -9,10 +9,10 @@ import JobsRecord from "../components/jobs/JobsRecord.vue"
             <SideBar />
         </div>
         <div class="main-content">
-            <FixedHeader name="Jobs" greeting="Show All Jobs" />
+            <FixedHeader name="Candidates" greeting="All Candidate Record" />
         </div>
-        <div class="main-content jobs">
-            <JobsRecord />
+        <div class="main-content candidate">
+            <CandidateRecord />
         </div>
     </div>
 </template>
@@ -37,7 +37,7 @@ import JobsRecord from "../components/jobs/JobsRecord.vue"
   /* width: calc(100% - 250px); */
   /* background-color: #1D1C24; */
 }
-.jobs{
+.candidate{
     padding: 100px 0 20px 0;
 }
 </style>

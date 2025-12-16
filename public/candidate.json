@@ -1,0 +1,202 @@
+[
+  {
+    "id": 1,
+    "name": "Elias Vance",
+    "imagePath": "/images/profile1.jpg",
+    "position_applied": "Software Development",
+    "application_date": "2024-03-15",
+    "email": "elias.vance@techcorp.com",
+    "phone_number": "+1 (555) 876-4321",
+    "status": "Selected"
+  },
+  {
+    "id": 2,
+    "name": "Sarah Chen",
+    "imagePath": "/images/profile2.jpg",
+    "position_applied": "UI/UX Designer",
+    "application_date": "2024-01-22",
+    "email": "sarah.chen@techcorp.com",
+    "phone_number": "+1 (555) 234-5678",
+    "status": "Selected"
+  },
+  {
+    "id": 3,
+    "name": "Marcus Reid",
+    "imagePath": "/images/profile3.png",
+    "position_applied": "Cyber Security Analyst",
+    "application_date": "2024-04-10",
+    "email": "marcus.reid@techcorp.com",
+    "phone_number": "+1 (555) 901-2345",
+    "status": "In Progress"
+  },
+  {
+    "id": 4,
+    "name": "Lena Koster",
+    "imagePath": "/images/profile4.png",
+    "position_applied": "Software Development",
+    "application_date": "2024-02-28",
+    "email": "lena.koster@techcorp.com",
+    "phone_number": "+1 (555) 112-3344",
+    "status": "Selected"
+  },
+  {
+    "id": 5,
+    "name": "Javier Solis",
+    "imagePath": "/images/profile5.jpg",
+    "position_applied": "UI/UX Researcher",
+    "application_date": "2024-05-01",
+    "email": "javier.solis@techcorp.com",
+    "phone_number": "+1 (555) 543-2109",
+    "status": "In Progress"
+  },
+  {
+    "id": 6,
+    "name": "Chloe Adams",
+    "imagePath": "/images/profile6.jpg",
+    "position_applied": "Data Scientist",
+    "application_date": "2024-03-05",
+    "email": "chloe.adams@techcorp.com",
+    "phone_number": "+1 (555) 678-9012",
+    "status": "Rejected"
+  },
+  {
+    "id": 7,
+    "name": "Ryan Patel",
+    "imagePath": "/images/profile7.jpg",
+    "position_applied": "Cyber Security Engineer",
+    "application_date": "2024-01-10",
+    "email": "ryan.patel@techcorp.com",
+    "phone_number": "+1 (555) 321-0987",
+    "status": "Selected"
+  },
+  {
+    "id": 8,
+    "name": "Mia Wong",
+    "imagePath": "/images/profile5.jpg",
+    "position_applied": "Software Development",
+    "application_date": "2024-04-20",
+    "email": "mia.wong@techcorp.com",
+    "phone_number": "+1 (555) 765-4321",
+    "status": "In Progress"
+  },
+  {
+    "id": 9,
+    "name": "David Kim",
+    "imagePath": "/images/profile4.png",
+    "position_applied": "UI/UX Designer",
+    "application_date": "2024-02-14",
+    "email": "david.kim@techcorp.com",
+    "phone_number": "+1 (555) 098-7654",
+    "status": "Rejected"
+  },
+  {
+    "id": 10,
+    "imagePath": "/images/profile3.png",
+    "name": "Jessica Lee",
+    "position_applied": "Cloud Engineer",
+    "application_date": "2024-05-15",
+    "email": "jessica.lee@techcorp.com",
+    "phone_number": "+1 (555) 456-7890",
+    "status": "In Progress"
+  },
+  {
+    "id": 11,
+    "name": "Kyle Brown",
+    "imagePath": "/images/profile4.png",
+    "position_applied": "Software Development",
+    "application_date": "2024-03-29",
+    "email": "kyle.brown@techcorp.com",
+    "phone_number": "+1 (555) 123-9876",
+    "status": "Selected"
+  },
+  {
+    "id": 12,
+    "name": "Olivia Hall",
+    "imagePath": "/images/profile5.jpg",
+    "position_applied": "Cyber Security Consultant",
+    "application_date": "2024-01-05",
+    "email": "olivia.hall@techcorp.com",
+    "phone_number": "+1 (555) 890-1234",
+    "status": "Rejected"
+  },
+  {
+    "id": 13,
+    "name": "Noah Scott",
+    "imagePath": "/images/profile3.png",
+    "position_applied": "UI/UX Writer",
+    "application_date": "2024-04-03",
+    "email": "noah.scott@techcorp.com",
+    "phone_number": "+1 (555) 789-0123",
+    "status": "In Progress"
+  },
+  {
+    "id": 14,
+    "name": "Emily White",
+    "imagePath": "/images/profile7.jpg",
+    "position_applied": "Software Development",
+    "application_date": "2024-02-01",
+    "email": "emily.white@techcorp.com",
+    "phone_number": "+1 (555) 345-6789",
+    "status": "Selected"
+  },
+  {
+    "id": 15,
+    "name": "Kevin Rodriguez",
+    "imagePath": "/images/profile6.jpg",
+    "position_applied": "DevOps Engineer",
+    "application_date": "2024-05-20",
+    "email": "kevin.rodriguez@techcorp.com",
+    "phone_number": "+1 (555) 001-2233",
+    "status": "In Progress"
+  },
+  {
+    "id": 16,
+    "imagePath": "/images/profile5.jpg",
+    "name": "Sophia Baker",
+    "position_applied": "Cyber Security Analyst",
+    "application_date": "2024-03-11",
+    "email": "sophia.baker@techcorp.com",
+    "phone_number": "+1 (555) 667-8899",
+    "status": "Selected"
+  },
+  {
+    "id": 17,
+    "name": "Daniel Chang",
+    "imagePath": "/images/profile4.png",
+    "position_applied": "UI/UX Designer",
+    "application_date": "2024-01-18",
+    "email": "daniel.chang@techcorp.com",
+    "phone_number": "+1 (555) 990-1122",
+    "status": "Rejected"
+  },
+  {
+    "id": 18,
+    "name": "Victoria Miller",
+    "imagePath": "/images/profile3.png",
+    "position_applied": "Software Development",
+    "application_date": "2024-04-25",
+    "email": "victoria.miller@techcorp.com",
+    "phone_number": "+1 (555) 445-5667",
+    "status": "In Progress"
+  },
+  {
+    "id": 19,
+    "name": "Andrew Clark",
+    "imagePath": "/images/profile2.jpg",
+    "position_applied": "Network Engineer",
+    "application_date": "2024-02-09",
+    "email": "andrew.clark@techcorp.com",
+    "phone_number": "+1 (555) 223-3445",
+    "status": "Rejected"
+  },
+  {
+    "id": 20,
+    "name": "Hannah Lopez",
+    "imagePath": "/images/profile1.jpg",
+    "position_applied": "UI/UX Strategist",
+    "application_date": "2024-05-08",
+    "email": "hannah.lopez@techcorp.com",
+    "phone_number": "+1 (555) 778-8990",
+    "status": "Selected"
+  }
+]
