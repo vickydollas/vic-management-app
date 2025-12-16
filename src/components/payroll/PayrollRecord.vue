@@ -63,6 +63,7 @@ const buttonKey = (status) => {
   border-radius: 10px;
   color: #3DBD87;
   padding: 12px 20px;
+  z-index: 1;
 }
 .btn-1{
   background-color: #5B41CC;

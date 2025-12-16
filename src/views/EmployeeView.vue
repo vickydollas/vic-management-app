@@ -26,7 +26,7 @@ import EmployeeRecord from '../components/employees/EmployeeRecord.vue'
   z-index: 10000;
 }
 .main-content{
-  margin-left: 280px;
+  margin:0 15px 0 280px;
   /* min-height: 10vh; */
   /* width: calc(100% - 250px); */
   /* background-color: #1D1C24; */

@@ -33,7 +33,7 @@ import AttendanceRecord from "../components/attendance/AttendanceRecord.vue";
   z-index: 10000;
 }
 .main-content{
-  margin-left: 280px;
+  margin:0 15px 0 280px;
 }
 .attendance-record{
     padding: 100px 0 20px 0;

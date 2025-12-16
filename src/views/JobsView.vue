@@ -33,9 +33,7 @@ import JobsRecord from "../components/jobs/JobsRecord.vue"
   z-index: 10000;
 }
 .main-content{
-  margin-left: 280px;
-  /* width: calc(100% - 250px); */
-  /* background-color: #1D1C24; */
+  margin:0 15px 0 280px;
 }
 .jobs{
     padding: 100px 0 20px 0;
