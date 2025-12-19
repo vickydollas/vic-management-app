@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@syncfusion/ej2-vue-calendars": "^31.2.12",
+    "@tailwindcss/vite": "^4.1.18",
     "apexcharts": "^5.3.6",
     "axios": "^1.13.2",
     "primeicons": "^7.0.0",
@@ -19,6 +20,9 @@
   "devDependencies": {
     "@vue/cli-plugin-router": "~5.0.0",
     "@vue/cli-plugin-vuex": "~5.0.0",
-    "@vue/cli-service": "~5.0.0"
+    "@vue/cli-service": "~5.0.0",
+    "autoprefixer": "^10.4.23",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.18"
   }
 }

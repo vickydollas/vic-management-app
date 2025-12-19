@@ -11,6 +11,7 @@ import ProjectManagement from '../views/departments/ProjectManagement.vue'
 import PayrollView from '../views/PayrollView.vue'
 import JobsView from '../views/JobsView.vue'
 import CandidateView from '../views/CandidateView.vue'
+import LeaveView from '../views/LeaveView.vue'
 
 const routes = [
   {
@@ -74,6 +75,11 @@ const routes = [
     path: '/candidate',
     name: 'candidate',
     component: CandidateView
+  },
+  {
+    path: '/leaves',
+    name: 'leaves',
+    component: LeaveView
   },
   {
     path: '/about',

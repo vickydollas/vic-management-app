@@ -8,7 +8,7 @@ const isActive = (routePath) => {
 </script>
 <template>
     <div class="sidebar">
-        <h1 class="header"><i class="pi pi-bitcoin"></i>SLOTS</h1>
+        <div class="header"><i class="pi pi-bitcoin"></i><h1>SLOTS</h1></div>
         <div class="container2">
             <router-link :class="[isActive('/') ? 'bg-active' : 'bg-not']" to="/"><i class="pi pi-th-large"></i>Dashboard</router-link>
             <router-link :class="[isActive('/employee') ? 'bg-active' : 'bg-not']" to="/employee"><i class="pi pi-users"></i>All Employees</router-link>
@@ -24,14 +24,25 @@ const isActive = (routePath) => {
     </div>
 </template>
 <style scoped>
-.bg-active {
-  background-color: #ffffff;
-  color: #374151;
-  border-radius: 6px;
-  border-left: 4px solid #7152F3;
+.sidebar{
+    max-width: 90%;
+    padding: 15px 15px 0 15px;
+}
+.header{
+    /* margin: 20px 30px 20px 30px; */
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    color: #ffffff;
+}
+.header h1{
+    font-size: 23px;
+    font-weight: 800;
+    font-family: "roboto", sans-serif;
 }
 .container2{
-    margin: 0 0 0 30px;
+    /* margin: 0 0 0 30px; */
+    /* align-content: center; */
 }
 a{
     text-decoration: none;
@@ -47,11 +58,6 @@ a{
     border-width: 2px; */
     /* margin: 20px; */
 }
-.header{
-    margin: 20px 30px 20px 30px;
-    /* font-size: 25px; */
-    color: #ffffff;
-}
 .pi{
     text-align: center;
     font-size: 18px;
@@ -59,7 +65,15 @@ a{
     padding-left: 5px;
 }
 .pi-bitcoin{
+    /* display: block; */
     font-size: 30px;
+    /* flex: 0 0 2%; */
     /* padding: 0; */
+}
+.bg-active {
+  background-color: #ffffff;
+  color: #374151;
+  border-radius: 6px;
+  border-left: 4px solid #7152F3;
 }
 </style>
