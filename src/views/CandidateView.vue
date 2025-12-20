@@ -1,7 +1,7 @@
 <script setup>
 import SideBar from "../components/SideBar.vue";
 import FixedHeader from '../components/body/FixedHeader.vue'
-import CandidateRecord from "../components/candidate/CandidateRecord.vue";
+// import CandidateRecord from "../components/candidate/CandidateRecord.vue";
 </script>
 <template>
     <div class="home">
@@ -12,7 +12,7 @@ import CandidateRecord from "../components/candidate/CandidateRecord.vue";
             <FixedHeader name="Candidates" greeting="All Candidate Record" />
         </div>
         <div class="main-content candidate">
-            <CandidateRecord />
+            <!-- <CandidateRecord /> -->
         </div>
     </div>
 </template>
