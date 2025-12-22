@@ -1,0 +1,8 @@
+/* 1. Load the theme (colors, spacing, etc.) */
+@import "tailwindcss/theme";
+
+/* 2. Load the utilities (the actual classes like 'bg-red-500') */
+@import "tailwindcss/utilities";
+
+/* 3. YOUR VANILLA CSS GOES HERE */
+/* This ensures your existing styles stay untouched by Tailwind */

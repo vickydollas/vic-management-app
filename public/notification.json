@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "imagePath": "/images/profile5.jpg",
+    "message": "Leave request submitted",
+    "user": "Sarah Jenkins",
+    "content": "Sarah has applied for leave stated to begin in two weeks time",
+    "timestamp": "Just now"
+  },
+  {
+    "id": 2,
+    "imagePath": "/images/profile4.png",
+    "message": "Password update successful",
+    "user": "John Thomas",
+    "content": "John has succesfully changed his password throught a mail sent to him",
+    "timestamp": "7:40AM"
+  },
+  {
+    "id": 3,
+    "imagePath": "/images/profile3.png",
+    "message": "New comment on project",
+    "user": "Michael Chen",
+    "content": "Micheal owen dropped a 5 star rating on the project submitted by the team member",
+    "timestamp": "10:00PM"
+  },
+  {
+    "id": 4,
+    "imagePath": "/images/profile2.jpg",
+    "message": "Meeting invitation: Quarterly Review",
+    "user": "Alice Thompson",
+    "content": "Alice has been invited to handle tomorrow quaterly review at the board meeting",
+    "timestamp": "Yesterday"
+  },
+  {
+    "id": 5,
+    "imagePath": "/images/profile1.jpg",
+    "message": "Inventory alert: Low stock",
+    "user": "Warehouse Bot",
+    "content": "Bot has successfully created a working tool that helps user to successfully change their password.",
+    "timestamp": "2 weeks ago"
+  }
+]

@@ -1,7 +1,7 @@
 <script setup>
 import SideBar from "../components/SideBar.vue";
 import FixedHeader from '../components/body/FixedHeader.vue'
-import CandidateRecord from "../components/candidate/CandidateRecord.vue";
+import LeavesRecord from "../components/leaves/LeavesRecord.vue";
 
 </script>
 <template>
@@ -12,8 +12,8 @@ import CandidateRecord from "../components/candidate/CandidateRecord.vue";
         <div class="main-content">
             <FixedHeader name="Notifications" greeting="All Notification" />
         </div>
-        <div class="main-content leaves">
-            <CandidateRecord />
+        <div class="main-content leaves-record">
+            <LeavesRecord />
         </div>
     </div>
 </template>
@@ -36,7 +36,7 @@ import CandidateRecord from "../components/candidate/CandidateRecord.vue";
 .main-content{
   margin:0 15px 0 280px;
 }
-.leaves{
+.leaves-record{
     padding: 100px 0 20px 0;
 }
 </style>

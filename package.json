@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
     "@syncfusion/ej2-vue-calendars": "^31.2.12",
@@ -12,17 +13,17 @@
     "apexcharts": "^5.3.6",
     "axios": "^1.13.2",
     "primeicons": "^7.0.0",
+    "tailwindcss": "^4.1.18",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",
     "vue3-apexcharts": "^1.10.0",
     "vuex": "^4.0.0"
   },
   "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.3",
     "@vue/cli-plugin-router": "~5.0.0",
     "@vue/cli-plugin-vuex": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
-    "autoprefixer": "^10.4.23",
-    "postcss": "^8.5.6",
-    "tailwindcss": "^4.1.18"
+    "vite": "^7.3.0"
   }
 }

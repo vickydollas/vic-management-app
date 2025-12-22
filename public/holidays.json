@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "date": "2024-01-01",
+    "day_of_week": "Monday",
+    "holiday_name": "New Year's Day"
+  },
+  {
+    "id": 2,
+    "date": "2024-02-14",
+    "day_of_week": "Wednesday",
+    "holiday_name": "Valentine's Day"
+  },
+  {
+    "id": 3,
+    "date": "2024-03-11",
+    "day_of_week": "Monday",
+    "holiday_name": "Commonwealth Day"
+  },
+  {
+    "id": 4,
+    "date": "2024-04-01",
+    "day_of_week": "Monday",
+    "holiday_name": "Easter Monday"
+  },
+  {
+    "id": 5,
+    "date": "2024-05-01",
+    "day_of_week": "Wednesday",
+    "holiday_name": "International Workers' Day"
+  },
+  {
+    "id": 6,
+    "date": "2024-06-19",
+    "day_of_week": "Wednesday",
+    "holiday_name": "Juneteenth"
+  },
+  {
+    "id": 7,
+    "date": "2024-07-04",
+    "day_of_week": "Thursday",
+    "holiday_name": "Independence Day (USA)"
+  },
+  {
+    "id": 8,
+    "date": "2024-10-31",
+    "day_of_week": "Thursday",
+    "holiday_name": "Halloween"
+  },
+  {
+    "id": 9,
+    "date": "2024-12-25",
+    "day_of_week": "Wednesday",
+    "holiday_name": "Christmas Day"
+  },
+  {
+    "id": 10,
+    "date": "2024-12-26",
+    "day_of_week": "Thursday",
+    "holiday_name": "Boxing Day"
+  }
+]
