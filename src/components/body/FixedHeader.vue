@@ -28,7 +28,7 @@ onMounted(() => {
 })
 </script>
 <template>
-    <div class="headersection">
+    <div class="headersection flex justify-between fixed ">
         <div class="headersection1">
             <h1>{{ props.name }}</h1>
             <h3>{{ props.greeting }}</h3>
@@ -72,7 +72,7 @@ onMounted(() => {
     width: 100vw;
 }
 .headersection3 div{
-position: relative;
+    position: relative;
     left: 170px;
     bottom: 130px;
 }
@@ -93,16 +93,12 @@ position: relative;
 .headersection2{
     display: flex;
     align-content: center;
-    position: relative;
+    /* position: relative; */
+    
 }
 .headersection{
-    position: fixed;
-    display: flex;
-    justify-content: space-between;
     background-color: #16151C;
-    /* margin: 0 0 80px 0; */
-    /* border: 3px solid #ddd; */
-    width: 80%;
+    min-width: calc(100% - 280px)
 }
 input[type="text"]{
     font-size: 15px;
