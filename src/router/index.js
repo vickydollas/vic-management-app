@@ -13,6 +13,7 @@ import JobsView from '../views/JobsView.vue'
 import CandidateView from '../views/CandidateView.vue'
 import LeaveView from '../views/LeaveView.vue'
 import HolidaysView from '../views/HolidaysView.vue'
+import SettingsView from '../views/SettingsView.vue'
 
 const routes = [
   {
@@ -86,6 +87,11 @@ const routes = [
     path: '/holiday',
     name: 'holiday',
     component: HolidaysView
+  },
+  {
+    path: '/settings',
+    name: 'settings',
+    component: SettingsView
   },
   {
     path: '/about',

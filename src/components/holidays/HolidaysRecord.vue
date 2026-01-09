@@ -26,15 +26,11 @@ onMounted(() => {
     getHoliday()
 })
 const isActive = (status) => {
-    // if (status === 'true') {
-    //     return {
-    //         borderLeft: '5px solid #7152F3'
-    //     }
-    // }
     if (status === 'true') {
-        return false
+        return {
+            borderLeft: '5px solid #7152F3'
+        }
     }
-    return true
 }
 </script>
 <template>
@@ -53,10 +49,14 @@ const isActive = (status) => {
             <h3 class="txt3">Holiday Name</h3>
         </div>
         <div class="flex border-b border-[#323138] " v-for="holidays in holiday" :key="holidays.id">
-            <p class="txt1-1 py-3 pl-2 my-3 " :class="[isActive(holidays.status) ? 'bg-active' : 'bg-not']">{{ holidays.date }}</p>
+            <p class="txt1-1 py-3 pl-2 my-3 " :style="isActive(holidays.status)">{{ holidays.date }}</p>
             <p class="txt2 py-3 my-3">{{ holidays.day_of_week }}</p>
             <p class="txt3 py-3 my-3">{{ holidays.holiday_name }}</p>
         </div>
+    </div>
+    <div class="flex mt-8">
+        <p class="mr-6"><i class="pi pi-circle rounded-[50px] text-[#7152F3] bg-[#7152F3] mr-2"></i>Upcoming</p>
+        <p><i class="pi pi-circle bg-[#322F37] rounded-[50px] text-[#322F37] mr-2" ></i>Past Holidays</p>
     </div>
   </div>
 </template>
@@ -85,15 +85,9 @@ button{
 .txt1{
     flex: 0 0 20%;
 }
-.bg-not{
-    border-left: 5px solid #322F37;
-}
-.bg-active{
-    border-left: 5px solid #7152F3;
-}
 .txt1-1{
     flex: 0 0 20%;
-    /* border-left: 5px solid #322F37; */
+    border-left: 5px solid #322F37;
 }
 .txt2{
     flex: 0 0 15%;

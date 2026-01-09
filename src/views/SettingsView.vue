@@ -1,7 +1,7 @@
 <script setup>
 import SideBar from "../components/SideBar.vue";
 import FixedHeader from '../components/body/FixedHeader.vue'
-import HolidaysRecord from "../components/holidays/HolidaysRecord.vue";
+import SettingsDetail from '../components/setting/SettingsDetail.vue'
 </script>
 <template>
     <div class="home">
@@ -9,10 +9,10 @@ import HolidaysRecord from "../components/holidays/HolidaysRecord.vue";
             <SideBar />
         </div>
         <div class="main-content">
-            <FixedHeader name="Holidays" greeting="Company Holidays" />
+            <FixedHeader name="Candidates" greeting="All Candidate Record" />
         </div>
-        <div class="main-content holidays">
-            <HolidaysRecord />
+        <div class="main-content candidate">
+            <SettingsDetail />
         </div>
     </div>
 </template>
@@ -34,9 +34,8 @@ import HolidaysRecord from "../components/holidays/HolidaysRecord.vue";
 }
 .main-content{
   margin:0 15px 0 280px;
-  width: calc(100vw - 300px);
 }
-.holidays{
+.candidate{
     padding: 100px 0 20px 0;
 }
 </style>

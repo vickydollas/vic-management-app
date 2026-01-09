@@ -19,7 +19,7 @@ const isActive = (routePath) => {
             <router-link :class="[isActive('/candidate') ? 'bg-active' : 'bg-not']" to="/candidate"><i class="pi pi-user"></i>Candidate</router-link>
             <router-link :class="[isActive('/leaves') ? 'bg-active' : 'bg-not']" to="/leaves"><i class="pi pi-calendar-plus"></i>Leaves</router-link>
             <router-link :class="[isActive('/holiday') ? 'bg-active' : 'bg-not']" to="/holiday"><i class="pi pi-calendar"></i>Holidays</router-link>
-            <router-link to="/about"><i class="pi pi-cog"></i>Settings</router-link>
+            <router-link :class="[isActive('/settings') ? 'bg-active' : 'bg-not']" to="/settings"><i class="pi pi-cog"></i>Settings</router-link>
         </div>
     </div>
 </template>
