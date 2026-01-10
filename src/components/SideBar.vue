@@ -5,6 +5,13 @@ const route = useRoute()
 const isActive = (routePath) => {
     return route.path === routePath
 }
+defineProps({
+    isDark: Boolean
+})
+const emit = defineEmits(['toggle-theme'])
+const handleToggle = () => {
+    emit('toggle-theme')
+}
 </script>
 <template>
     <div class="sidebar">
@@ -21,10 +28,17 @@ const isActive = (routePath) => {
             <router-link :class="[isActive('/holiday') ? 'bg-active' : 'bg-not']" to="/holiday"><i class="pi pi-calendar"></i>Holidays</router-link>
             <router-link :class="[isActive('/settings') ? 'bg-active' : 'bg-not']" to="/settings"><i class="pi pi-cog"></i>Settings</router-link>
         </div>
+        <div class="container">
+            <!-- <h1>{{ isDark ? 'Dark Mode' : 'Light Mode' }}</h1> -->
+            <button @click="handleToggle">
+            Switch to {{ isDark ? 'Light' : 'Dark' }}
+            </button>
+        </div>
     </div>
 </template>
 <style scoped>
 .sidebar{
+    /* background-color: var(--bg-color); */
     max-width: 90%;
     padding: 15px 15px 0 15px;
 }
@@ -33,7 +47,7 @@ const isActive = (routePath) => {
     display: flex;
     align-items: center;
     font-size: 25px;
-    color: #ffffff;
+    color: var(--text-color);
 }
 .header h1{
     font-size: 23px;
@@ -46,7 +60,7 @@ const isActive = (routePath) => {
 }
 a{
     text-decoration: none;
-    color: #ffffff;
+    color: var(--text-color);
     display: block;
     font-family: "roboto", sans-serif;
     /* background-color: red; */
@@ -71,9 +85,11 @@ a{
     /* padding: 0; */
 }
 .bg-active {
-  background-color: #ffffff;
-  color: #374151;
+  background-color: var(--sidebar-hover);
+  color: #7152F3;
   border-radius: 6px;
   border-left: 4px solid #7152F3;
+  font-weight: 600;
+  font-family: "roboto", sans-serif;
 }
 </style>

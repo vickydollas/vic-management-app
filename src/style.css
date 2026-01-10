@@ -6,3 +6,41 @@
 
 /* 3. YOUR VANILLA CSS GOES HERE */
 /* This ensures your existing styles stay untouched by Tailwind */
+/* default: Light Mode */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #1a1a1a;
+  --accent-color: #3498db;
+}
+
+/* Dark Mode Overrides */
+.dark-theme {
+  --bg-color: #16151C;
+  --text-color: #f5f5f5;
+  --accent-color: #f1c40f;
+  --border-color: #323138;
+  --border-top: #323138;
+  --icon-color: #ffffff;
+  --icon-bg: #16151C;
+  --percent-color: #30BE82;
+  --percent-bg: #192626;
+  --sidebar-bg: #1D1C24;
+  --sidebar-hover: #ffffff;
+}
+.light-theme {
+    --bg-color: #ffffff;
+    --text-color: #1a1a1a;
+    --border-color: #ECECEE;
+    --border-top: #ECECEE;
+    --icon-color: #D4D8DE;
+    --icon-bg: #F6F5F6;
+    --percent-color: #30BE82;
+    --percent-bg: #EAF8F2;
+    --sidebar-bg: #FAFAFB;
+    --sidebar-hover: #F5F3FF;
+}
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}

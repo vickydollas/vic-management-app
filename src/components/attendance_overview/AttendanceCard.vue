@@ -32,7 +32,7 @@ const onTimeFunc = computed(() => {
   padding: 15px 0;
 }
 .attendance-card p {
-  color: #ffffff;
+  color: var(--text-color);
   font-size: 18px;
   font-family: "roboto", sans-serif;
   font-weight: 300;
@@ -74,8 +74,8 @@ const onTimeFunc = computed(() => {
 .txt6-6 {
   display: inline;
   justify-items: left;
-  background-color: #1f2a33;
-  color: #3fa558;
+  background-color: var(--percent-bg);
+  color: var(--percent-color);
   padding: 10px 30px;
   border-radius: 10px;
   font-style: normal;

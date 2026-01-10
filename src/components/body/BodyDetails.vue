@@ -9,7 +9,7 @@ const props = defineProps({
 })
 const percentageState = computed(() => {
   if (props.percentage <= 5 ){
-    return{ backgroundColor: '#321F30', color: '#F45558'}
+    return{ backgroundColor: '#2C1B21', color: '#f45b69'}
   }
 })
 </script>
@@ -29,7 +29,8 @@ const percentageState = computed(() => {
 </template>
 <style scoped>
 .container{
-  border: 1px solid #323138;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   width: 100%;
 }
@@ -38,7 +39,7 @@ const percentageState = computed(() => {
   padding: 20px 0px 0 20px;
 }
 .div1 h3{
-  color: #ffffff;
+  color: var(--text-color);
   align-content: center;
   padding: 0 0 0 10px;
   font-family: "roboto", sans-serif;
@@ -46,11 +47,11 @@ const percentageState = computed(() => {
   font-size: 15px;
 }
 .pi{
-  border: 1px solid #ffffff;
+  border: 1px solid var(--icon-color);
   padding: 10px;
   border-radius: 10px;
   color: #7152F3;
-  background-color: #25232A;
+  background-color: var(--icon-bg);
   font-size: 25px;
 }
 /* second div styling */
@@ -63,20 +64,20 @@ const percentageState = computed(() => {
   font-family: "roboto", sans-serif;
   font-size: 25px;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--text-color);
 }
 .txt2{
-  background-color: #192626;
-  color: #30BE82;
+  background-color: var(--percent-bg);
+  color: var(--percent-color);
   padding: 10px 25px;
   border-radius: 10px;
 }
 .txt3{
   padding: 10px 0 10px 10px;
-  color: #ffffff;
+  color: var(--text-color);
   font-family: "roboto", sans-serif;
   font-size: 15px;
   font-weight: 100;
-  border-top: 3px solid #323138;
+  border-top: 3px solid var(--border-top);
 }
 </style>

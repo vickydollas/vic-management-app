@@ -23,7 +23,8 @@ import profile1 from '../assets/profile1.jpg'
     padding: 95px 0 0 0;
 }
 .attendance{
-    border: 1px solid #323138;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     margin: 20px 20px 0px 0;
     /* padding-bottom: 20px; */

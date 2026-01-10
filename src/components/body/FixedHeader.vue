@@ -80,7 +80,7 @@ onMounted(() => {
     margin: 20px 0 30px 0;
 }
 .headersection1 h1{
-    color: #ffffff;
+    color: var(--text-color);
     font-family: "roboto", sans-serif;
     font-size: 20px;
 }
@@ -97,8 +97,9 @@ onMounted(() => {
     
 }
 .headersection{
-    background-color: #16151C;
-    min-width: calc(100% - 280px)
+    background-color: var(--bg-color);
+    min-width: calc(100% - 300px);
+    /* padding: 0 20px 0 0; */
 }
 input[type="text"]{
     font-size: 15px;
@@ -106,7 +107,8 @@ input[type="text"]{
     width: 220px;
     padding: 15px 0px 15px 35px;
     background-color: inherit;
-    border: 1px solid #D1D5DC;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
 }
 .txt1{
@@ -131,7 +133,7 @@ input[type="text"]{
     margin-left: 8px;
 }
 .profile-wrapper > div > h3{
-    color: #ffffff;
+    color: var(--text-color);
     font-family: "roboto", sans-serif;
     font-size: 17px;
     font-weight: 400;
@@ -145,7 +147,7 @@ input[type="text"]{
     align-self: center;
     margin-left: 5px;
     font-size: 20px;
-    color: #ffffff;
+    color: var(--text-color);
     font-weight: 100;
 }
 .search-wrapper{
@@ -157,11 +159,11 @@ input[type="text"]{
     font-size: 20px;
     margin: 0 10px;
     padding: 0 auto;
-    color: #ffffff;
+    color: var(--text-color);
     padding: 10px 10px 0px 10px;
     width: 30px;
     height: 4vh;
-    background-color: #25232A;
+    background-color: var(--bg-color);
     border: 1px solid #D1D5DC;
     border-radius: 10px;
     display: block;
@@ -172,7 +174,7 @@ input[type="text"]{
     position: absolute;
     top: 10px;
     left: 8px;
-    color: #ffffff;
+    color: var(--text-color);
     /* font-weight: 100; */
     /* font-family: "roboto", sans-serif; */
 }

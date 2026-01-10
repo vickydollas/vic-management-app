@@ -29,7 +29,8 @@ const options = ref({
 </template>
 <style scoped>
 .container{
-  border: 1px solid #323138;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   margin-top: 10px;
 }
@@ -38,13 +39,13 @@ const options = ref({
 }
 .div1{ display: flex; justify-content: space-between; margin: 30px;}
 .div1 h2{
-  color: #ffffff;
+  color: var(--text-color);
   font-family: "roboto", sans-serif;
   font-weight: 400;
 }
 .div1 button{
   padding: 10px 25px;
-  color: #ffffff;
+  color: var(--text-color);
   background-color: inherit;
   border: 1px solid #323138;
   border-radius: 10px;

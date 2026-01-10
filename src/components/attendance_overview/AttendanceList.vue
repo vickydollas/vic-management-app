@@ -77,22 +77,25 @@ label{
   margin: 10px 30px;
 }
 .container {
-  margin: 30px 30px;
+  margin: 30px 30px 0 0px;
+  /* width: 100%; */
+  /* padding: 0 20px 0 0; */
 }
 .div1 {
   display: flex;
   justify-content: space-between;
+  margin: 10px 30px;
 }
 .div1 a {
   text-decoration: none;
   padding: 10px 20px;
-  color: #ffffff;
+  color: var(--text-color);
   background-color: inherit;
   border: 1px solid #323138;
   border-radius: 10px;
 }
 .div1 h2 {
-  color: #ffffff;
+  color: var(--text-color);
   font-family: "roboto", sans-serif;
   font-size: 25px;
   font-weight: 400;
@@ -101,10 +104,10 @@ label{
 .div2 {
   display: flex;
   width: 100%;
-  margin: 10px 0 0 0;
+  margin: 10px 30px;
 }
 .div2 h1 {
-  color: #ffffff;
+  color: var(--text-color);
   font-size: 17px;
   font-family: "roboto", sans-serif;
   font-weight: 100;
@@ -116,12 +119,12 @@ label{
   flex-grow: 2;
 }
 .txt3 {
-  flex-grow: 1;
+  flex-grow: 2;
 }
 .txt4 {
   flex-grow: 1;
 }
 .txt5 {
-  flex-grow: 2;
+  flex-grow: 3;
 }
 </style>

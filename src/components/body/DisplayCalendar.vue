@@ -231,14 +231,14 @@ const selectDate = (date) => {
   margin: 22px 0 0 17px;
 }
 .div3 p {
-  color: #ffffff;
+  color: var(--text-color);
   font-family: "roboto", sans-serif;
   font-size: 15px;
   align-self: center;
 }
 .pi-ellipsis-v {
   font-size: 18px;
-  color: #ffffff;
+  color: var(--text-color);
   margin-right: 10px;
 }
 /* div 4 styling  */
@@ -252,7 +252,7 @@ const selectDate = (date) => {
   padding-left: 30px;
 }
 .div4 > p {
-  color: #ffffff;
+  color: var(--text-color);
   font-family: "roboto", sans-serif;
   font-size: 18px;
   font-weight: 800;
@@ -262,7 +262,7 @@ const selectDate = (date) => {
 }
 .div4 > div > h2,
 .div4 > div > p {
-  color: #ffffff;
+  color: var(--text-color);
   font-family: "roboto", sans-serif;
   font-size: 18px;
   font-weight: 200;
