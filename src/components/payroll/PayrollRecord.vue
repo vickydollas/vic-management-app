@@ -15,8 +15,8 @@ onMounted(async() => {
 const buttonKey = (status) => {
   if (status === "Pending"){
     return {
-      backgroundColor: '#312927',
-      color: '#EFBE12'
+      backgroundColor: 'var(--pending-bg)',
+      color: 'var(--pending-color)'
     }
   }
 }
@@ -25,7 +25,7 @@ const buttonKey = (status) => {
   <div class="payroll">
     <div class="payroll-1">
       <div>
-        <i class="pi pi-search" style="color: #ffffff"></i>
+        <i class="pi pi-search"></i>
         <input type="text" placeholder="Search..." />
       </div>
       <button class="btn-1"><i class="pi pi-file-export" style="color: #ffffff, padding-right: 10px"></i>Export</button>
@@ -58,10 +58,10 @@ const buttonKey = (status) => {
 </template>
 <style scoped>
 .button{
-  background-color: #1F2A33;
+  background-color: var(--percent-bg);
   border: none;
   border-radius: 10px;
-  color: #3DBD87;
+  color: var(--percent-color);
   padding: 12px 20px;
   z-index: 1;
 }
@@ -77,7 +77,8 @@ const buttonKey = (status) => {
 .payroll {
   padding: 0;
   margin: 0 20px 0 0;
-  border: 1px solid #323138;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
 }
 .payroll-1 {
@@ -89,7 +90,8 @@ const buttonKey = (status) => {
 }
 input[type="text"] {
   background-color: inherit;
-  border: 1px solid #ffffff;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   padding-left: 25px;
   width: 290px;
   height: 5.2vh;
@@ -97,6 +99,7 @@ input[type="text"] {
 }
 .pi-search {
   position: absolute;
+  color: var(--text-color);
   top: 11px;
   left: 5px;
 }
@@ -112,7 +115,7 @@ input[type="text"] {
   display: flex;
 }
 .div3 h2 {
-  color: #A2A1A8;
+  color: var(--text-color);
   font-size: 17px;
   font-family: "roboto", sans-serif;
   font-weight: 300;
@@ -138,7 +141,7 @@ input[type="text"] {
   flex: 0 0 20%;
 }
 .div4 h2, .adjust{
-  color: #ffffff;
+  color: var(--text-color);
   font-size: 17px;
   font-family: "roboto", sans-serif;
   font-weight: 400;

@@ -36,11 +36,11 @@ const getCompletedJobs = computed(() => {
   <div class="jobs-record">
     <div class="jobs-record-1">
       <div class="div1">
-        <i class="pi pi-search" style="color: #ffffff"></i>
+        <i class="pi pi-search"></i>
         <input type="text" placeholder="Search..." />
       </div>
       <button>
-        <i class="pi pi-plus-circle" style="color: #ffffff"></i>Add New Job
+        <i class="pi pi-plus-circle" ></i>Add New Job
       </button>
     </div>
     <div class="jobs-record-2">
@@ -60,7 +60,7 @@ const getCompletedJobs = computed(() => {
             <span>{{ available.work_station }}</span>
           </div>
           <div class="segment-3">
-            <p><i class="pi pi-map-marker" style="color: #ffffff;"></i>{{ available.location }}</p>
+            <p><i class="pi pi-map-marker" ></i>{{ available.location }}</p>
             <p>${{available.salary_max }} / Month</p>
           </div>
         </div>
@@ -81,7 +81,7 @@ const getCompletedJobs = computed(() => {
             <span>{{ available.work_station }}</span>
           </div>
           <div class="segment-3">
-            <p><i class="pi pi-map-marker" style="color: #ffffff"></i>{{ available.location }}</p>
+            <p><i class="pi pi-map-marker" ></i>{{ available.location }}</p>
             <p>${{available.salary_max }} / Month</p>
           </div>
         </div>
@@ -102,7 +102,7 @@ const getCompletedJobs = computed(() => {
             <span>{{ available.work_station }}</span>
           </div>
           <div class="segment-3">
-            <p><i class="pi pi-map-marker" style="color: #ffffff"></i>{{ available.location }}</p>
+            <p><i class="pi pi-map-marker"></i>{{ available.location }}</p>
             <p>${{available.salary_max }} / Month</p>
           </div>
         </div>
@@ -112,7 +112,9 @@ const getCompletedJobs = computed(() => {
 </template>
 <style scoped>
 .div-01 > div, .div-02 > div, .div-03 > div {
-  background-color: #1D1C24;
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   margin: 0 10px 20px 10px;
   border-radius: 10px;
 }
@@ -120,7 +122,8 @@ const getCompletedJobs = computed(() => {
   margin: 30px 0px 10px 10px;
 }
 .jobs-record {
-  border: 1px solid #323138;
+  border: 1px solid var(--border-color);
+  /* box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); */
   border-radius: 10px;
   margin: 0 10px 0 0;
   padding: 0 20px;
@@ -136,13 +139,14 @@ const getCompletedJobs = computed(() => {
 }
 input[type="text"] {
   background-color: inherit;
-  border: 1px solid #ffffff;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   padding-left: 25px;
   width: 290px;
   height: 5.2vh;
   border-radius: 8px;
 }
-.pi-search { position: absolute; top: 11px; left: 5px; }
+.pi-search { position: absolute; top: 11px; color: var(--text-color); left: 5px; }
 button{
   background-color: #5B41CC;
   color: #ffffff;
@@ -155,7 +159,8 @@ button{
 .pi-map-marker{ margin: 0 10px 0 0;}
 .pi-circle{ font-size: 15px; border-radius: 50px; margin-right: 10px; }
 .pi-briefcase{
-  background-color: #24232B;
+  background-color: var(--briefcase-bg);
+  color: #6A7282;
   padding: 15px;
   border-radius: 10px;
 }
@@ -166,11 +171,12 @@ button{
   margin: 10px 10px;
 }
 .div-01, .div-02, .div-03 {
-  border: 1px solid #323138;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
 }
 .div-01 h2, .div-02 h2, .div-03 h2{
-  color: #ffffff;
+  color: var(--text-color);
   font-family: "roboto", sans-serif;
   font-size: 17px;
 }
@@ -181,7 +187,7 @@ button{
   padding: 10px 0 0 10px;
 }
 .segment-1 > div > h4{
-  color: #ffffff;
+  color: var(--text-color);
   font-size: 17px;
   font-family: "roboto", sans-serif;
 }
@@ -197,7 +203,7 @@ button{
   padding: 10px 0 0 10px;
 }
 span {
-  color: #ffffff;
+  color: var(--text-color);
   font-family: "roboto", sans-serif;
   font-size: 13px;
   font-weight: 200;
@@ -213,5 +219,5 @@ span {
   margin: 20px 0 0 0;
   padding: 10px 10px 10px 10px;
 }
-.segment-3 > p{ color: #ffffff; font-family: "roboto", sans-serif; font-size: 13px; font-weight: 300;}
+.segment-3 > p{ color: var(--text-color); font-family: "roboto", sans-serif; font-size: 13px; font-weight: 300;}
 </style>

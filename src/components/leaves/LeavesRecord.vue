@@ -28,10 +28,10 @@ onMounted(() => {
 })
 </script>
 <template>
-  <div class="border border-solid border-[#323138] py-3 px-2 rounded-[10px] leaves">
+  <div class="border border-solid border-[var(--border-color)] py-3 px-2 rounded-[10px] leaves">
     <div class="leaves-1 flex justify-between items-center border-b py-2 border-[#323138]">
-      <h2 class="text-[#ffffff] font-['roboto'] text-[20px]">Notifications</h2>
-      <select class="bg-[#16151C] text-white py-3 px-3 text-[15px] font-mono rounded-[7px]" name="" id="">
+      <h2 class="text-[var(--text-color)] font-['roboto'] text-[20px]">Notifications</h2>
+      <select class="bg-[var(--bg-color)] text-[var(--text-color)] py-3 px-3 text-[15px] font-mono rounded-[7px]" name="" id="">
         <option value="">Newest First</option>
         <option value="">Oldest First</option>
       </select>
@@ -46,15 +46,16 @@ onMounted(() => {
         class="w-13 h-13 rounded-[50px] mr-3"
          :src="`${notifications.imagePath}`" alt="">
         <div>
-          <h3 class="text-[#ffffff] text-[18px]">{{ notifications.message }}</h3>
-          <p class="text-[#A2A1A8] text-[13px]">{{ notifications.content }}</p>
+          <h3 class="text-[var(--text-color)] text-[18px]">{{ notifications.message }}</h3>
+          <p class="text-[var(--text-color)] text-[13px]">{{ notifications.content }}</p>
         </div>
       </div>
-      <p class="text-[14px] text-[#A2A1A8]">{{ notifications.timestamp }}</p>
+      <p class="text-[14px] text-[var(--text-color)]">{{ notifications.timestamp }}</p>
     </div>
   </div>
 </template>
 <style scoped>
+.leaves{ box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);}
 .leaves-1 h2{
   font-family: "roboto", sans-serif;
 }

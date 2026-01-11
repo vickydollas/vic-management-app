@@ -39,7 +39,7 @@ const marketingEmployees = computed(() => {
   <div class="container">
     <div class="container1">
       <div class="div1">
-        <i class="pi pi-search" style="color: #ffffff"></i>
+        <i class="pi pi-search"></i>
         <input type="text" placeholder="Search..." />
       </div>
       <div class="div2">
@@ -53,7 +53,7 @@ const marketingEmployees = computed(() => {
         <div class="sub2">
           <i
             class="pi pi-list"
-            style="color: #ddd; font-size: 13px; margin-right: 10px"
+            style="font-size: 13px; margin-right: 10px"
           ></i>
           <span>Filter</span>
         </div>
@@ -90,7 +90,8 @@ const marketingEmployees = computed(() => {
 </template>
 <style scoped>
 .container {
-  border: 1px solid #323138;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   margin: 0 15px 0 0;
 }
@@ -105,7 +106,8 @@ const marketingEmployees = computed(() => {
 }
 input[type="text"] {
   background-color: inherit;
-  border: 1px solid #ffffff;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   padding-left: 25px;
   width: 290px;
   height: 5.2vh;
@@ -113,9 +115,10 @@ input[type="text"] {
 }
 .pi-search {
   position: absolute;
+  color: var(--text-color);
   top: 11px;
   left: 5px;
-}
+}.pi-list { color: var(--text-color);}
 .div2 {
   display: flex;
 }
@@ -132,10 +135,11 @@ input[type="text"] {
 }
 .sub1 a {
   text-decoration: none;
-  color: white;
+  color: var(--text-color);
 }
 .sub2 {
-  border: 1px solid #323138;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   width: 100px;
   align-content: center;
   border-radius: 8px;
@@ -143,7 +147,7 @@ input[type="text"] {
 }
 .sub2 span {
   font-style: normal;
-  color: #ffffff;
+  color: var(--text-color);
 }
 .container2 {
   margin: 30px 15px 0 15px;

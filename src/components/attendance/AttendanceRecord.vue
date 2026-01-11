@@ -4,7 +4,7 @@ import AttendanceList from "../attendance_overview/AttendanceList.vue";
 <template>
   <div class="department">
     <div class="div1">
-      <i class="pi pi-search" style="color: #ffffff"></i>
+      <i class="pi pi-search"></i>
       <input type="text" placeholder="Search..." />
     </div>
     <div>
@@ -14,7 +14,7 @@ import AttendanceList from "../attendance_overview/AttendanceList.vue";
 </template>
 <style scoped>
 .department {
-  border: 1px solid #323138;
+  border: 1px solid var(--border-color);
   border-radius: 8px;
   padding-bottom: 25px;
 }
@@ -25,7 +25,9 @@ import AttendanceList from "../attendance_overview/AttendanceList.vue";
 }
 input[type="text"] {
   background-color: inherit;
-  border: 1px solid #ffffff;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  color: var(--text-color);
   padding-left: 25px;
   width: 290px;
   height: 5.2vh;
@@ -33,6 +35,7 @@ input[type="text"] {
 }
 .pi-search {
   position: absolute;
+  color: var(--text-color);
   top: 11px;
   left: 5px;
 }

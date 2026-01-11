@@ -2,11 +2,28 @@
 import SideBar from "../components/SideBar.vue";
 import FixedHeader from '../components/body/FixedHeader.vue'
 import AttendanceRecord from "../components/attendance/AttendanceRecord.vue";
+import { onMounted, ref } from "vue";
+
+const isLight = ref(false)
+const toggleTheme = () => {
+  isLight.value = !isLight.value
+  if (isLight.value) {
+    localStorage.setItem('theme', 'light')
+  } else {
+    localStorage.setItem('theme', 'dark')
+  }
+}
+onMounted(() => {
+  const savedTheme = localStorage.getItem('theme')
+  if (savedTheme === 'light') {
+    isLight.value = true
+  }
+})
 </script>
 <template>
-    <div class="home">
+    <div class="home" :class="[isLight ? 'dark-theme' : 'light-theme']">
         <div class="home-sidebar">
-            <SideBar />
+            <SideBar @toggle-theme="toggleTheme" :isDark="isLight" />
         </div>
         <div class="main-content">
             <FixedHeader name="Attendance" greeting="All Employee Attendance" />
@@ -18,7 +35,7 @@ import AttendanceRecord from "../components/attendance/AttendanceRecord.vue";
 </template>
 <style scoped>
 .home{
-  background-color: #16151C;
+  background-color: var(--bg-color);
   min-height: 100vh;
   /* padding-bottom: 20px; */
 }
@@ -28,7 +45,8 @@ import AttendanceRecord from "../components/attendance/AttendanceRecord.vue";
   border-radius: 10px;
   width: 250px;
   position: fixed;
-  background-color: #1D1C24;
+  background-color: var(--sidebar-bg);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   height: 100vh;
   z-index: 10000;
 }

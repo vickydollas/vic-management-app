@@ -7,7 +7,7 @@ const props = defineProps({
 const onTimeFunc = computed(() => {
   if (props.data.truth === "Late") {
     console.log("truth")
-    return { backgroundColor: "#321F30", color: "#F45558" };
+    return { backgroundColor: "var(--puntual-bg)", color: "var(--puntual-color)" };
   }
 });
 </script>

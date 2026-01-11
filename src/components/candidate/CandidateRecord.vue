@@ -29,14 +29,14 @@ onMounted(() => {
 const statusUpdate = (status) => {
     if(status === 'Rejected'){
         return {
-            backgroundColor: '#321F30',
-            color: '#F44542'
+            backgroundColor: 'var(--rejected-bg)',
+            color: 'var(--rejected-color)'
         }
     }
     else if (status === 'In Progress') {
         return {
-            backgroundColor: '#312927',
-            color: '#EFB01E'
+            backgroundColor: 'var(--pending-bg)',
+            color: 'var(--pending-color)'
         }
     }
 }
@@ -44,7 +44,7 @@ const statusUpdate = (status) => {
 <template>
   <div class="candidate-record">
     <div class="candidate-record-1">
-      <i class="pi pi-search" style="color: #ffffff"></i>
+      <i class="pi pi-search" ></i>
       <input type="text" placeholder="Search..." />
     </div>
     <div class="candidate-record-2">
@@ -79,13 +79,13 @@ const statusUpdate = (status) => {
 </template>
 <style scoped>
 .status{
-    background-color: #1F2A33;
-    color: #3DC28A;
+    background-color: var(--percent-bg);
+    color: var(--percent-color);
     padding: 7px 10px;
     border-radius: 10px;
 }
 .candidate-record{
-    border: 1px solid #323138;
+    border: 1px solid var(--border-color);
     padding: 0 20px;
     margin: 0 10px 0 0;
     border-radius: 10px;
@@ -97,13 +97,14 @@ const statusUpdate = (status) => {
 }
 input[type="text"] {
   background-color: inherit;
-  border: 1px solid #ffffff;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   padding-left: 25px;
   width: 290px;
   height: 5.2vh;
   border-radius: 8px;
 }
-.pi-search { position: absolute; top: 11px; left: 5px; }
+.pi-search { position: absolute; top: 11px; left: 5px; color: var(--text-color);}
 .record-1, .record-2{
     display: flex;
     align-items: center;
@@ -116,7 +117,7 @@ input[type="text"] {
     color: #A2A1A8;
     font-weight: 300;
 }
-.record-2 h2{ color: #ffffff !important; font-size: 15px;}
+.record-2 h2{ color: var(--text-color) !important; font-size: 15px;}
 .record-2 img{
     width: 15%;
     border-radius: 50px;

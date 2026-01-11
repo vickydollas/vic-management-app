@@ -26,6 +26,17 @@
   --percent-bg: #192626;
   --sidebar-bg: #1D1C24;
   --sidebar-hover: #ffffff;
+  --employee-status: #6752E8;
+  --employee-bg: #251E3E;
+  --pending-bg: #312927;
+  --pending-color: #EFBE12;
+  --puntual-bg: #321F30;
+  --puntual-color: #F45558;
+  /* icon design */
+  --briefcase-bg: #24232B;
+  --rejected-bg: #321F30;
+  --rejected-color: #F44542;
+
 }
 .light-theme {
     --bg-color: #ffffff;
@@ -38,6 +49,15 @@
     --percent-bg: #EAF8F2;
     --sidebar-bg: #FAFAFB;
     --sidebar-hover: #F5F3FF;
+    --employee-status: #945BF3;
+    --employee-bg: #E9E3FD;
+    --pending-bg: #F5EEE6;
+    --pending-color: #F1C312;
+    --puntual-bg: #F6E4EF;
+    --puntual-color: #F45B69;
+    --briefcase-bg: #f3f3f9;
+    --rejected-bg: #F6E4EF;
+    --rejected-color: #F45B69;
 }
 body {
   background-color: var(--bg-color);

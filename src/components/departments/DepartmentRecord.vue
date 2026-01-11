@@ -4,7 +4,7 @@ import DepartmentCard from './DepartmentCard.vue'
 <template>
   <div class="department">
     <div class="div1">
-      <i class="pi pi-search" style="color: #ffffff"></i>
+      <i class="pi pi-search"></i>
       <input type="text" placeholder="Search..." />
     </div>
     <div class="div2">
@@ -23,7 +23,8 @@ import DepartmentCard from './DepartmentCard.vue'
     gap: 10px;
 }
 .department{
-    border: 1px solid #323138;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     padding-bottom: 25px;
 }
@@ -34,7 +35,8 @@ import DepartmentCard from './DepartmentCard.vue'
 }
 input[type="text"] {
   background-color: inherit;
-  border: 1px solid #ffffff;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   padding-left: 25px;
   width: 290px;
   height: 5.2vh;
@@ -42,6 +44,7 @@ input[type="text"] {
 }
 .pi-search {
   position: absolute;
+  color: var(--text-color);
   top: 11px;
   left: 5px;
 }

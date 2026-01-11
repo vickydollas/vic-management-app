@@ -46,13 +46,14 @@ const getDepartment = computed(() => {
           <p>{{ job.title }}</p>
         </div>
       </div>
-      <i class="pi pi-angle-right" style="color: #ddd"></i>
+      <i class="pi pi-angle-right"></i>
     </div>
   </div>
 </template>
 <style scoped>
 .department-card {
-  border: 1px solid #323138;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   margin: 30px 10px 0 10px;
   border-radius: 8px;
 }
@@ -70,7 +71,7 @@ const getDepartment = computed(() => {
   font-family: "roboto", sans-serif;
 }
 .card-1 h3 {
-  color: #ddd;
+  color: var(--text-color);
   font-size: 20px;
   font-family: "roboto", sans-serif;
 }
@@ -97,7 +98,7 @@ border-radius: 50px;
 margin-right: 20px;
 }
 .card-2 h2 {
-  color: #ddd;
+  color: var(--text-color);
   font-family: "roboto", sans-serif;
   font-weight: 400;
   font-size: 16px;
@@ -107,4 +108,5 @@ margin-right: 20px;
   font-size: 12px;
   font-weight: 200;
 }
+.pi-angle-right{ color: var(--text-color);}
 </style>

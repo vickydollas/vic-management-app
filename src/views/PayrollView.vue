@@ -1,12 +1,15 @@
-<script setup>
+ <script setup>
+ import { useTheme } from '../composables/useTheme'
 import SideBar from "../components/SideBar.vue";
 import FixedHeader from '../components/body/FixedHeader.vue'
 import PayrollRecord from "../components/payroll/PayrollRecord.vue";
+
+const { isLight, toggleTheme } = useTheme()
 </script>
 <template>
-    <div class="home">
+    <div class="home" :class="[isLight ? 'dark-theme' : 'light-theme']">
         <div class="home-sidebar">
-            <SideBar />
+            <SideBar @toggle-theme="toggleTheme" :isDark="isLight" />
         </div>
         <div class="main-content">
             <FixedHeader name="Payroll" greeting="All Employee Record" />
@@ -19,7 +22,7 @@ import PayrollRecord from "../components/payroll/PayrollRecord.vue";
 </template>
 <style scoped>
 .home{
-  background-color: #16151C;
+  background-color: var(--bg-color);
   min-height: 100vh;
   /* padding-bottom: 20px; */
 }
@@ -29,7 +32,8 @@ import PayrollRecord from "../components/payroll/PayrollRecord.vue";
   border-radius: 10px;
   width: 250px;
   position: fixed;
-  background-color: #1D1C24;
+  background-color: var(--sidebar-bg);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   height: 100vh;
   z-index: 10000;
 }

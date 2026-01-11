@@ -49,6 +49,7 @@ body {
   position: fixed;
   /* background-color: #1d1c24; */
   background-color: var(--sidebar-bg);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   height: 100vh;
   z-index: 10000;
 }
