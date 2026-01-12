@@ -147,9 +147,8 @@ const selectDate = (date) => {
 
 <style scoped>
 .calendar-container {
-  /* max-width: 600px; */
+  max-width: 600px;
   margin: 0px auto;
-  padding: 0 15px;
   border: 1px solid var(--border-color);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
@@ -168,7 +167,7 @@ const selectDate = (date) => {
 
 .calendar-grid {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(7, 50px);
   color: var(--text-color);
 }
 

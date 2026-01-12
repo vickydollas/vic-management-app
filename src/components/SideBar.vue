@@ -44,6 +44,8 @@ const handleToggle = () => {
 <style scoped>
 .sidebar{
     /* background-color: var(--bg-color); */
+    display: flex;
+    flex-direction: column;
     max-width: 90%;
     padding: 15px 15px 0 15px;
 }
@@ -99,8 +101,10 @@ a{
 }
 
 .theme-toggle {
-    margin: 200px 0 0 0;
-  position: relative;
+
+  
+  position: absolute;
+  bottom: 50px;
   display: flex;
   width: 200px;
   height: 45px;
