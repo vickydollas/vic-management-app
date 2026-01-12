@@ -41,7 +41,8 @@ const options = ref({
 .div1 h2{
   color: var(--text-color);
   font-family: "roboto", sans-serif;
-  font-weight: 400;
+  font-weight: 700;
+  font-size: var(--fs-lg);
 }
 .div1 button{
   padding: 10px 25px;

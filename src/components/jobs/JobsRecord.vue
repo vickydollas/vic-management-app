@@ -51,11 +51,11 @@ const getCompletedJobs = computed(() => {
             <i class="pi pi-briefcase"></i>
             <div>
               <h4>{{ available.title }}</h4>
-              <p>Design</p>
+              <p>{{ available.department }}</p>
             </div>
           </div>
           <div class="segment-2">
-            <span>Design</span>
+            <span>{{ available.scope }}</span>
             <span>{{ available.employment_type }}</span>
             <span>{{ available.work_station }}</span>
           </div>
@@ -72,11 +72,11 @@ const getCompletedJobs = computed(() => {
             <i class="pi pi-briefcase"></i>
             <div>
               <h4>{{ available.title }}</h4>
-              <p>Design</p>
+              <p>{{ available.department }}</p>
             </div>
           </div>
           <div class="segment-2">
-            <span>Design</span>
+            <span>{{ available.scope }}</span>
             <span>{{ available.employment_type }}</span>
             <span>{{ available.work_station }}</span>
           </div>
@@ -93,11 +93,11 @@ const getCompletedJobs = computed(() => {
             <i class="pi pi-briefcase"></i>
             <div>
               <h4>{{ available.title }}</h4>
-              <p>Design</p>
+              <p>{{ available.department }}</p>
             </div>
           </div>
           <div class="segment-2">
-            <span>Design</span>
+            <span>{{ available.scope }}</span>
             <span>{{ available.employment_type }}</span>
             <span>{{ available.work_station }}</span>
           </div>
@@ -178,7 +178,7 @@ button{
 .div-01 h2, .div-02 h2, .div-03 h2{
   color: var(--text-color);
   font-family: "roboto", sans-serif;
-  font-size: 17px;
+  font-size: var(--fs-v);
 }
 /* segment 1 design */
 .segment-1{
@@ -188,14 +188,14 @@ button{
 }
 .segment-1 > div > h4{
   color: var(--text-color);
-  font-size: 17px;
+  font-size: var(--fs-v);
   font-family: "roboto", sans-serif;
 }
 .segment-1 > div { margin-left: 10px;}
 .segment-1 > div > p{
   color: #9AA1A8;
   font-family: "roboto", sans-serif;
-  font-size: 14px;
+  font-size: var(--fs-sm);
   font-weight: 300;
 }
 .segment-2{
@@ -205,7 +205,7 @@ button{
 span {
   color: var(--text-color);
   font-family: "roboto", sans-serif;
-  font-size: 13px;
+  font-size: var(--fs-xs);
   font-weight: 200;
   background-color: #7152F3;
   margin-right: 10px;
@@ -219,5 +219,5 @@ span {
   margin: 20px 0 0 0;
   padding: 10px 10px 10px 10px;
 }
-.segment-3 > p{ color: var(--text-color); font-family: "roboto", sans-serif; font-size: 13px; font-weight: 300;}
+.segment-3 > p{ color: var(--text-color); font-family: "roboto", sans-serif; font-size: var(--fs-sm); font-weight: 300;}
 </style>

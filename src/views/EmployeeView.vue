@@ -8,7 +8,7 @@ const isLight = ref(false)
 const toggleTheme = () => {
   isLight.value = !isLight.value
 
-  if (isLight.value) {
+  if (isLight.value) {s
     localStorage.setItem('theme', 'light')
   }else{
     localStorage.setItem('theme', 'dark')

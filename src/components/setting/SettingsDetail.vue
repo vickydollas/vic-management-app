@@ -4,8 +4,8 @@
   <div class="settings-view border border-width border-[var(--border-color)] rounded-[10px] px-3 py-5">
     <div class="flex justify-between border-b border-[#323138] py-4">
       <div>
-        <h1 class="text-[var(--text-color)] text-[17px]">Appearance</h1>
-        <p class="text-[var(--text-color)] text-[14px]">Customize how your theme wants to looks on your device</p>
+        <h1 class="text-[var(--text-color)] text-[1rem]">Appearance</h1>
+        <p class="text-[#95A1A8] text-[0.85rem] my-2">Customize how your theme wants to looks on your device</p>
       </div>
       <select name="Dark" @change="toggleTheme" :checked="isLight" id="">
         <option value="">Dark</option>
@@ -15,8 +15,8 @@
     </div>
     <div class="flex justify-between border-b border-[#323138] py-4">
       <div>
-        <h1 class="text-[var(--text-color)] text-[17px]">Language</h1>
-        <p class="text-[var(--text-color)]">Select your language</p>
+        <h1 class="text-[var(--text-color)] text-[1rem]">Language</h1>
+        <p class="text-[#95A1A8] text-[0.85rem] my-1">Select your language</p>
       </div>
       <select name="English" id="">
         <option value="">English</option>
@@ -28,8 +28,8 @@
     </div>
     <div class="flex justify-between border-b border-[#323138] py-4">
       <div>
-        <h1 class="text-[var(--text-color)] text-[17px]">Two-factor Authentication</h1>
-        <p class="text-[var(--text-color)] text-[14px]">Keep your account secure by enabling 2FA via email</p>
+        <h1 class="text-[var(--text-color)] text-[1rem]">Two-factor Authentication</h1>
+        <p class="text-[#95A1A8] text-[0.85rem] my-1">Keep your account secure by enabling 2FA via email</p>
       </div>
       <label class="switch">
         <input type="checkbox" name="" id="">
@@ -38,8 +38,8 @@
     </div>
     <div class="flex justify-between border-b border-[#323138] py-4">
       <div>
-        <h1 class="text-[var(--text-color)] text-[17px]">Mobile push Notification</h1>
-        <p class="text-[var(--text-color)] text-[14px]">Receive push Notification</p>
+        <h1 class="text-[var(--text-color)] text-[1rem]">Mobile push Notification</h1>
+        <p class="text-[#95A1A8] text-[0.85rem] my-1">Receive push Notification</p>
       </div>
       <label class="switch">
         <input type="checkbox" name="" id="">
@@ -48,8 +48,8 @@
     </div>
     <div class="flex justify-between border-b border-[#323138] py-4">
       <div>
-        <h1 class="text-[var(--text-color)] text-[17px]">Desktop push Notification</h1>
-        <p class="text-[var(--text-color)] text-[14px]">Receive push Notification in desktop</p>
+        <h1 class="text-[var(--text-color)] text-[1rem]">Desktop push Notification</h1>
+        <p class="text-[#95A1A8] text-[0.85rem] my-1">Receive push Notification in desktop</p>
       </div>
       <label class="switch">
         <input type="checkbox" name="" id="">
@@ -58,8 +58,8 @@
     </div>
     <div class="flex justify-between py-4">
       <div>
-        <h1 class="text-[var(--text-color)] text-[17px]">Email Notification</h1>
-        <p class="text-[var(--text-color)] text-[14px]">Receive email notifiction</p>
+        <h1 class="text-[var(--text-color)] text-[1rem]">Email Notification</h1>
+        <p class="text-[#95A1A8] text-[0.85rem] my-1">Receive email notifiction</p>
       </div>
       <label class="switch">
         <input type="checkbox" name="" id="">

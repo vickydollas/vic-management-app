@@ -34,8 +34,8 @@ const getDepartment = computed(() => {
     <div class="department-card-1">
       <div class="card-1">
         <h3>{{ props.department }}</h3>
-        <p>12 Members</p>
-      </div>
+        <p>{{ getDepartment.length }} Members</p>
+      </div>  
       <router-link :to="`${props.path}`">View All</router-link>
     </div>
     <div class="department-card-2" v-for="job in getDepartment.slice(0, 5)" :key="job.id">
@@ -72,7 +72,7 @@ const getDepartment = computed(() => {
 }
 .card-1 h3 {
   color: var(--text-color);
-  font-size: 20px;
+  font-size: var(--fs-md);
   font-family: "roboto", sans-serif;
 }
 .card-1 p {
@@ -101,11 +101,11 @@ margin-right: 20px;
   color: var(--text-color);
   font-family: "roboto", sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  font-size: var(--fs-v);
 }
 .card-2 p {
   color: #a2a1a8;
-  font-size: 12px;
+  font-size: var(--fs-sm);
   font-weight: 200;
 }
 .pi-angle-right{ color: var(--text-color);}

@@ -11,6 +11,21 @@
   --bg-color: #ffffff;
   --text-color: #1a1a1a;
   --accent-color: #3498db;
+  /* Font Size Scale */
+  --fs-v: 1rem;
+  --fs-sm: 0.875rem;  /* 14px */
+  --fs-xs: 0.75rem;   /* 12px */
+  --fs-md: 1.125rem;  /* 18px */
+  --fs-lg: 1.25rem;   /* 20px */
+  --fs-xl: 1.5rem;    /* 24px */
+  --fs-2xl: 1.875rem; /* 30px */
+  --fs-3xl: 2.25rem;  /* 36px */
+  
+  /* You can also define Font Weights for consistency */
+  --fw-normal: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
+  --fs-base: 1rem;    /* 16px - Standard Body */
 }
 
 /* Dark Mode Overrides */

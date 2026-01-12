@@ -62,6 +62,7 @@ const buttonKey = (status) => {
   border: none;
   border-radius: 10px;
   color: var(--percent-color);
+  font-size: var(--fs-xs);
   padding: 12px 20px;
   z-index: 1;
 }
@@ -116,7 +117,7 @@ input[type="text"] {
 }
 .div3 h2 {
   color: var(--text-color);
-  font-size: 17px;
+  font-size: var(--fs-v);
   font-family: "roboto", sans-serif;
   font-weight: 300;
 }
@@ -142,7 +143,7 @@ input[type="text"] {
 }
 .div4 h2, .adjust{
   color: var(--text-color);
-  font-size: 17px;
+  font-size: var(--fs-v);
   font-family: "roboto", sans-serif;
   font-weight: 400;
   padding: 12px 0;

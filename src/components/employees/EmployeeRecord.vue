@@ -5,6 +5,7 @@ import axios from 'axios'
 import EmployeeDetail from "./EmployeeDetail.vue";
 
 const jobs = ref([])
+const searchQuery = ref('')
 const limitNumber = ref(5)
 const updateLimit = computed(() => {
   return limitNumber.value
@@ -14,10 +15,19 @@ onMounted(async() => {
         const response = await axios.get('/jobs2.json')
         jobs.value = response.data
         const well = jobs.value
-        console.log(well.department)
+        // console.log(well.department)
     } catch (error) {
-        console.log(error, "error here")
+        // console.log(error, "error here")
     }
+})
+const getSearch = computed(() => {
+  if (!searchQuery.value) {
+    return jobs.value
+  }
+  return jobs.value.filter(job => {
+    const search = searchQuery.value.toLowerCase()
+    return job.name?.toLowerCase().includes(search) || job.department?.toLowerCase().includes(search)
+  })
 })
 // console.log('happy')
 </script>
@@ -26,20 +36,20 @@ onMounted(async() => {
     <div class="container1">
       <div class="div1">
         <i class="pi pi-search"></i>
-        <input type="text" placeholder="Search..." />
+        <input type="text" v-model="searchQuery" placeholder="Search..." />
       </div>
       <div class="div2">
         <div class="sub1">
           <i
             class="pi pi-plus-circle"
-            style="color: #ddd; font-size: 17px; margin-right: 10px"
+            style="color: #ddd; margin-right: 10px"
           ></i>
           <router-link to="/">Add New Employee</router-link>
         </div>
         <div class="sub2">
           <i
             class="pi pi-list"
-            style="font-size: 13px; margin-right: 10px"
+            style="color: var(--text-color);font-size: var(--fs-xs); margin-right: 10px"
           ></i>
           <span>Filter</span>
         </div>
@@ -56,7 +66,7 @@ onMounted(async() => {
         <h2 class="txt7">Action</h2>
       </div>
       <div class="div4">
-        <EmployeeDetail class="listings" v-for="job in jobs.slice(0, updateLimit)" :key="job.id" :job="job" />
+        <EmployeeDetail class="listings" v-for="job in getSearch.slice(0, updateLimit)" :key="job.id" :job="job" />
       </div>
     </div>
     <div class="container3">
@@ -92,6 +102,7 @@ onMounted(async() => {
 }
 input[type="text"] {
   background-color: inherit;
+  color: var(--text-color);
   border: 1px solid var(--border-color);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   padding-left: 25px;
@@ -122,6 +133,7 @@ input[type="text"] {
 .sub1 a {
   text-decoration: none;
   color: white;
+  font-size: var(--fs-v);
 }
 .sub2 {
   border: 1px solid #323138;
@@ -143,7 +155,7 @@ input[type="text"] {
 }
 .div3 h2 {
   color: #655b9e;
-  font-size: 17px;
+  font-size: var(--fs-v);
   font-family: "roboto", sans-serif;
   font-weight: 50;
 }

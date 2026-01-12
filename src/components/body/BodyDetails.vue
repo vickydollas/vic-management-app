@@ -43,8 +43,8 @@ const percentageState = computed(() => {
   align-content: center;
   padding: 0 0 0 10px;
   font-family: "roboto", sans-serif;
-  font-weight: 300;
-  font-size: 15px;
+  font-weight: 100;
+  font-size: var(--fs-sm);
 }
 .pi{
   border: 1px solid var(--icon-color);
@@ -75,9 +75,9 @@ const percentageState = computed(() => {
 }
 .txt3{
   padding: 10px 0 10px 10px;
-  color: var(--text-color);
+  color: #95A1A8;
   font-family: "roboto", sans-serif;
-  font-size: 15px;
+  font-size: var(--fs-sm);
   font-weight: 100;
   border-top: 3px solid var(--border-top);
 }

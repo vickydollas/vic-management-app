@@ -101,8 +101,6 @@ a{
 }
 
 .theme-toggle {
-
-  
   position: absolute;
   bottom: 50px;
   display: flex;

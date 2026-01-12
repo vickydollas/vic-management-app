@@ -45,7 +45,7 @@ body {
   /* display: none; */
   margin: 10px 0 0 15px;
   border-radius: 10px;
-  width: 250px;
+  minwidth: 250px;
   position: fixed;
   /* background-color: #1d1c24; */
   background-color: var(--sidebar-bg);

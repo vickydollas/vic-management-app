@@ -235,7 +235,7 @@ const selectDate = (date) => {
 .div3 p {
   color: var(--text-color);
   font-family: "roboto", sans-serif;
-  font-size: 15px;
+  font-size: var(--fs-v);
   align-self: center;
 }
 .pi-ellipsis-v {
@@ -256,7 +256,7 @@ const selectDate = (date) => {
 .div4 > p {
   color: var(--text-color);
   font-family: "roboto", sans-serif;
-  font-size: 18px;
+  font-size: var(--fs-v);
   font-weight: 800;
   padding: 10px 30px 10px 0px;
   border-right: 3px solid #5e45c4;
@@ -266,13 +266,13 @@ const selectDate = (date) => {
 .div4 > div > p {
   color: var(--text-color);
   font-family: "roboto", sans-serif;
-  font-size: 18px;
-  font-weight: 200;
+  font-size: var(--fs-v);
+  /* font-weight: 200; */
 }
 .div4 > div > h2 {
-  font-weight: 200;
+  font-weight: 100; 
 }
 .div4 > div > p {
-  font-weight: 500;
+  font-weight: 800;
 }
 </style>

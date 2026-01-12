@@ -13,7 +13,7 @@ const { toggleTheme } = useTheme()
             <SideBar @toggle-theme="toggleTheme" :isDark="isLight" />
         </div>
         <div class="main-content">
-            <FixedHeader name="Design Departments" greeting="All Department Information" />
+            <FixedHeader name="Design Departments" greeting="All Departments > Design Department" />
         </div>
         <div class="main-content department-record">
             <DesignWorker department="Design" />

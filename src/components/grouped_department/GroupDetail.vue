@@ -33,7 +33,7 @@ const props = defineProps({
 }
 .container p{
     color: var(--text-color);
-    font-size: 17px;
+    font-size: var(--fs-v);
     font-family: "roboto", sans-serif;
 }
 .txt2 img{

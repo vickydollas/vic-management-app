@@ -101,9 +101,11 @@ button{
 h3{
     color: #A2A1A8;
     font-family: "roboto", sans-serif;
+    font-size: var(--fs-v);
 }
 p{
     color: var(--text-color);
     font-family: "roboto", sans-serif;
+    font-size: var(--fs-v);
 }
 </style>

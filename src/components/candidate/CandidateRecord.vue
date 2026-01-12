@@ -64,7 +64,7 @@ const statusUpdate = (status) => {
             <h2 class="candidate-4">{{ employees.application_date }}</h2>
             <h2 class="candidate-5">{{ employees.email }}</h2>
             <h2 class="candidate-6">{{ employees.phone_number }}</h2>
-            <h2 class="candidate-7"><span :style="statusUpdate(employees.status)" class="status">{{ employees.status }}</span></h2>
+            <h6 class="candidate-7 status" :style="statusUpdate(employees.status)">{{ employees.status }}</h6>
         </div>
         <div class="record-3">
             <label for="" style="color: #A2A1A8; margin-right: 20px;">Showing</label>
@@ -83,6 +83,7 @@ const statusUpdate = (status) => {
     color: var(--percent-color);
     padding: 7px 10px;
     border-radius: 10px;
+    font-size: 10px;
 }
 .candidate-record{
     border: 1px solid var(--border-color);
@@ -117,7 +118,11 @@ input[type="text"] {
     color: #A2A1A8;
     font-weight: 300;
 }
-.record-2 h2{ color: var(--text-color) !important; font-size: 15px;}
+.record-2 h6{
+    font-family: "roboto", sans-serif;
+    font-weight: 300;
+}
+.record-2 h2 { color: var(--text-color) !important; font-size: 15px;}
 .record-2 img{
     width: 15%;
     border-radius: 50px;
@@ -129,7 +134,7 @@ input[type="text"] {
 .candidate-4{ flex: 0 0 12%;}
 .candidate-5{ flex: 0 0 20%;}
 .candidate-6{ flex: 0 0 15%;}
-.candidate-7{ flex: 0 0 10%;}
+/* .candidate-7{ flex: 0 0 10%;} */
 .record-3{
   margin: 10px 20px;
 }

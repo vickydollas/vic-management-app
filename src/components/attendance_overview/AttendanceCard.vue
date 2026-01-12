@@ -33,7 +33,7 @@ const onTimeFunc = computed(() => {
 }
 .attendance-card p {
   color: var(--text-color);
-  font-size: 18px;
+  font-size: var(--fs-v);
   font-family: "roboto", sans-serif;
   font-weight: 300;
   align-self: center;
@@ -76,9 +76,10 @@ const onTimeFunc = computed(() => {
   justify-items: left;
   background-color: var(--percent-bg);
   color: var(--percent-color);
-  padding: 10px 30px;
+  padding: 10px 20px;
   border-radius: 10px;
   font-style: normal;
+  font-size: var(--fs-sm);
   font-family: "roboto", sans-serif;
 }
 </style>
