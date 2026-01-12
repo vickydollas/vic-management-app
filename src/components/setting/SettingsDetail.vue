@@ -7,7 +7,7 @@
         <h1 class="text-[var(--text-color)] text-[17px]">Appearance</h1>
         <p class="text-[var(--text-color)] text-[14px]">Customize how your theme wants to looks on your device</p>
       </div>
-      <select name="Dark" id="">
+      <select name="Dark" @change="toggleTheme" :checked="isLight" id="">
         <option value="">Dark</option>
         <option value="">Light</option>
         <option value="">System</option>

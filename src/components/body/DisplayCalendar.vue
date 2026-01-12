@@ -149,7 +149,9 @@ const selectDate = (date) => {
 .calendar-container {
   /* max-width: 600px; */
   margin: 0px auto;
-  border: 1px solid #323138;
+  padding: 0 15px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   border-radius: 8px;
   overflow: hidden;
   font-family: sans-serif;
@@ -167,7 +169,7 @@ const selectDate = (date) => {
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  color: #9f9c9c;
+  color: var(--text-color);
 }
 
 .weekday-label {
@@ -196,7 +198,8 @@ const selectDate = (date) => {
 }
 
 .is-today {
-  background: #e7f3ff;
+  background: var(--bg-color);
+  border-radius: 10px;
   font-weight: bold;
   color: #007bff;
 }

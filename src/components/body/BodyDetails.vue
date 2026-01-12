@@ -9,7 +9,7 @@ const props = defineProps({
 })
 const percentageState = computed(() => {
   if (props.percentage <= 5 ){
-    return{ backgroundColor: '#2C1B21', color: '#f45b69'}
+    return{ backgroundColor: 'var(--puntual-bg)', color: 'var(--puntual-color)'}
   }
 })
 </script>
@@ -59,6 +59,7 @@ const percentageState = computed(() => {
   display: flex;
   justify-content: space-between;
   padding: 10px 20px;
+  align-items: center;
 }
 .txt1{
   font-family: "roboto", sans-serif;
