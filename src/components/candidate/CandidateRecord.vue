@@ -1,7 +1,8 @@
 <script setup>
 import axios from "axios";
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 
+const searchQuery = ref('')
 const options = ref(10)
 const employee = ref([])
 const isLoading = ref(false)
@@ -26,6 +27,15 @@ const getEmployee = async () => {
 onMounted(() => {
     getEmployee()
 })
+const getSearch = computed(() => {
+    if (!searchQuery.value) {
+        return employee.value
+    }
+    return employee.value.filter(result => {
+        const search = searchQuery.value.toLowerCase()
+        return result.name?.toLowerCase().includes(search)
+    })
+})
 const statusUpdate = (status) => {
     if(status === 'Rejected'){
         return {
@@ -45,7 +55,7 @@ const statusUpdate = (status) => {
   <div class="candidate-record">
     <div class="candidate-record-1">
       <i class="pi pi-search" ></i>
-      <input type="text" placeholder="Search..." />
+      <input type="text" v-model="searchQuery" placeholder="Search..." />
     </div>
     <div class="candidate-record-2">
         <div class="record-1">
@@ -57,7 +67,7 @@ const statusUpdate = (status) => {
             <h2 class="candidate-6">Mobile Number</h2>
             <h2 class="candidate-7">Status</h2>
         </div>
-        <div class="record-2" v-for="employees in employee.slice(0, options)" :key="employees.id">
+        <div class="record-2" v-for="employees in getSearch.slice(0, options)" :key="employees.id">
             <input class="candidate-1" type="checkbox">
             <h2 class="candidate-2"><img :src="`${employees.imagePath}`" alt="">{{ employees.name }}</h2>
             <h2 class="candidate-3">{{ employees.position_applied }}</h2>

@@ -1,7 +1,8 @@
 <script setup>
 import axios from 'axios'
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 
+const searchQuery = ref('')
 const salary = ref([])
 const options = ref(5)
 onMounted(async() => {
@@ -11,6 +12,15 @@ onMounted(async() => {
   } catch (error) {
     console.log(error)
   }
+})
+const getSearch = computed(() => {
+  if (!searchQuery.value) {
+    return salary.value
+  }
+  return salary.value.filter(result => {
+    const search = searchQuery.value.toLowerCase()
+    return result.name?.toLowerCase().includes(search)
+  })
 })
 const buttonKey = (status) => {
   if (status === "Pending"){
@@ -26,7 +36,7 @@ const buttonKey = (status) => {
     <div class="payroll-1">
       <div>
         <i class="pi pi-search"></i>
-        <input type="text" placeholder="Search..." />
+        <input type="text" v-model="searchQuery" placeholder="Search..." />
       </div>
       <button class="btn-1"><i class="pi pi-file-export" style="color: #ffffff, padding-right: 10px"></i>Export</button>
     </div>
@@ -38,7 +48,7 @@ const buttonKey = (status) => {
         <h2 class="txt4">Deduction</h2>
         <h2 class="txt5">Status</h2>
       </div>
-      <div class="div4" v-for="salaries in salary.slice(0, options)" :key="salaries.id">
+      <div class="div4" v-for="salaries in getSearch.slice(0, options)" :key="salaries.id">
         <div class="txt1 adjust"><img :src="`${salaries.imagePath}`" alt=""><h2>{{ salaries.name }}</h2></div>
         <h2 class="txt2">{{ salaries.salary.perYear }}</h2>
         <h2 class="txt3">{{ salaries.salary.amount }}</h2>

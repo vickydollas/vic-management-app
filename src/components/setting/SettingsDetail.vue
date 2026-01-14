@@ -1,4 +1,10 @@
 <script setup>
+import { ref } from 'vue'
+import { useTheme } from '../../composables/useTheme'
+
+const { optionTheme } = useTheme()
+const optionValue = ref('light')
+
 </script>
 <template>
   <div class="settings-view border border-width border-[var(--border-color)] rounded-[10px] px-3 py-5">
@@ -7,10 +13,10 @@
         <h1 class="text-[var(--text-color)] text-[1rem]">Appearance</h1>
         <p class="text-[#95A1A8] text-[0.85rem] my-2">Customize how your theme wants to looks on your device</p>
       </div>
-      <select name="Dark" @change="toggleTheme" :checked="isLight" id="">
-        <option value="">Dark</option>
-        <option value="">Light</option>
-        <option value="">System</option>
+      <select name="Dark" v-model="optionValue" @change="optionTheme(optionValue)" id="">
+        <option value="dark">Dark</option>
+        <option value="light">Light</option>
+        <option value="system">System</option>
       </select>
     </div>
     <div class="flex justify-between border-b border-[#323138] py-4">

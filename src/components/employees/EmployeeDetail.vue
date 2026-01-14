@@ -28,6 +28,7 @@ const props = defineProps({
 }
 .main{
     display: flex;
+    /* flex-direction: row; */
     /* align-content: center; */
     /* border-bottom: 1px solid #323138; */
     border-top: 1px solid #323138;
@@ -79,5 +80,19 @@ const props = defineProps({
 .txt7{
     flex: 0 0 14%;
     align-self: center;
+}
+@media (max-width: 768px) {
+    .main{
+        display: block;
+    }
+    .txt7{display: none;} .txt1 { margin-bottom: 5px;}
+    .txt3, .txt4, .txt5{
+        display: inline-block;
+        padding: 10px;
+        background-color: var(--bg-color);
+        border: 1px solid var(--border-color);
+        margin: 10px 10px 10px 0;
+        border-radius: 8px;
+    }
 }
 </style>

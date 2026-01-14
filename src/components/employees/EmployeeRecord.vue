@@ -85,11 +85,15 @@ const getSearch = computed(() => {
   </div>
 </template>
 <style scoped>
+*{
+  box-sizing: border-box;
+}
 .container {
   border: 1px solid var(--border-color);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
-  margin: 0 15px 0 0;
+  margin: 0 0px 0 0;
+  min-width: 100%;
 }
 .container1 {
   display: flex;
@@ -190,5 +194,14 @@ label{
     font-family: "roboto", sans-serif;
     font-size: 16px;
     margin: 0 10px 0 0;
+}
+@media (max-width: 768px) {
+  .container1{
+    display: none;
+  }
+  .div3{
+    display: none;
+  }
+
 }
 </style>

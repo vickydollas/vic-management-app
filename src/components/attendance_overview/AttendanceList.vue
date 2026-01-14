@@ -1,7 +1,7 @@
 <script setup>
-import { onMounted, ref, defineProps, computed } from "vue";
+import { onMounted, ref, defineProps, computed, watch } from "vue";
 import AttendanceCard from "./AttendanceCard.vue";
-// import axios from 'axios'
+import axios from 'axios'
 
 const props = defineProps({
   showDiv: {
@@ -11,8 +11,13 @@ const props = defineProps({
   shuffle: {
     type: Boolean,
     default: true
+  },
+  received: {
+    type: String,
+    default: ''
   }
 });
+const searchQuery = ref()
 const limitNumber = ref(10)
 const updateLimit = computed(() => {
     return limitNumber.value
@@ -20,17 +25,29 @@ const updateLimit = computed(() => {
 const data = ref([]);
 onMounted(async () => {
   try {
-    const response = await fetch("/jobs2.json");
+    const response = await axios.get("/jobs2.json");
     if (!response) {
-      console.log("Missing link");
+      throw new Error("error https");
     }
-    data.value = await response.json();
-    const result = data.value;
-    console.log(result.name);
+    data.value = await response.data;
+    // const result = data.value;
+    // console.log(result.name);
   } catch (error) {
     console.log(error);
   }
 });
+watch(() => props.received, (newValue) => {
+  searchQuery.value = newValue
+}, { immediate: true})
+const getSearch = computed(() => {
+  if (!searchQuery.value) {
+    return data.value
+  }
+  return data.value.filter(result => {
+    const search = searchQuery.value.toLowerCase()
+    return result.name?.toLowerCase().includes(search)
+  })
+})
 </script>
 
 <template>
@@ -41,7 +58,7 @@ onMounted(async () => {
         <router-link>View</router-link>
       </div>
       <div class="div2">
-        <h1 class="txt1">Employee Name</h1>
+        <h1 class="txt1">Employee Name{{ props.received }}</h1>
         <h1 class="txt2">Designation</h1>
         <h1 class="txt3">Type</h1>
         <h1 class="txt4">Check-In-Time</h1>
@@ -50,7 +67,7 @@ onMounted(async () => {
     </div>
     <div class="div3">
       <AttendanceCard
-        v-for="datas in data.slice(0, updateLimit)"
+        v-for="datas in getSearch.slice(0, updateLimit)"
         :key="datas.id"
         :data="datas"
       />

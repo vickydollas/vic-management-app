@@ -1,5 +1,6 @@
 import { ref, onMounted } from 'vue'
 const isLight = ref(false)
+const valueSelection = ref('dark')
 export function useTheme () {
     const toggleTheme = () => {
         isLight.value = !isLight.value
@@ -8,6 +9,17 @@ export function useTheme () {
         } else {
             localStorage.setItem('theme', 'dark')
         }
+    }
+    const optionTheme = (option) => {
+        valueSelection.value = option
+        if (option === 'light') {
+            isLight.value = false
+        }else if (option === 'dark') {
+            isLight.value = true
+        }else{
+            isLight.va = false
+        }
+        localStorage.setItem('theme', isLight.value ? 'light' : 'dark')
     }
     onMounted(() => {
         const savedItem = localStorage.getItem('theme')
@@ -18,6 +30,7 @@ export function useTheme () {
     })
     return{
         isLight,
-        toggleTheme
+        toggleTheme,
+        optionTheme
     }
 }

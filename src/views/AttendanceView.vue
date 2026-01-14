@@ -28,7 +28,7 @@ onMounted(() => {
         <div class="main-content">
             <FixedHeader name="Attendance" greeting="All Employee Attendance" />
         </div>
-        <div class="main-content attendance-record">
+        <div class="attendance-record">
             <AttendanceRecord />
         </div>
     </div>
@@ -37,13 +37,12 @@ onMounted(() => {
 .home{
   background-color: var(--bg-color);
   min-height: 100vh;
-  /* padding-bottom: 20px; */
 }
 .home-sidebar{
   /* display: none; */
   margin: 10px 0 0 15px;
   border-radius: 10px;
-  width: 250px;
+  /* width: 250px; */
   position: fixed;
   background-color: var(--sidebar-bg);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
@@ -55,5 +54,28 @@ onMounted(() => {
 }
 .attendance-record{
     padding: 100px 0 20px 0;
+    margin:0 15px 0 280px;
+}
+@media screen and (max-width: 768px) {
+  .home-sidebar {
+    position: static;
+    width: 100%;
+    height: auto;
+    margin: 80px 0 0 0;
+    overflow: scroll;
+  }
+
+  .main-content {
+    position: absolute;
+    top: 0;
+    margin: 0;
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .attendance-record {
+    margin: 0 15px;
+    padding: 20px 0;
+  }
 }
 </style>

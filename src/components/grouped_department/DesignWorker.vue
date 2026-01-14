@@ -10,6 +10,7 @@ const props = defineProps({
     required: true
   }
 })
+const searchQuery = ref('')
 const jobs = ref([])
 const limitNumber = ref(5)
 const updateLimit = computed(() => {
@@ -30,8 +31,10 @@ const marketingEmployees = computed(() => {
     if (!jobs.value || jobs.value.length === 0) {
     return [];
   }
+  const search = searchQuery.value.toLowerCase()
     return jobs.value.filter(employee => {
-        return employee.department === targetDepartment.value
+      const search = searchQuery.value.toLowerCase()
+        return employee.department === targetDepartment.value && employee.name?.toLowerCase().includes(search)
     })
 })
 </script>
@@ -40,7 +43,7 @@ const marketingEmployees = computed(() => {
     <div class="container1">
       <div class="div1">
         <i class="pi pi-search"></i>
-        <input type="text" placeholder="Search..." />
+        <input type="text" v-model="searchQuery" placeholder="Search..." />
       </div>
       <div class="div2">
         <div class="sub1">

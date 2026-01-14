@@ -24,7 +24,7 @@ onMounted(() => {
 <template>
   <div class="home" :class="[isLight ? 'dark-theme' : 'light-theme']">
     <div class="home-sidebar">
-      <SideBar @toggle-theme="toggleTheme" :isDark="isLight"/>
+      <SideBar @toggle-theme="toggleTheme" :isDark="isLight" />
     </div>
     <div class="main-content">
       <HeaderSection />
@@ -45,7 +45,7 @@ body {
   /* display: none; */
   margin: 10px 0 0 15px;
   border-radius: 10px;
-  minwidth: 250px;
+  min-width: 250px;
   position: fixed;
   /* background-color: #1d1c24; */
   background-color: var(--sidebar-bg);
@@ -55,5 +55,22 @@ body {
 }
 .main-content {
   margin: 0 15px 0 280px;
+}
+@media (max-width: 768px) {
+  .home-sidebar {
+    /* display: none; */
+    margin: 10px 0 0 15px;
+    border-radius: 10px;
+    /* min-width: 250px; */
+    /* position: fixed; */
+    /* background-color: #1d1c24; */
+    background-color: var(--sidebar-bg);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    /* height: 100vh; */
+    z-index: 10000;
+  }
+  .main-content {
+    margin: 0 15px 0 280px;
+  }
 }
 </style>

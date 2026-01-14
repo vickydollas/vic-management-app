@@ -527,5 +527,655 @@
         "contactEmail": "contact@ipsumlorem.com",
         "contactPhone": "555-555-5555"
       }
+    },
+    {
+    "id": "25",
+    "imagePath": "/images/profile1.jpg",
+    "name": "Marcus Sterling",
+    "identityNum": "88234101",
+    "department": "Engineering",
+    "title": "Full Stack Developer",
+    "truth": "On Time",
+    "time": "9:00 AM",
+    "type": "Full-time",
+    "status": "Permanent",
+    "location": "Seattle, WA",
+    "salary": {
+      "amount": "$7,500",
+      "perYear": "$90,000",
+      "transaction": "Completed",
+      "deduction": "$200"
+    },
+    "company": {
+      "name": "Veneer Solutions",
+      "description": "Veneer Solutions is a creative agency specializing in digital design and development.",
+      "contactEmail": "contact@veneersolutions.com",
+      "contactPhone": "555-0125"
     }
+  },
+  {
+    "id": "26",
+    "imagePath": "/images/profile2.jpg",
+    "name": "Elena Rodriguez",
+    "department": "Sales",
+    "identityNum": "88234102",
+    "title": "Senior Sales Executive",
+    "truth": "On Time",
+    "time": "8:45 AM",
+    "type": "Hybrid",
+    "status": "Permanent",
+    "location": "Austin, TX",
+    "salary": {
+      "amount": "$5,833",
+      "perYear": "$70,000",
+      "transaction": "Completed",
+      "deduction": "-"
+    },
+    "company": {
+      "name": "Veneer Solutions",
+      "description": "Veneer Solutions is a creative agency specializing in digital design and development.",
+      "contactEmail": "sales@veneersolutions.com",
+      "contactPhone": "555-0126"
+    }
+  },
+  {
+    "id": "27",
+    "imagePath": "/images/profile3.png",
+    "name": "Julian Thorne",
+    "identityNum": "88234103",
+    "department": "Design",
+    "title": "UI/UX Designer",
+    "truth": "Late",
+    "time": "9:15 AM",
+    "type": "Part-time",
+    "status": "Contract",
+    "location": "Portland, OR",
+    "salary": {
+      "amount": "$3,500",
+      "perYear": "$42,000",
+      "transaction": "Pending",
+      "deduction": "$50"
+    },
+    "company": {
+      "name": "Veneer Solutions",
+      "description": "Veneer Solutions is a creative agency specializing in digital design and development.",
+      "contactEmail": "design@veneersolutions.com",
+      "contactPhone": "555-0127"
+    }
+  },
+  {
+    "id": "28",
+    "imagePath": "/images/profile4.png",
+    "name": "Sarah Jenkins",
+    "identityNum": "88234104",
+    "department": "Project Management",
+    "title": "Technical Project Manager",
+    "truth": "On Time",
+    "time": "8:30 AM",
+    "type": "Full-time",
+    "status": "Permanent",
+    "location": "Chicago, IL",
+    "salary": {
+      "amount": "$6,666",
+      "perYear": "$80,000",
+      "transaction": "Completed",
+      "deduction": "-"
+    },
+    "company": {
+      "name": "Veneer Solutions",
+      "description": "Veneer Solutions is a creative agency specializing in digital design and development.",
+      "contactEmail": "pm@veneersolutions.com",
+      "contactPhone": "555-0128"
+    }
+  },
+  {
+    "id": "29",
+    "imagePath": "/images/profile5.jpg",
+    "name": "Kevin Vance",
+    "identityNum": "88234105",
+    "department": "Marketing",
+    "title": "Content Strategist",
+    "truth": "On Time",
+    "time": "8:55 AM",
+    "type": "Hybrid",
+    "status": "Permanent",
+    "location": "Miami, FL",
+    "salary": {
+      "amount": "$4,583",
+      "perYear": "$55,000",
+      "transaction": "Completed",
+      "deduction": "-"
+    },
+    "company": {
+      "name": "Veneer Solutions",
+      "description": "Veneer Solutions is a creative agency specializing in digital design and development.",
+      "contactEmail": "marketing@veneersolutions.com",
+      "contactPhone": "555-0129"
+    }
+  },
+  {
+    "id": "30",
+    "imagePath": "/images/profile6.jpg",
+    "name": "Chloe Bennett",
+    "identityNum": "88234106",
+    "department": "Engineering",
+    "title": "DevOps Engineer",
+    "truth": "On Time",
+    "time": "9:00 AM",
+    "type": "Full-time",
+    "status": "Permanent",
+    "location": "Remote",
+    "salary": {
+      "amount": "$8,333",
+      "perYear": "$100,000",
+      "transaction": "Completed",
+      "deduction": "-"
+    },
+    "company": {
+      "name": "Veneer Solutions",
+      "description": "Veneer Solutions is a creative agency specializing in digital design and development.",
+      "contactEmail": "eng@veneersolutions.com",
+      "contactPhone": "555-0130"
+    }
+  },
+  {
+    "id": "31",
+    "imagePath": "/images/profile7.jpg",
+    "name": "Liam Foster",
+    "identityNum": "88234107",
+    "department": "Sales",
+    "title": "Account Manager",
+    "truth": "Late",
+    "time": "9:45 AM",
+    "type": "Part-time",
+    "status": "Probation",
+    "location": "Denver, CO",
+    "salary": {
+      "amount": "$2,916",
+      "perYear": "$35,000",
+      "transaction": "Completed",
+      "deduction": "$100"
+    },
+    "company": {
+      "name": "Veneer Solutions",
+      "description": "Veneer Solutions is a creative agency specializing in digital design and development.",
+      "contactEmail": "sales@veneersolutions.com",
+      "contactPhone": "555-0131"
+    }
+  },
+  {
+    "id": "32",
+    "imagePath": "/images/profile6.jpg",
+    "name": "Maya Lin",
+    "identityNum": "88234108",
+    "department": "Design",
+    "title": "Graphic Designer",
+    "truth": "On Time",
+    "time": "8:40 AM",
+    "type": "Hybrid",
+    "status": "Permanent",
+    "location": "San Francisco, CA",
+    "salary": {
+      "amount": "$5,000",
+      "perYear": "$60,000",
+      "transaction": "Completed",
+      "deduction": "-"
+    },
+    "company": {
+      "name": "Veneer Solutions",
+      "description": "Veneer Solutions is a creative agency specializing in digital design and development.",
+      "contactEmail": "design@veneersolutions.com",
+      "contactPhone": "555-0132"
+    }
+  },
+  {
+    "id": "33",
+    "imagePath": "/images/profile7.jpg",
+    "name": "Owen Richards",
+    "identityNum": "88234109",
+    "department": "Project Management",
+    "title": "Operations Specialist",
+    "truth": "On Time",
+    "time": "8:15 AM",
+    "type": "Full-time",
+    "status": "Permanent",
+    "location": "Boston, MA",
+    "salary": {
+      "amount": "$6,250",
+      "perYear": "$75,000",
+      "transaction": "Completed",
+      "deduction": "-"
+    },
+    "company": {
+      "name": "Veneer Solutions",
+      "description": "Veneer Solutions is a creative agency specializing in digital design and development.",
+      "contactEmail": "ops@veneersolutions.com",
+      "contactPhone": "555-0133"
+    }
+  },
+  {
+    "id": "34",
+    "imagePath": "/images/profile5.jpg",
+    "name": "Nora Hayes",
+    "identityNum": "88234110",
+    "department": "Marketing",
+    "title": "SEO Specialist",
+    "truth": "On Time",
+    "time": "9:10 AM",
+    "type": "Hybrid",
+    "status": "Contract",
+    "location": "Atlanta, GA",
+    "salary": {
+      "amount": "$4,000",
+      "perYear": "$48,000",
+      "transaction": "Completed",
+      "deduction": "-"
+    },
+    "company": {
+      "name": "Veneer Solutions",
+      "description": "Veneer Solutions is a creative agency specializing in digital design and development.",
+      "contactEmail": "marketing@veneersolutions.com",
+      "contactPhone": "555-0134"
+    }
+  },
+  {
+    "id": "35",
+    "imagePath": "/images/profile4.png",
+    "name": "Isaac Newton",
+    "identityNum": "88234111",
+    "department": "Engineering",
+    "title": "Backend Engineer",
+    "truth": "Late",
+    "time": "10:00 AM",
+    "type": "Full-time",
+    "status": "Permanent",
+    "location": "London, UK",
+    "salary": {
+      "amount": "$9,166",
+      "perYear": "$110,000",
+      "transaction": "Completed",
+      "deduction": "$300"
+    },
+    "company": {
+      "name": "Veneer Solutions",
+      "description": "Veneer Solutions is a creative agency specializing in digital design and development.",
+      "contactEmail": "eng@veneersolutions.com",
+      "contactPhone": "555-0135"
+    }
+  },
+  {
+    "id": "36",
+    "imagePath": "/images/profile3.png",
+    "name": "Ruby Gill",
+    "identityNum": "88234112",
+    "department": "Sales",
+    "title": "Sales Development Rep",
+    "truth": "On Time",
+    "time": "8:50 AM",
+    "type": "Part-time",
+    "status": "Probation",
+    "location": "Phoenix, AZ",
+    "salary": {
+      "amount": "$2,500",
+      "perYear": "$30,000",
+      "transaction": "Completed",
+      "deduction": "-"
+    },
+    "company": {
+      "name": "Veneer Solutions",
+      "description": "Veneer Solutions is a creative agency specializing in digital design and development.",
+      "contactEmail": "sales@veneersolutions.com",
+      "contactPhone": "555-0136"
+    }
+  },
+  {
+    "id": "37",
+    "imagePath": "/images/profile2.jpg",
+    "name": "Felix Carter",
+    "identityNum": "88234113",
+    "department": "Design",
+    "title": "Product Designer",
+    "truth": "On Time",
+    "time": "9:05 AM",
+    "type": "Hybrid",
+    "status": "Permanent",
+    "location": "Los Angeles, CA",
+    "salary": {
+      "amount": "$6,666",
+      "perYear": "$80,000",
+      "transaction": "Completed",
+      "deduction": "-"
+    },
+    "company": {
+      "name": "Veneer Solutions",
+      "description": "Veneer Solutions is a creative agency specializing in digital design and development.",
+      "contactEmail": "design@veneersolutions.com",
+      "contactPhone": "555-0137"
+    }
+  },
+  {
+    "id": "38",
+    "imagePath": "/images/profile1.jpg",
+    "name": "Grace Hopper",
+    "identityNum": "88234114",
+    "department": "Project Management",
+    "title": "Scrum Master",
+    "truth": "On Time",
+    "time": "8:00 AM",
+    "type": "Full-time",
+    "status": "Permanent",
+    "location": "New York, NY",
+    "salary": {
+      "amount": "$7,916",
+      "perYear": "$95,000",
+      "transaction": "Completed",
+      "deduction": "-"
+    },
+    "company": {
+      "name": "Veneer Solutions",
+      "description": "Veneer Solutions is a creative agency specializing in digital design and development.",
+      "contactEmail": "pm@veneersolutions.com",
+      "contactPhone": "555-0138"
+    }
+  },
+  {
+    "id": "39",
+    "imagePath": "/images/profile5.jpg",
+    "name": "Leo Maxwell",
+    "identityNum": "88234115",
+    "department": "Marketing",
+    "title": "Social Media Manager",
+    "truth": "Late",
+    "time": "9:30 AM",
+    "type": "Hybrid",
+    "status": "Contract",
+    "location": "Nashville, TN",
+    "salary": {
+      "amount": "$3,750",
+      "perYear": "$45,000",
+      "transaction": "Completed",
+      "deduction": "$25"
+    },
+    "company": {
+      "name": "Veneer Solutions",
+      "description": "Veneer Solutions is a creative agency specializing in digital design and development.",
+      "contactEmail": "marketing@veneersolutions.com",
+      "contactPhone": "555-0139"
+    }
+  },
+  {
+    "id": "40",
+    "imagePath": "/images/profile6.jpg",
+    "name": "Alice Cooper",
+    "identityNum": "88234116",
+    "department": "Engineering",
+    "title": "QA Automation Engineer",
+    "truth": "On Time",
+    "time": "9:00 AM",
+    "type": "Hybrid",
+    "status": "Permanent",
+    "location": "Philadelphia, PA",
+    "salary": {
+      "amount": "$5,416",
+      "perYear": "$65,000",
+      "transaction": "Completed",
+      "deduction": "-"
+    },
+    "company": {
+      "name": "Veneer Solutions",
+      "description": "Veneer Solutions is a creative agency specializing in digital design and development.",
+      "contactEmail": "eng@veneersolutions.com",
+      "contactPhone": "555-0140"
+    }
+  },
+  {
+    "id": "41",
+    "imagePath": "/images/profile7.jpg",
+    "name": "Zane Grey",
+    "identityNum": "88234117",
+    "department": "Sales",
+    "title": "Business Development Manager",
+    "truth": "On Time",
+    "time": "8:30 AM",
+    "type": "Full-time",
+    "status": "Permanent",
+    "location": "Houston, TX",
+    "salary": {
+      "amount": "$6,250",
+      "perYear": "$75,000",
+      "transaction": "Completed",
+      "deduction": "-"
+    },
+    "company": {
+      "name": "Veneer Solutions",
+      "description": "Veneer Solutions is a creative agency specializing in digital design and development.",
+      "contactEmail": "sales@veneersolutions.com",
+      "contactPhone": "555-0141"
+    }
+  },
+  {
+    "id": "42",
+    "imagePath": "/images/profile4.png",
+    "name": "Bella Swan",
+    "identityNum": "88234118",
+    "department": "Design",
+    "title": "Motion Designer",
+    "truth": "On Time",
+    "time": "9:15 AM",
+    "type": "Hybrid",
+    "status": "Permanent",
+    "location": "Salt Lake City, UT",
+    "salary": {
+      "amount": "$5,666",
+      "perYear": "$68,000",
+      "transaction": "Completed",
+      "deduction": "-"
+    },
+    "company": {
+      "name": "Veneer Solutions",
+      "description": "Veneer Solutions is a creative agency specializing in digital design and development.",
+      "contactEmail": "design@veneersolutions.com",
+      "contactPhone": "555-0142"
+    }
+  },
+  {
+    "id": "43",
+    "imagePath": "/images/profile1.jpg",
+    "name": "Jasper Hale",
+    "identityNum": "88234119",
+    "department": "Project Management",
+    "title": "Program Manager",
+    "truth": "Late",
+    "time": "10:15 AM",
+    "type": "Full-time",
+    "status": "Contract",
+    "location": "Detroit, MI",
+    "salary": {
+      "amount": "$8,750",
+      "perYear": "$105,000",
+      "transaction": "Completed",
+      "deduction": "$150"
+    },
+    "company": {
+      "name": "Veneer Solutions",
+      "description": "Veneer Solutions is a creative agency specializing in digital design and development.",
+      "contactEmail": "pm@veneersolutions.com",
+      "contactPhone": "555-0143"
+    }
+  },
+  {
+    "id": "44",
+    "imagePath": "/images/profile2.jpg",
+    "name": "Iris West",
+    "identityNum": "88234120",
+    "department": "Marketing",
+    "title": "Public Relations Manager",
+    "truth": "On Time",
+    "time": "8:45 AM",
+    "type": "Hybrid",
+    "status": "Permanent",
+    "location": "Central City, MO",
+    "salary": {
+      "amount": "$5,250",
+      "perYear": "$63,000",
+      "transaction": "Completed",
+      "deduction": "-"
+    },
+    "company": {
+      "name": "Veneer Solutions",
+      "description": "Veneer Solutions is a creative agency specializing in digital design and development.",
+      "contactEmail": "pr@veneersolutions.com",
+      "contactPhone": "555-0144"
+    }
+  },
+  {
+    "id": "45",
+    "imagePath": "/images/profile3.png",
+    "name": "Barry Allen",
+    "identityNum": "88234121",
+    "department": "Engineering",
+    "title": "Security Engineer",
+    "truth": "On Time",
+    "time": "8:01 AM",
+    "type": "Full-time",
+    "status": "Permanent",
+    "location": "Remote",
+    "salary": {
+      "amount": "$10,416",
+      "perYear": "$125,000",
+      "transaction": "Completed",
+      "deduction": "-"
+    },
+    "company": {
+      "name": "Veneer Solutions",
+      "description": "Veneer Solutions is a creative agency specializing in digital design and development.",
+      "contactEmail": "security@veneersolutions.com",
+      "contactPhone": "555-0145"
+    }
+  },
+  {
+    "id": "46",
+    "imagePath": "/images/profile1.jpg",
+    "name": "Wanda Maximoff",
+    "identityNum": "88234122",
+    "department": "Sales",
+    "title": "Inside Sales Rep",
+    "truth": "On Time",
+    "time": "9:00 AM",
+    "type": "Part-time",
+    "status": "Contract",
+    "location": "Sokovia, NY",
+    "salary": {
+      "amount": "$3,000",
+      "perYear": "$36,000",
+      "transaction": "Completed",
+      "deduction": "-"
+    },
+    "company": {
+      "name": "Veneer Solutions",
+      "description": "Veneer Solutions is a creative agency specializing in digital design and development.",
+      "contactEmail": "sales@veneersolutions.com",
+      "contactPhone": "555-0146"
+    }
+  },
+  {
+    "id": "47",
+    "imagePath": "/images/profile7.jpg",
+    "name": "Steve Rogers",
+    "identityNum": "88234123",
+    "department": "Design",
+    "title": "Art Director",
+    "truth": "On Time",
+    "time": "8:30 AM",
+    "type": "Full-time",
+    "status": "Permanent",
+    "location": "Brooklyn, NY",
+    "salary": {
+      "amount": "$9,583",
+      "perYear": "$115,000",
+      "transaction": "Completed",
+      "deduction": "-"
+    },
+    "company": {
+      "name": "Veneer Solutions",
+      "description": "Veneer Solutions is a creative agency specializing in digital design and development.",
+      "contactEmail": "art@veneersolutions.com",
+      "contactPhone": "555-0147"
+    }
+  },
+  {
+    "id": "48",
+    "imagePath": "/images/profile6.jpg",
+    "name": "Natasha Romanoff",
+    "identityNum": "88234124",
+    "department": "Project Management",
+    "title": "Resource Manager",
+    "truth": "On Time",
+    "time": "8:55 AM",
+    "type": "Hybrid",
+    "status": "Permanent",
+    "location": "Washington, D.C.",
+    "salary": {
+      "amount": "$7,083",
+      "perYear": "$85,000",
+      "transaction": "Completed",
+      "deduction": "-"
+    },
+    "company": {
+      "name": "Veneer Solutions",
+      "description": "Veneer Solutions is a creative agency specializing in digital design and development.",
+      "contactEmail": "hr@veneersolutions.com",
+      "contactPhone": "555-0148"
+    }
+  },
+  {
+    "id": "49",
+    "imagePath": "/images/profile2.jpg",
+    "name": "Sam Wilson",
+    "identityNum": "88234125",
+    "department": "Marketing",
+    "title": "Brand Manager",
+    "truth": "On Time",
+    "time": "9:00 AM",
+    "type": "Full-time",
+    "status": "Permanent",
+    "location": "New Orleans, LA",
+    "salary": {
+      "amount": "$6,500",
+      "perYear": "$78,000",
+      "transaction": "Completed",
+      "deduction": "-"
+    },
+    "company": {
+      "name": "Veneer Solutions",
+      "description": "Veneer Solutions is a creative agency specializing in digital design and development.",
+      "contactEmail": "marketing@veneersolutions.com",
+      "contactPhone": "555-0149"
+    }
+  },
+  {
+    "id": "50",
+    "imagePath": "/images/profile4.png",
+    "name": "Peter Parker",
+    "identityNum": "88234126",
+    "department": "Engineering",
+    "title": "Junior Developer",
+    "truth": "Late",
+    "time": "9:30 AM",
+    "type": "Part-time",
+    "status": "Probation",
+    "location": "Queens, NY",
+    "salary": {
+      "amount": "$3,333",
+      "perYear": "$40,000",
+      "transaction": "Completed",
+      "deduction": "$10"
+    },
+    "company": {
+      "name": "Veneer Solutions",
+      "description": "Veneer Solutions is a creative agency specializing in digital design and development.",
+      "contactEmail": "eng@veneersolutions.com",
+      "contactPhone": "555-0150"
+    }
+  }
 ]

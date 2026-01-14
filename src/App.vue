@@ -6,7 +6,7 @@ import { RouterView } from 'vue-router'
 
 const verify = ref(false)
 const getWidth = () => {
-  const minWidth = 768
+  const minWidth = 0
   verify.value = window.innerWidth < minWidth || screen.width < minWidth
 }
 

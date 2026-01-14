@@ -26,7 +26,7 @@ onMounted(() => {
     <div class="home" :class="[isLight ? 'dark-theme' : 'light-theme']">
         <div class="home-sidebar"><SideBar @toggle-theme="toggleTheme" :isDark="isLight" /></div>
         <div class="main-content"><FixedHeader name="Employees" greeting="All Employee" /></div>
-        <div class="main-content employee-record"><EmployeeRecord /></div>
+        <div class="employee-record"><EmployeeRecord /></div>
     </div>
 </template>
 <style scoped>
@@ -35,7 +35,6 @@ onMounted(() => {
   min-height: 100vh;
 }
 .home-sidebar{
-  /* display: none; */
   margin: 10px 0 0 15px;
   border-radius: 10px;
   width: 250px;
@@ -47,11 +46,31 @@ onMounted(() => {
 }
 .main-content{
   margin:0 15px 0 280px;
-  /* min-height: 10vh; */
-  /* width: calc(100% - 250px); */
-  /* background-color: #1D1C24; */
 }
 .employee-record{
     padding: 100px 0 20px 0;
+    margin:0 15px 0 280px;
+}
+@media screen and (max-width: 768px) {
+  .home-sidebar {
+    position: static;
+    width: 100%;
+    height: auto;
+    margin: 80px 0 0 0;
+    overflow: scroll;
+  }
+
+  .main-content {
+    position: absolute;
+    top: 0;
+    margin: 0;
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .employee-record {
+    margin: 0 15px;
+    padding: 20px 0;
+  }
 }
 </style>

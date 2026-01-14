@@ -1,14 +1,16 @@
 <script setup>
+import { ref } from 'vue'
 import AttendanceList from "../attendance_overview/AttendanceList.vue";
+const searching = ref('')
 </script>
 <template>
   <div class="department">
     <div class="div1">
       <i class="pi pi-search"></i>
-      <input type="text" placeholder="Search..." />
+      <input type="text" v-model="searching" placeholder="Search..." />
     </div>
     <div>
-      <AttendanceList :showDiv="false"/>
+      <AttendanceList :received="searching" :showDiv="false"/>
     </div>
   </div>
 </template>

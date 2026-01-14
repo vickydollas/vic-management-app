@@ -9,7 +9,7 @@ const { isLight, toggleTheme } = useTheme()
 <template>
     <div class="home" :class="[isLight ? 'dark-theme' : 'light-theme']">
         <div class="home-sidebar">
-            <SideBar @toggle-theme="toggleTheme" :isDark="isLight" />
+            <SideBar @toggle-theme="toggleTheme()" :isDark="isLight" />
         </div>
         <div class="main-content">
             <FixedHeader name="Notifications" greeting="All Notification" />
