@@ -103,7 +103,7 @@ onMounted(() => {
 input[type="text"] {
   font-size: 15px;
   height: 1.2vh;
-  width: 220px;
+  width: 14rem;
   padding: 15px 0px 15px 35px;
   background-color: inherit;
   border: 1px solid var(--border-color);
@@ -160,7 +160,7 @@ input[type="text"] {
   padding: 0 auto;
   color: var(--text-color);
   padding: 10px 10px 0px 10px;
-  width: 30px;
+  width: 1rem;
   height: 4vh;
   background-color: var(--bg-color);
   border: 1px solid #d1d5dc;
@@ -183,18 +183,46 @@ input[type="text"] {
     left: 0px;
     padding: 0 10px;
   }
-  .headersection1{ flex: 0 0 40%;} .headersection2{ flex: 0 0 60%;}
-  .search-wrapper,
+  .headersection1 {
+    flex: 0 0 40%;
+  }
+  .headersection2 {
+    flex: 0 0 60%;
+  }
+  input[type="text"] {
+    font-size: var(--fs-aa);
+    height: 0.3vh;
+    width: 4rem;
+    padding: 15px 0px 15px 35px;
+    background-color: inherit;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+  }
   .pi-bell {
-    display: none;
+    padding: 5px;
+    font-size: var(--fs-a);
+    height: 1.5vh;
+  } .pi-angle-down { font-size: var(--fs-a);}
+  .headersection1 h1 {
+    font-size: var(--fs-vvvv);
+  }
+  .headersection1 h3 {
+    font-size: var(--fs-aa);
   }
   .profile-wrapper {
-    display: flex;
-    width: 100%;
-    border: 1px solid #d1d5dc;
-    border-radius: 10px;
-    align-self: center;
+    padding: 5px;
   }
-  .profile-wrapper img{ margin: 0 0 0 30px;}
+  .profile-wrapper img {
+    margin: 0 0 0 0;
+    width: 1rem;
+    height: 2vh;
+  }
+  .profile-wrapper > div > h3 {
+    font-size: var(--fs-aa);
+  }
+  .profile-wrapper > div > p {
+    font-size: var(--fs-aaa);
+  }
 }
 </style>

@@ -82,4 +82,13 @@ const onTimeFunc = computed(() => {
   font-size: var(--fs-sm);
   font-family: "roboto", sans-serif;
 }
+@media (max-width: 768px) {
+  .attendance-card{
+    display: block;
+  }
+  .txt2-2, .txt3-3, .txt6-6{
+    display: inline-block;
+    margin: 10px 10px 0 0;
+  }
+}
 </style>

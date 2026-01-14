@@ -87,7 +87,7 @@ const buttonKey = (status) => {
 }
 .payroll {
   padding: 0;
-  margin: 0 20px 0 0;
+  margin: 0 0px 0 0;
   border: 1px solid var(--border-color);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
@@ -160,5 +160,20 @@ input[type="text"] {
 }
 .payroll-3{
   margin: 10px 20px;
+}
+@media screen and (max-width: 768px) {
+  .payroll-1{
+    display: none;
+  }
+  .div3 h2, .div4 h2{
+    font-size: var(--fs-aaa);
+  }
+  .button{
+    font-size: var(--fs-aaa);
+    padding: 6px 10px;
+  }
+  .div4 img{
+  height: 1.5vh;
+  }
 }
 </style>

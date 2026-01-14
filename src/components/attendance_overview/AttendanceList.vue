@@ -144,4 +144,9 @@ label{
 .txt5 {
   flex-grow: 3;
 }
+@media (max-width: 768px) {
+  .div1, .div2{
+    display: none;
+  }
+}
 </style>

@@ -93,6 +93,7 @@ const handleToggle = () => {
 .header {
   /* margin: 20px 30px 20px 30px; */
   display: flex;
+  flex-direction: column;
   align-items: center;
   /* font-size: 25px; */
   color: var(--text-color);
@@ -194,16 +195,14 @@ a {
 }
 @media (max-width: 768px) {
   .sidebar {
-    /* background-color: var(--bg-color); */
     display: flex;
     flex-direction: row;
+    align-items: center;
     max-width: 0%;
     padding: 12px 0;
-    /* overflow-x: scroll; */
-    /* overflow-y: auto; */
   }
   .header{ display: none;}
-  .pi{ font-size: var(--fs-xs); display: inline; padding: 0 3px 0 0;}
+  .pi{ font-size: var(--fs-aaa); display: inline; padding: 0 3px 0 0; margin: 0 2px 0 0;}
   .container2{
     display: flex;
   }
@@ -213,9 +212,9 @@ a {
   display: block;
   font-family: "roboto", sans-serif;
   /* background-color: red; */
-  padding: 0px 3px;
+  padding: 5px 5px 0 5px;
   margin: 0;
-  font-size: var(--fs-xs);
+  font-size: var(--fs-aaa);
   /* width: 100%; */
   /* border-color: #ffffff;
     border-width: 2px; */

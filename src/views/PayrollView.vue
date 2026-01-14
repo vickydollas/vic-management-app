@@ -14,7 +14,7 @@ const { isLight, toggleTheme } = useTheme()
         <div class="main-content">
             <FixedHeader name="Payroll" greeting="All Employee Record" />
         </div>
-        <div class="main-content payroll-record">
+        <div class="payroll-record">
             <PayrollRecord />
             <!-- <h1>halleluyah</h1> -->
         </div>
@@ -24,7 +24,6 @@ const { isLight, toggleTheme } = useTheme()
 .home{
   background-color: var(--bg-color);
   min-height: 100vh;
-  /* padding-bottom: 20px; */
 }
 .home-sidebar{
   /* display: none; */
@@ -42,5 +41,32 @@ const { isLight, toggleTheme } = useTheme()
 }
 .payroll-record{
     padding: 100px 0 20px 0;
+    margin:0 15px 0 280px;
+
+}
+@media screen and (max-width: 768px) {
+  .home-sidebar {
+    position: static;
+    width: 100%;
+    height: auto;
+    margin: 70px 0 0 0;
+    overflow: scroll;
+    /* display: none; */
+  }
+
+  .main-content {
+    position: absolute;
+    top: 0;
+    margin: 0;
+    width: 100%;
+    padding: 0 10px;
+    /* display: none; */
+  }
+
+  .payroll-record {
+    margin: 0 15px;
+    padding: 20px 0;
+    /* display: none; */
+  }
 }
 </style>

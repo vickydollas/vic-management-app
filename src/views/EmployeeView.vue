@@ -56,7 +56,7 @@ onMounted(() => {
     position: static;
     width: 100%;
     height: auto;
-    margin: 80px 0 0 0;
+    margin: 70px 0 0 0;
     overflow: scroll;
   }
 
