@@ -1,34 +1,37 @@
 <script setup>
 import { RouterLink } from "vue-router";
-import { ref, onMounted, computed } from 'vue'
-import axios from 'axios'
+import { ref, onMounted, computed } from "vue";
+import axios from "axios";
 import EmployeeDetail from "./EmployeeDetail.vue";
 
-const jobs = ref([])
-const searchQuery = ref('')
-const limitNumber = ref(5)
+const jobs = ref([]);
+const searchQuery = ref("");
+const limitNumber = ref(5);
 const updateLimit = computed(() => {
-  return limitNumber.value
-})
-onMounted(async() => {
-    try {
-        const response = await axios.get('/jobs2.json')
-        jobs.value = response.data
-        const well = jobs.value
-        // console.log(well.department)
-    } catch (error) {
-        // console.log(error, "error here")
-    }
-})
+  return limitNumber.value;
+});
+onMounted(async () => {
+  try {
+    const response = await axios.get("/jobs2.json");
+    jobs.value = response.data;
+    const well = jobs.value;
+    // console.log(well.department)
+  } catch (error) {
+    // console.log(error, "error here")
+  }
+});
 const getSearch = computed(() => {
   if (!searchQuery.value) {
-    return jobs.value
+    return jobs.value;
   }
-  return jobs.value.filter(job => {
-    const search = searchQuery.value.toLowerCase()
-    return job.name?.toLowerCase().includes(search) || job.department?.toLowerCase().includes(search)
-  })
-})
+  return jobs.value.filter((job) => {
+    const search = searchQuery.value.toLowerCase();
+    return (
+      job.name?.toLowerCase().includes(search) ||
+      job.department?.toLowerCase().includes(search)
+    );
+  });
+});
 // console.log('happy')
 </script>
 <template>
@@ -42,14 +45,15 @@ const getSearch = computed(() => {
         <div class="sub1">
           <i
             class="pi pi-plus-circle"
-            style="color: #ddd; margin-right: 10px"
+            style="color: #ddd;"
           ></i>
           <router-link to="/">Add New Employee</router-link>
         </div>
         <div class="sub2">
           <i
             class="pi pi-list"
-            style="color: var(--text-color);font-size: var(--fs-xs); margin-right: 10px"
+            style="
+              color: var(--text-color);"
           ></i>
           <span>Filter</span>
         </div>
@@ -66,7 +70,12 @@ const getSearch = computed(() => {
         <h2 class="txt7">Action</h2>
       </div>
       <div class="div4">
-        <EmployeeDetail class="listings" v-for="job in getSearch.slice(0, updateLimit)" :key="job.id" :job="job" />
+        <EmployeeDetail
+          class="listings"
+          v-for="job in getSearch.slice(0, updateLimit)"
+          :key="job.id"
+          :job="job"
+        />
       </div>
     </div>
     <div class="container3">
@@ -78,14 +87,12 @@ const getSearch = computed(() => {
           <option value="15">15</option>
         </select>
       </div>
-      <div>
-
-      </div>
+      <div></div>
     </div>
   </div>
 </template>
 <style scoped>
-*{
+* {
   box-sizing: border-box;
 }
 .container {
@@ -119,7 +126,7 @@ input[type="text"] {
   color: var(--text-color);
   top: 11px;
   left: 5px;
-}
+} .pi-plus-circle, .pi-list { margin-right: 10px;}
 .div2 {
   display: flex;
 }
@@ -185,23 +192,41 @@ input[type="text"] {
 .txt7 {
   flex: 0 0 12%;
 }
-.container3{
-    display: flex;
-    margin: 30px 0 20px 20px;
+.container3 {
+  display: flex;
+  margin: 30px 0 20px 20px;
 }
-label{
-    color: #879DA8;
-    font-family: "roboto", sans-serif;
-    font-size: 16px;
-    margin: 0 10px 0 0;
+label {
+  color: #879da8;
+  font-family: "roboto", sans-serif;
+  font-size: 16px;
+  margin: 0 10px 0 0;
 }
 @media (max-width: 768px) {
-  .container1{
-    display: none;
+  .container1 {
+    /* display: none; */
   }
-  .div3{
-    display: none;
+  .div3 {
+    /* display: none; */
   }
-
+  .sub1 {
+    width: 100px;
+    height: 4vh;
+    padding: 0 0 0 6px;
+  }
+  .sub1 a {
+    font-size: var(--fs-aa);
+  }
+  input[type="text"] {
+    width: 120px;
+    height: 4vh;
+    border-radius: 8px;
+  }
+  .pi-plus-circle { font-size: var(--fs-aa); margin-right: 5px;}
+  .pi-list { font-size: var(--fs-aa); margin-left: 15px;}
+  .sub2 span { font-size: var(--fs-aa); }
+  .div3 h2 {
+    font-size: var(--fs-aa);
+  }
 }
 </style>

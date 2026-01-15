@@ -81,4 +81,9 @@ const percentageState = computed(() => {
   font-weight: 100;
   border-top: 3px solid var(--border-top);
 }
+@media screen and (max-width: 768px) {
+  .div1 h3 { font-size: var(--fs-vv);}
+  .pi { font-size: var(--fs-a);}
+  .txt1 { font-size: var(--fs-md);}
+}
 </style>

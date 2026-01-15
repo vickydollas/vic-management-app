@@ -1,36 +1,36 @@
 <script setup>
-import axios from 'axios'
-import { onMounted, ref, computed } from 'vue'
+import axios from "axios";
+import { onMounted, ref, computed } from "vue";
 
-const results = ref([])
-onMounted(async() => {
+const results = ref([]);
+onMounted(async () => {
   try {
-    const response = await axios.get('/openings.json')
-    results.value = response.data
+    const response = await axios.get("/openings.json");
+    results.value = response.data;
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
-})
+});
 
-const active = ref('active')
-const inActive = ref('inactive')
-const completd = ref('completed')
+const active = ref("active");
+const inActive = ref("inactive");
+const completd = ref("completed");
 
 const getActiveJobs = computed(() => {
-  return results.value.filter(available => {
-    return available.status === active.value
-  })
-})
+  return results.value.filter((available) => {
+    return available.status === active.value;
+  });
+});
 const getInActiveJobs = computed(() => {
-  return results.value.filter(available => {
-    return available.status === inActive.value
-  })
-})
+  return results.value.filter((available) => {
+    return available.status === inActive.value;
+  });
+});
 const getCompletedJobs = computed(() => {
-  return results.value.filter(available => {
-    return available.status === completd.value
-  })
-})
+  return results.value.filter((available) => {
+    return available.status === completd.value;
+  });
+});
 </script>
 <template>
   <div class="jobs-record">
@@ -39,13 +39,17 @@ const getCompletedJobs = computed(() => {
         <i class="pi pi-search"></i>
         <input type="text" placeholder="Search..." />
       </div>
-      <button>
-        <i class="pi pi-plus-circle" ></i>Add New Job
-      </button>
+      <button><i class="pi pi-plus-circle"></i>Add New Job</button>
     </div>
     <div class="jobs-record-2">
       <div class="div-01">
-        <h2><i class="pi pi-circle" style="background-color: #FF304F; color: #FF304F;"></i>Active Jobs</h2>
+        <h2>
+          <i
+            class="pi pi-circle"
+            style="background-color: #ff304f; color: #ff304f"
+          ></i
+          >Active Jobs
+        </h2>
         <div v-for="available in getActiveJobs" :key="available.id">
           <div class="segment-1">
             <i class="pi pi-briefcase"></i>
@@ -60,14 +64,23 @@ const getCompletedJobs = computed(() => {
             <span>{{ available.work_station }}</span>
           </div>
           <div class="segment-3">
-            <p><i class="pi pi-map-marker" ></i>{{ available.location }}</p>
-            <p>${{available.salary_max }} / Month</p>
+            <p><i class="pi pi-map-marker"></i>{{ available.location }}</p>
+            <p>${{ available.salary_max }} / Month</p>
           </div>
         </div>
       </div>
       <div class="div-02">
-        <h2><i class="pi pi-circle" style="background-color: #D39A07; color: #D39A07;"></i>Inactive Jobs</h2>
-        <div v-for="available in getInActiveJobs.slice(0, 3)" :key="available.id">
+        <h2>
+          <i
+            class="pi pi-circle"
+            style="background-color: #d39a07; color: #d39a07"
+          ></i
+          >Inactive Jobs
+        </h2>
+        <div
+          v-for="available in getInActiveJobs.slice(0, 3)"
+          :key="available.id"
+        >
           <div class="segment-1">
             <i class="pi pi-briefcase"></i>
             <div>
@@ -81,13 +94,19 @@ const getCompletedJobs = computed(() => {
             <span>{{ available.work_station }}</span>
           </div>
           <div class="segment-3">
-            <p><i class="pi pi-map-marker" ></i>{{ available.location }}</p>
-            <p>${{available.salary_max }} / Month</p>
+            <p><i class="pi pi-map-marker"></i>{{ available.location }}</p>
+            <p>${{ available.salary_max }} / Month</p>
           </div>
         </div>
       </div>
       <div class="div-03">
-        <h2><i class="pi pi-circle" style="background-color: #03A12F; color: #03A12F;"></i>Completed Jobs</h2>
+        <h2>
+          <i
+            class="pi pi-circle"
+            style="background-color: #03a12f; color: #03a12f"
+          ></i
+          >Completed Jobs
+        </h2>
         <div v-for="available in getCompletedJobs" :key="available.id">
           <div class="segment-1">
             <i class="pi pi-briefcase"></i>
@@ -103,7 +122,7 @@ const getCompletedJobs = computed(() => {
           </div>
           <div class="segment-3">
             <p><i class="pi pi-map-marker"></i>{{ available.location }}</p>
-            <p>${{available.salary_max }} / Month</p>
+            <p>${{ available.salary_max }} / Month</p>
           </div>
         </div>
       </div>
@@ -111,14 +130,18 @@ const getCompletedJobs = computed(() => {
   </div>
 </template>
 <style scoped>
-.div-01 > div, .div-02 > div, .div-03 > div {
+.div-01 > div,
+.div-02 > div,
+.div-03 > div {
   background-color: var(--bg-color);
   border: 1px solid var(--border-color);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   margin: 0 10px 20px 10px;
   border-radius: 10px;
 }
-.div-01 > h2, .div-02 > h2, .div-03 > h2{
+.div-01 > h2,
+.div-02 > h2,
+.div-03 > h2 {
   margin: 30px 0px 10px 10px;
 }
 .jobs-record {
@@ -146,9 +169,14 @@ input[type="text"] {
   height: 5.2vh;
   border-radius: 8px;
 }
-.pi-search { position: absolute; top: 11px; color: var(--text-color); left: 5px; }
-button{
-  background-color: #5B41CC;
+.pi-search {
+  position: absolute;
+  top: 11px;
+  color: var(--text-color);
+  left: 5px;
+}
+button {
+  background-color: #5b41cc;
   color: #ffffff;
   padding: 15px 10px;
   border-radius: 8px;
@@ -156,11 +184,17 @@ button{
   font-family: "roboto", sans-serif;
   font-size: 15px;
 }
-.pi-map-marker{ margin: 0 10px 0 0;}
-.pi-circle{ font-size: 15px; border-radius: 50px; margin-right: 10px; }
-.pi-briefcase{
+.pi-map-marker {
+  margin: 0 10px 0 0;
+}
+.pi-circle {
+  font-size: 15px;
+  border-radius: 50px;
+  margin-right: 10px;
+}
+.pi-briefcase {
   background-color: var(--briefcase-bg);
-  color: #6A7282;
+  color: #6a7282;
   padding: 15px;
   border-radius: 10px;
 }
@@ -170,35 +204,41 @@ button{
   gap: 20px;
   margin: 10px 10px;
 }
-.div-01, .div-02, .div-03 {
+.div-01,
+.div-02,
+.div-03 {
   border: 1px solid var(--border-color);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
 }
-.div-01 h2, .div-02 h2, .div-03 h2{
+.div-01 h2,
+.div-02 h2,
+.div-03 h2 {
   color: var(--text-color);
   font-family: "roboto", sans-serif;
   font-size: var(--fs-v);
 }
 /* segment 1 design */
-.segment-1{
+.segment-1 {
   display: flex;
   align-items: center;
   padding: 10px 0 0 10px;
 }
-.segment-1 > div > h4{
+.segment-1 > div > h4 {
   color: var(--text-color);
   font-size: var(--fs-v);
   font-family: "roboto", sans-serif;
 }
-.segment-1 > div { margin-left: 10px;}
-.segment-1 > div > p{
-  color: #9AA1A8;
+.segment-1 > div {
+  margin-left: 10px;
+}
+.segment-1 > div > p {
+  color: #9aa1a8;
   font-family: "roboto", sans-serif;
   font-size: var(--fs-sm);
   font-weight: 300;
 }
-.segment-2{
+.segment-2 {
   margin: 30px 0 0 0;
   padding: 10px 0 0 10px;
 }
@@ -207,7 +247,7 @@ span {
   font-family: "roboto", sans-serif;
   font-size: var(--fs-xs);
   font-weight: 200;
-  background-color: #7152F3;
+  background-color: #7152f3;
   margin-right: 10px;
   padding: 5px 10px;
   border-radius: 6px;
@@ -219,5 +259,28 @@ span {
   margin: 20px 0 0 0;
   padding: 10px 10px 10px 10px;
 }
-.segment-3 > p{ color: var(--text-color); font-family: "roboto", sans-serif; font-size: var(--fs-sm); font-weight: 300;}
+.segment-3 > p {
+  color: var(--text-color);
+  font-family: "roboto", sans-serif;
+  font-size: var(--fs-sm);
+  font-weight: 300;
+}
+@media screen and (max-width: 768px) {
+  .jobs-record-2 {
+    display: block;
+  }
+  .div-01,
+  .div-02,
+  .div-03 {
+    margin-bottom: 30px;
+  }
+  input[type="text"] {
+    width: 120px;
+    height: 4vh;
+  }
+  button {
+    padding: 10px 10px;
+    font-size: var(--fs-a);
+  }
+}
 </style>

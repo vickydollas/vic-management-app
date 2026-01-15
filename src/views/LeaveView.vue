@@ -14,7 +14,7 @@ const { isLight, toggleTheme } = useTheme()
         <div class="main-content">
             <FixedHeader name="Notifications" greeting="All Notification" />
         </div>
-        <div class="main-content leaves-record">
+        <div class="leaves-record">
             <LeavesRecord />
         </div>
     </div>
@@ -41,5 +41,27 @@ const { isLight, toggleTheme } = useTheme()
 }
 .leaves-record{
     padding: 100px 0 20px 0;
+}
+@media screen and (max-width: 768px) {
+  .home-sidebar {
+    position: static;
+    width: 100%;
+    height: auto;
+    margin: 70px 0 0 0;
+    overflow: scroll;
+  }
+
+  .main-content {
+    position: absolute;
+    top: 0;
+    margin: 0;
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .leaves-record {
+    margin: 0 15px;
+    padding: 20px 0;
+  }
 }
 </style>

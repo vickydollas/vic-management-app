@@ -108,4 +108,16 @@ p{
     font-family: "roboto", sans-serif;
     font-size: var(--fs-v);
 }
+@media screen and (max-width: 768px) {
+  input[type="text"] {
+  padding-left: 25px;
+  width: 120px;
+  height: 4vh;
+}
+button {font-size: var(--fs-vvv); padding: 10px;}
+h3, p { font-size: var(--fs-vvv);}
+.txt1, .txt1-1 { flex: 0 0 35%;}
+.txt2 { flex: 0 0 25%;}
+.pi-circle { font-size: var(--fs-a);}
+}
 </style>

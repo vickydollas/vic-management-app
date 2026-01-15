@@ -62,4 +62,15 @@ onMounted(() => {
 p, h3{
   font-family: "roboto", sans-serif;
 }
+@media screen and (max-width: 768px) {
+  .leaves-1 h2 {
+    font-size: var(--fs-vvv);
+  }
+  select { font-size: var(--fs-vvv);}
+  .leaves-2 h3 {
+    font-size: var(--fs-vvvv);
+  }
+  .leaves-2 img { width:10%; height: 3.5vh;}
+  .leaves-2 p { font-size: var(--fs-aa);}
+}
 </style>

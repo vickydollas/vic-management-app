@@ -34,15 +34,19 @@ onMounted(() => {
     </div>
 </template>
 <style scoped>
+*{
+  box-sizing: border-box;
+}
 .home{
   background-color: var(--bg-color);
   min-height: 100vh;
+  width: 100%;
 }
 .home-sidebar{
   /* display: none; */
   margin: 10px 0 0 15px;
   border-radius: 10px;
-  /* width: 250px; */
+  width: 250px;
   position: fixed;
   background-color: var(--sidebar-bg);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
@@ -54,15 +58,16 @@ onMounted(() => {
 }
 .attendance-record{
     padding: 100px 0 20px 0;
-    margin:0 15px 0 280px;
+    margin: 0 15px 0 280px;
 }
 @media screen and (max-width: 768px) {
   .home-sidebar {
     position: static;
     width: 100%;
     height: auto;
-    margin: 80px 0 0 0;
+    margin: 70px 0 0 0;
     overflow: scroll;
+    /* display: none; */
   }
 
   .main-content {
@@ -71,11 +76,12 @@ onMounted(() => {
     margin: 0;
     width: 100%;
     padding: 0 10px;
+    /* display: none; */
   }
 
   .attendance-record {
-    margin: 0 15px;
-    padding: 20px 0;
+    margin: 0 0px;
+    padding: 0px 0;
   }
 }
 </style>

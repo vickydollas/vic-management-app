@@ -197,4 +197,12 @@ label{
     font-size: 16px;
     margin: 0 10px 0 0;
 }
+@media screen and (max-width: 768px) {
+  .container1 {
+    display: none;
+  }
+  .div3 h2 {
+    font-size: var(--fs-vv);
+  }
+}
 </style>

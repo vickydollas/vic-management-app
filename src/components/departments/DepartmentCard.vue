@@ -1,5 +1,5 @@
 <script setup>
-import axios from 'axios'
+import axios from "axios";
 import { computed, defineProps, ref, onMounted } from "vue";
 import { RouterLink } from "vue-router";
 
@@ -8,18 +8,18 @@ const props = defineProps({
     type: String,
   },
   department: String,
-  segment: String
+  segment: String,
 });
-const jobs = ref([])
-onMounted(async() => {
+const jobs = ref([]);
+onMounted(async () => {
   try {
-    const response = await axios.get('/jobs2.json')
-    jobs.value = response.data
+    const response = await axios.get("/jobs2.json");
+    jobs.value = response.data;
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
-})
-const targetDepartment = ref(props.segment)
+});
+const targetDepartment = ref(props.segment);
 const getDepartment = computed(() => {
   if (!jobs.value || jobs.value.length === 0) {
     return [];
@@ -27,7 +27,7 @@ const getDepartment = computed(() => {
   return jobs.value.filter((job) => {
     return job.department === targetDepartment.value;
   });
-})
+});
 </script>
 <template>
   <div class="department-card">
@@ -35,10 +35,14 @@ const getDepartment = computed(() => {
       <div class="card-1">
         <h3>{{ props.department }}</h3>
         <p>{{ getDepartment.length }} Members</p>
-      </div>  
+      </div>
       <router-link :to="`${props.path}`">View All</router-link>
     </div>
-    <div class="department-card-2" v-for="job in getDepartment.slice(0, 5)" :key="job.id">
+    <div
+      class="department-card-2"
+      v-for="job in getDepartment.slice(0, 5)"
+      :key="job.id"
+    >
       <div class="card-2">
         <img :src="`${job.imagePath}`" alt="" />
         <div>
@@ -93,9 +97,9 @@ const getDepartment = computed(() => {
   align-items: center;
 }
 .card-2 img {
-width: 14%;
-border-radius: 50px;
-margin-right: 20px;
+  width: 14%;
+  border-radius: 50px;
+  margin-right: 20px;
 }
 .card-2 h2 {
   color: var(--text-color);
@@ -108,5 +112,33 @@ margin-right: 20px;
   font-size: var(--fs-sm);
   font-weight: 200;
 }
-.pi-angle-right{ color: var(--text-color);}
+.pi-angle-right {
+  color: var(--text-color);
+}
+@media screen and (max-width: 768px) {
+  .card-1 h3 {
+    font-size: var(--fs-aa);
+  }
+  .card-1 p {
+    font-size: var(--fs-aaa);
+  }
+  .department-card a {
+    font-size: var(--fs-a);
+  }
+  .department-card-2 {
+    margin-top: 10px;
+  }
+  .card-2 h2 {
+  color: var(--text-color);
+  font-family: "roboto", sans-serif;
+  font-weight: 400;
+  font-size: var(--fs-aa);
+}
+.card-2 p {
+  font-size: var(--fs-aaa);
+}
+.pi-angle-right {
+  font-size: var(--fs-aaa);
+}
+}
 </style>

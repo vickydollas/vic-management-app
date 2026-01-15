@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue'
+const widthNo = ref()
 
 const series = ref([
     {
@@ -24,7 +25,7 @@ const options = ref({
       <h2>Attendance Overview</h2>
       <button>Today</button>
     </div>
-    <div class="div2"><apexchart width="500" type="bar" :options="options" :series="series" /></div>
+    <div class="div2"><apexchart width="400" type="bar" :options="options" :series="series" /></div>
   </div>
 </template>
 <style scoped>
@@ -52,5 +53,8 @@ const options = ref({
   border-radius: 10px;
   font-family: "roboto", sans-serif;
   font-size: 15px;
+}
+@media screen and (max-width: 768px) {
+  
 }
 </style>

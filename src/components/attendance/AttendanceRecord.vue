@@ -41,4 +41,9 @@ input[type="text"] {
   top: 11px;
   left: 5px;
 }
+@media (max-width: 768px) {
+  .div1{
+    
+  }
+}
 </style>

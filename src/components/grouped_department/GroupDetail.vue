@@ -16,14 +16,14 @@ const props = defineProps({
         <p class="txt5">{{ props.job.type }}</p>
         <p class="txt6">{{ props.job.status }}</p>
         <div class="txt7">
-            <i class="pi pi-eye" style="padding-right: 10px;"></i>
-            <i class="pi pi-trash" style="padding-right: 10px;"></i>
-            <i class="pi pi-pencil" style="padding-right: 10px;"></i>
+            <i class="pi pi-eye" ></i>
+            <i class="pi pi-trash" ></i>
+            <i class="pi pi-pencil" ></i>
         </div>
     </div>
 </template>
 <style scoped>
-.pi-eye, .pi-trash, .pi-pencil { color: var(--text-color);}
+.pi-eye, .pi-trash, .pi-pencil { color: var(--text-color); padding-right: 10px;}
 .main{
     display: flex;
     /* align-content: center; */
@@ -77,5 +77,12 @@ const props = defineProps({
 .txt7{
     flex: 0 0 14%;
     align-self: center;
+}
+@media screen and (max-width: 768px) {
+  .container p {
+    font-size: var(--fs-vvvv);
+  }
+  .txt6 { font-size: var(--fs-a) !important; padding: 5px; border-radius: 4px;}
+  .pi-eye, .pi-trash, .pi-pencil { font-size: var(--fs-a); padding-right: 4px;}
 }
 </style>

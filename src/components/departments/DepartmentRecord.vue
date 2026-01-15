@@ -48,4 +48,13 @@ input[type="text"] {
   top: 11px;
   left: 5px;
 }
+@media screen and (max-width: 768px) {
+  .div2 {
+    gap: 0;
+  }
+  input[type="text"] {
+    width: 170px;
+    height: 4vh;
+  }
+}
 </style>

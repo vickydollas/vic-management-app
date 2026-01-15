@@ -138,4 +138,8 @@ input:checked + .slider {
 input:checked + .slider:before {
   transform: translateX(24px);
 }
+@media screen and (max-width: 768px) {
+  h1 { font-size: var(--fs-vvv);}
+  p { font-size: var(--fs-a);}
+}
 </style>

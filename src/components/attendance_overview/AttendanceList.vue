@@ -120,7 +120,7 @@ label{
 }
 .div2 {
   display: flex;
-  width: 100%;
+  /* width: 100%; */
   margin: 10px 30px;
 }
 .div2 h1 {
@@ -145,8 +145,10 @@ label{
   flex-grow: 3;
 }
 @media (max-width: 768px) {
-  .div1, .div2{
-    display: none;
-  }
+  .div2 h1 {
+  font-size: var(--fs-aaa);
+}
+.div1 h2 { font-size: var(--fs-v); align-self: center;}
+/* .div1 a { padding: 20px 0;} */
 }
 </style>

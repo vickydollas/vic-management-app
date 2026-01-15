@@ -15,7 +15,7 @@ const { toggleTheme } = useTheme()
         <div class="main-content">
             <FixedHeader name="Design Departments" greeting="All Departments > Design Department" />
         </div>
-        <div class="main-content department-record">
+        <div class="department-record">
             <DesignWorker department="Design" />
         </div>
     </div>
@@ -32,16 +32,40 @@ const { toggleTheme } = useTheme()
   border-radius: 10px;
   width: 250px;
   position: fixed;
-  background-color: var(--bg-color);
+  background-color: var(--sidebar-bg);
   height: 100vh;
   z-index: 10000;
 }
 .main-content{
   margin-left: 280px;
-  /* width: calc(100% - 250px); */
+  width: calc(100% - 250px);
   /* background-color: #1D1C24; */
 }
 .department-record{
-    padding: 100px 0 20px 0;
+  padding: 100px 0 20px 0;
+  margin-left: 280px;
+
+}
+@media screen and (max-width: 768px) {
+  .home-sidebar {
+    position: static;
+    width: 100%;
+    height: auto;
+    margin: 70px 0 0 0;
+    overflow: scroll;
+  }
+
+  .main-content {
+    position: absolute;
+    top: 0;
+    margin: 0;
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  .department-record {
+    margin: 0 15px;
+    padding: 20px 0;
+  }
 }
 </style>

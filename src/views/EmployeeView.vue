@@ -49,7 +49,7 @@ onMounted(() => {
 }
 .employee-record{
     padding: 100px 0 20px 0;
-    margin:0 15px 0 280px;
+    margin: 0 15px 0 280px;
 }
 @media screen and (max-width: 768px) {
   .home-sidebar {
@@ -58,6 +58,7 @@ onMounted(() => {
     height: auto;
     margin: 70px 0 0 0;
     overflow: scroll;
+    /* display: none; */
   }
 
   .main-content {
@@ -66,11 +67,12 @@ onMounted(() => {
     margin: 0;
     width: 100%;
     padding: 0 10px;
+    /* display: none; */
   }
 
   .employee-record {
-    margin: 0 15px;
-    padding: 20px 0;
+    margin: 0 0px;
+    padding: 0px 0;
   }
 }
 </style>

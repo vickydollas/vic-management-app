@@ -21,7 +21,7 @@ const onTimeFunc = computed(() => {
     <p class="txt2-2">{{ props.data.title }}</p>
     <p class="txt3-3">{{ props.data.type }}</p>
     <p class="txt4-4">{{ props.data.time }}</p>
-    <span class="txt5-5"><i class="txt6-6" :style="onTimeFunc">{{ props.data.truth }}</i></span>
+    <i class="txt6-6" :style="onTimeFunc">{{ props.data.truth }}</i>
   </div>
 </template>
 <style scoped>
@@ -77,18 +77,23 @@ const onTimeFunc = computed(() => {
   background-color: var(--percent-bg);
   color: var(--percent-color);
   padding: 10px 20px;
-  border-radius: 10px;
+  border-radius: 8px;
   font-style: normal;
   font-size: var(--fs-sm);
   font-family: "roboto", sans-serif;
 }
 @media (max-width: 768px) {
-  .attendance-card{
-    display: block;
+  .attendance-card p{
+  font-size: var(--fs-aaa);
   }
   .txt2-2, .txt3-3, .txt6-6{
     display: inline-block;
     margin: 10px 10px 0 0;
   }
+  .txt6-6 { padding: 5px 8px; border-radius: 4px; font-size: var(--fs-aaa);}
+  .txt1-1 img {
+  width: 15%;
+  height: 2vh;
+}
 }
 </style>

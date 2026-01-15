@@ -82,8 +82,8 @@ const props = defineProps({
     align-self: center;
 }
 @media (max-width: 768px) {
-    .main{
-        display: block;
+    .container p{
+        font-size: var(--fs-aaa);
     }
     .txt7{display: none;} .txt1 { margin-bottom: 5px;}
     .txt3, .txt4, .txt5{
@@ -94,5 +94,11 @@ const props = defineProps({
         margin: 10px 10px 10px 0;
         border-radius: 8px;
     }
+    .txt6 { font-size: var(--fs-aa) !important; padding: 7px 9px; border-radius: 5px;}
+    .txt1 { flex: 0 0 10%;}
+    .txt2 { flex: 0 0 18%;}
+    .txt3 { flex: 0 0 8%;}
+    .txt4 { flex: 0 0 15%;}
+    .txt5 { flex: 0 0 5%;}
 }
 </style>

@@ -32,4 +32,14 @@ margin-right: 20px;
 .div4 { grid-area: 2 / 2 / 3 / 3; }
 .div5 { grid-area: 3 / 1 / 5 / 3; }
 .div6 { grid-area: 1 / 3 / 5 / 6; }
+@media screen and (max-width: 768px) {
+  .home {
+    display: block;
+    margin-right: 5px;
+  }
+  /* .div5, .div6 { display: none;} */
+  div {
+    margin: 0 0 20px 0;
+  }
+}
 </style>
