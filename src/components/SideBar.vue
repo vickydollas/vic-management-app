@@ -84,16 +84,15 @@ const handleToggle = () => {
 </template>
 <style scoped>
 .sidebar {
-  /* background-color: var(--bg-color); */
   display: flex;
   flex-direction: column;
   max-width: 90%;
   padding: 15px 15px 0 15px;
 }
 .header {
-  /* margin: 20px 30px 20px 30px; */
+  margin: 0 0 20px 0;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: colu; */
   align-items: center;
   /* font-size: 25px; */
   color: var(--text-color);
@@ -220,8 +219,12 @@ a {
     border-width: 2px; */
   /* margin: 20px; */
 }
-.theme-toggle{
-    display: none;
+.theme-toggle {
+  position: relative;
+  bottom: 50px;
+  display: none;
+  width: 150px;
+  height: 25px;
 }
 }
 </style>

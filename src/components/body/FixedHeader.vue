@@ -48,33 +48,31 @@ onMounted(() => {
         <i class="pi pi-angle-down" @click="openLogout"></i>
       </div>
     </div>
-    <div class="headersection3" v-show="togglelogout" @click="clickLogout">
-      <div class="fade" @click.stop><LogoutDisplay /></div>
-    </div>
+    <Teleport to="body">
+      <div class="headersection3" v-show="togglelogout" @click="clickLogout">
+        <div class="fade" @click.stop><LogoutDisplay /></div>
+      </div>
+    </Teleport>
   </div>
 </template>
 <style scoped>
 .headersection3 {
   background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(5px);
-
-  /* Ensure it's on top of all regular content */
-  z-index: 9999;
-
-  /* Center the modal content using Flexbox */
+  z-index: 99999;
   display: flex;
   justify-content: center;
   align-items: center;
   position: fixed;
-  /* left: 500px; */
-  /* bottom: 300px; */
+  left: 0;
+  top: 0;
   height: 100vh;
   width: 100vw;
 }
 .headersection3 div {
   position: relative;
-  left: 170px;
-  bottom: 130px;
+  /* left: 300px; */
+  /* bottom: 150px; */
 }
 .headersection1 {
   margin: 20px 0 30px 0;
@@ -161,7 +159,7 @@ input[type="text"] {
   color: var(--text-color);
   padding: 10px 10px 0px 10px;
   width: 1rem;
-  height: 4vh;
+  height: 3.5vh;
   background-color: var(--bg-color);
   border: 1px solid #d1d5dc;
   border-radius: 10px;
@@ -171,7 +169,7 @@ input[type="text"] {
 .pi-search {
   font-size: var(--fs-sm);
   position: absolute;
-  top: 10px;
+  top: 12px;
   left: 8px;
   color: var(--text-color);
   /* font-weight: 100; */
@@ -203,7 +201,10 @@ input[type="text"] {
     padding: 5px;
     font-size: var(--fs-a);
     height: 1.5vh;
-  } .pi-angle-down { font-size: var(--fs-a);}
+  }
+  .pi-angle-down {
+    font-size: var(--fs-a);
+  }
   .headersection1 h1 {
     font-size: var(--fs-vvvv);
   }
@@ -223,6 +224,12 @@ input[type="text"] {
   }
   .profile-wrapper > div > p {
     font-size: var(--fs-aaa);
+  }
+  .headersection3 div {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
 }
 </style>

@@ -40,4 +40,8 @@
   font-family: "roboto", sans-serif;
   font-size: 20px;
 }
+@media (max-width: 768px) {
+  .my-profile, .logoutkey { font-size: var(--fs-v);}
+  .pi { padding-right: 10px;}
+}
 </style>

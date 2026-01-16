@@ -28,7 +28,7 @@ onMounted(() => {
             <SideBar @toggle-theme="toggleTheme" :isDark="isLight" />
         </div>
         <div class="main-content">
-            <FixedHeader name="Attendance" greeting="All Employee Attendance" />
+            <FixedHeader name="Hello Victor 🙋‍♂️" greeting="Good Morning" />
         </div>
         <div class="attendance-record">
             <HeaderSection />
