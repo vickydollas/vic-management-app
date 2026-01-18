@@ -78,7 +78,7 @@ onMounted(() => {
     padding: 0 10px;
     /* display: none; */
   }
-
+  .david{ display: none;}
   .attendance-record {
     margin: 0 0px;
     padding: 0px 0;
