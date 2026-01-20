@@ -1,5 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { useAuth } from '../composables/auth'
+
 import HomeView from '../views/HomeView.vue'
+import LoginView from '../views/LoginView.vue'
 import EmployeeView from '../views/EmployeeView.vue'
 import DepartmentView from '../views/DepartmentView.vue'
 import AttendanceView from '../views/AttendanceView.vue'
@@ -17,9 +20,15 @@ import SettingsView from '../views/SettingsView.vue'
 
 const routes = [
   {
+    path: '/login',
+    name: 'login',
+    component: LoginView
+  },
+  {
     path: '/',
     name: 'home',
-    component: HomeView
+    component: HomeView,
+    meta: { requiresAuth: true}
   },
   {
     path: '/employee',
@@ -61,12 +70,14 @@ const routes = [
   {
     path: '/attendance',
     name: 'attendance',
-    component: AttendanceView
+    component: AttendanceView,
+    meta: { requiresAuth: true, role: 'employee'}
   },
   {
     path: '/payroll',
     name: 'payroll',
-    component: PayrollView
+    component: PayrollView,
+    meta: { requiresAuth: true, role: 'employee'}
   },
   {
     path: '/jobs',
@@ -76,7 +87,8 @@ const routes = [
   {
     path: '/candidate',
     name: 'candidate',
-    component: CandidateView
+    component: CandidateView,
+    meta: { requiresAuth: true, role: 'employee'}
   },
   {
     path: '/leaves',
@@ -108,6 +120,16 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
+})
+router.beforeEach((to, from, next) => {
+  const auth = useAuth()
+  if (!auth.isLoggedIn.value && to.path !== '/login') {
+    return next('/login')
+  }
+  // if (to.meta.role && auth.state.user.role !== to.meta.role) {
+    // return next('/login')
+  // }
+  next()
 })
 
 export default router

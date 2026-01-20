@@ -149,6 +149,5 @@ label{
   font-size: var(--fs-aaa);
 }
 .div1 h2 { font-size: var(--fs-v); align-self: center;}
-/* .div1 a { padding: 20px 0;} */
 }
 </style>

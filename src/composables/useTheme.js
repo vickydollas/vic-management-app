@@ -17,7 +17,7 @@ export function useTheme () {
         }else if (option === 'dark') {
             isLight.value = true
         }else{
-            isLight.va = false
+            isLight.value = false
         }
         localStorage.setItem('theme', isLight.value ? 'light' : 'dark')
     }

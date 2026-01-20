@@ -1,10 +1,20 @@
 <script setup>
+import { useAuth } from '../../composables/auth'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+const auth = useAuth()
+
+const handleLogout = () => {
+  auth.logout()
+  router.push('/login')
+}
 </script>
 <template>
   <div class="logout">
     <div>
       <p class="my-profile"><i class="pi pi-user"></i>My Profile</p>
-      <p class="logoutkey"><i class="pi pi-sign-out"></i>Logout</p>
+      <p class="logoutkey cursor-pointer" @click="handleLogout()"><i class="pi pi-sign-out"></i>Logout</p>
     </div>
   </div>
 </template>

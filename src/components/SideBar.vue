@@ -1,6 +1,8 @@
 <script setup>
 import { RouterLink, useRoute } from "vue-router";
+import { useAuth } from '../composables/auth'
 
+const auth = useAuth()
 const route = useRoute();
 const isActive = (routePath) => {
   return route.path === routePath;
@@ -33,22 +35,22 @@ const handleToggle = () => {
         to="/department"
         ><i class="pi pi-microsoft"></i>All Departments</router-link
       >
-      <router-link
+      <router-link v-if="auth.state.user?.role === 'hr_head'"
         :class="[isActive('/attendance') ? 'bg-active' : 'bg-not']"
         to="/attendance"
         ><i class="pi pi-calendar-clock"></i>Attendance</router-link
       >
-      <router-link
+      <router-link v-if="auth.state.user?.role === 'hr_head'"
         :class="[isActive('/payroll') ? 'bg-active' : 'bg-not']"
         to="/payroll"
         ><i class="pi pi-dollar"></i>Payroll</router-link
       >
-      <router-link
+      <router-link v-if="auth.state.user?.role === 'hr_head'"
         :class="[isActive('/jobs') ? 'bg-active' : 'bg-not']"
         to="/jobs"
         ><i class="pi pi-briefcase"></i>Jobs</router-link
       >
-      <router-link
+      <router-link v-if="auth.state.user?.role === 'hr_head'"
         :class="[isActive('/candidate') ? 'bg-active' : 'bg-not']"
         to="/candidate"
         ><i class="pi pi-user"></i>Candidate</router-link
