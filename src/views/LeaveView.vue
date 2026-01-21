@@ -41,6 +41,7 @@ const { isLight, toggleTheme } = useTheme()
 }
 .leaves-record{
     padding: 100px 0 20px 0;
+    margin:0 15px 0 280px;
 }
 @media screen and (max-width: 768px) {
   .home-sidebar {

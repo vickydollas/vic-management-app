@@ -33,7 +33,8 @@ const routes = [
   {
     path: '/employee',
     name: 'employees',
-    component: EmployeeView
+    component: EmployeeView,
+    meta: { requiresAuth: true, role: 'hr_head'}
   },
   {
     path: '/department',
@@ -71,13 +72,13 @@ const routes = [
     path: '/attendance',
     name: 'attendance',
     component: AttendanceView,
-    meta: { requiresAuth: true, role: 'employee'}
+    meta: { requiresAuth: true, role: 'hr_head'}
   },
   {
     path: '/payroll',
     name: 'payroll',
     component: PayrollView,
-    meta: { requiresAuth: true, role: 'employee'}
+    meta: { requiresAuth: true, role: 'hr_head'}
   },
   {
     path: '/jobs',
@@ -88,7 +89,7 @@ const routes = [
     path: '/candidate',
     name: 'candidate',
     component: CandidateView,
-    meta: { requiresAuth: true, role: 'employee'}
+    meta: { requiresAuth: true, role: 'hr_head'}
   },
   {
     path: '/leaves',
@@ -127,7 +128,10 @@ router.beforeEach((to, from, next) => {
     return next('/login')
   }
   // if (to.meta.role && auth.state.user.role !== to.meta.role) {
-    // return next('/login')
+  //   return next('/login')
+  // }
+  // if (auth.state.user?.role !== to.meta.role) {
+  //   return next('.login')
   // }
   next()
 })

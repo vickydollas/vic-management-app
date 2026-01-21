@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import { useTheme } from "../composables/useTheme";
-import jobs2 from "../../public/jobs2.json";
+import jobs2 from "../jobs2.json";
 import { useAuth } from "../composables/auth";
 import { useRouter } from "vue-router";
 
@@ -10,7 +10,6 @@ const router = useRouter()
 const { isLight, toggleTheme } = useTheme();
 const inputName = ref("");
 const inputRole = ref("");
-// console.log(inputName)
 
 const findUser = () => {
   const user = jobs2.find(
@@ -24,7 +23,8 @@ const findUser = () => {
     router.push('/login')
     return
   }
-  auth.login({ name: user.name, role: user.role });
+  console.log(user)
+  auth.login({ name: user.name, role: user.role, title: user.title });
   router.push('/')
 };
 </script>
@@ -69,6 +69,7 @@ const findUser = () => {
 <style scoped>
 .home {
   background-color: var(--bg-color);
+  color: var(--text-color);
   min-height: 100vh;
   display: flex;
   justify-content: center;

@@ -1,12 +1,17 @@
 <script setup>
-import { ref, onMounted, defineProps } from "vue";
+import { ref, onMounted, computed } from "vue";
 import profile1 from "../../assets/profile1.jpg";
 import LogoutDisplay from "./LogoutDisplay.vue";
+import { useAuth } from "../../composables/auth"
 
+const auth = useAuth()
 const props = defineProps({
   name: String,
   greeting: String,
 });
+const displayName = auth.state.user?.name
+const displayRole = auth.state.user?.title
+console.log(displayRole)
 const togglelogout = ref(false);
 const openLogout = () => {
   togglelogout.value = !togglelogout.value;
@@ -30,7 +35,7 @@ onMounted(() => {
 <template>
   <div class="headersection flex justify-between fixed">
     <div class="headersection1">
-      <h1>{{ props.name }}</h1>
+      <h1>{{ displayName }}🙋‍♂️</h1>
       <h3>{{ props.greeting }}</h3>
     </div>
     <div class="headersection2">
@@ -42,8 +47,8 @@ onMounted(() => {
       <div class="profile-wrapper">
         <img :src="profile1" alt="" />
         <div>
-          <h3>Victor John</h3>
-          <p>HR Manager</p>
+          <h3>{{ displayName }}</h3>
+          <p>{{ displayRole }}</p>
         </div>
         <i class="pi pi-angle-down" @click="openLogout"></i>
       </div>
