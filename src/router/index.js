@@ -127,9 +127,9 @@ router.beforeEach((to, from, next) => {
   if (!auth.isLoggedIn.value && to.path !== '/login') {
     return next('/login')
   }
-  // if (to.meta.role && auth.state.user.role !== to.meta.role) {
-  //   return next('/login')
-  // }
+  if (to.meta.role && auth.state.user.role !== to.meta.role) {
+    return next('/login')
+  }
   // if (auth.state.user?.role !== to.meta.role) {
   //   return next('.login')
   // }

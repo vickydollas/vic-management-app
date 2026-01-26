@@ -11,7 +11,7 @@ const props = defineProps({
 });
 const displayName = auth.state.user?.name
 const displayRole = auth.state.user?.title
-console.log(displayRole)
+// console.log(displayRole)
 const togglelogout = ref(false);
 const openLogout = () => {
   togglelogout.value = !togglelogout.value;
