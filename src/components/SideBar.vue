@@ -39,7 +39,6 @@ const navMenu = ref([
       <router-link v-for="item in navMenu" :key="item"  :class="[isActive(item.path) ? 'bg-active' : 'bg-not']" :to="item.path"
         ><i class="pi pi-th-large"></i>{{ item.name }}</router-link
       >
-      
     </div>
     <div class="theme-toggle" @click="handleToggle">
       <div class="slider" :class="{ 'is-dark': !isLight }"></div>
