@@ -17,16 +17,16 @@ const handleToggle = () => {
 };
 // nav menu 
 const navMenu = ref([
-  {name: 'Dashboard', path: '/'},
-  {name: 'Employee', path: '/employee'},
-  {name: 'All Department', path: '/department'},
-  {name: 'Attendance', path: '/attendance'},
-  {name: 'Payroll', path: '/payroll'},
-  {name: 'Jobs', path: '/jobs'},
-  {name: 'Candidate', path: '/candidate'},
-  {name: 'Leaves', path: '/leaves'},
-  {name: 'Holidays', path: '/holiday'},
-  {name: 'Settings', path: '/settings'}
+  {id: 1,name: 'Dashboard', path: '/'},
+  {id: 2,name: 'Employee', path: '/employee'},
+  {id: 3,name: 'All Department', path: '/department'},
+  {id: 4,name: 'Attendance', path: '/attendance', key: 'hr_head'},
+  {id: 5,name: 'Payroll', path: '/payroll', key: 'hr_head'},
+  {id: 6,name: 'Jobs', path: '/jobs', key: 'hr_read'},
+  {id: 7,name: 'Candidate', path: '/candidate', key: 'hr_head'},
+  {id: 8,name: 'Leaves', path: '/leaves'},
+  {id: 9,name: 'Holidays', path: '/holiday'},
+  {id: 10,name: 'Settings', path: '/settings'}
 ])
 </script>
 <template>
@@ -35,9 +35,62 @@ const navMenu = ref([
       <i class="pi pi-bitcoin"></i>
       <h1>SLOTS</h1>
     </div>
-    <div class="container2">
-      <router-link v-for="item in navMenu" :key="item"  :class="[isActive(item.path) ? 'bg-active' : 'bg-not']" :to="item.path"
+    <!-- <div class="container2">
+      <router-link
+      v-show="auth.state.user?.role === 'hr_head'" 
+      v-for="item in navMenu" :key="item.id" 
+      :class="[isActive(item.path) ? 'bg-active' : 'bg-not']" :to="item.path"
         ><i class="pi pi-th-large"></i>{{ item.name }}</router-link
+      >
+    </div> -->
+    <div class="container2">
+      <router-link :class="[isActive('/') ? 'bg-active' : 'bg-not']" to="/"
+        ><i class="pi pi-th-large"></i>Dashboard</router-link
+      >
+      <router-link
+        :class="[isActive('/employee') ? 'bg-active' : 'bg-not']"
+        to="/employee"
+        ><i class="pi pi-users"></i>All Employees</router-link
+      >
+      <router-link
+        :class="[isActive('/department') ? 'bg-active' : 'bg-not']"
+        to="/department"
+        ><i class="pi pi-microsoft"></i>All Departments</router-link
+      >
+      <router-link v-if="auth.state.user?.role === 'hr_head'"
+        :class="[isActive('/attendance') ? 'bg-active' : 'bg-not']"
+        to="/attendance"
+        ><i class="pi pi-calendar-clock"></i>Attendance</router-link
+      >
+      <router-link v-if="auth.state.user?.role === 'hr_head'"
+        :class="[isActive('/payroll') ? 'bg-active' : 'bg-not']"
+        to="/payroll"
+        ><i class="pi pi-dollar"></i>Payroll</router-link
+      >
+      <router-link v-if="auth.state.user?.role === 'hr_head'"
+        :class="[isActive('/jobs') ? 'bg-active' : 'bg-not']"
+        to="/jobs"
+        ><i class="pi pi-briefcase"></i>Jobs</router-link
+      >
+      <router-link v-if="auth.state.user?.role === 'hr_head'"
+        :class="[isActive('/candidate') ? 'bg-active' : 'bg-not']"
+        to="/candidate"
+        ><i class="pi pi-user"></i>Candidate</router-link
+      >
+      <router-link
+        :class="[isActive('/leaves') ? 'bg-active' : 'bg-not']"
+        to="/leaves"
+        ><i class="pi pi-calendar-plus"></i>Leaves</router-link
+      >
+      <router-link
+        :class="[isActive('/holiday') ? 'bg-active' : 'bg-not']"
+        to="/holiday"
+        ><i class="pi pi-calendar"></i>Holidays</router-link
+      >
+      <router-link
+        :class="[isActive('/settings') ? 'bg-active' : 'bg-not']"
+        to="/settings"
+        ><i class="pi pi-cog"></i>Settings</router-link
       >
     </div>
     <div class="theme-toggle" @click="handleToggle">

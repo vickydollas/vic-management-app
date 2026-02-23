@@ -29,7 +29,7 @@ const findUser = () => {
 };
 </script>
 <template>
-  <div class="home" :class="[isLight ? 'dark-theme' : 'light-theme']">
+  <div class="home" :class="[isLight ? 'dark-theme' : 'dark-theme']">
     <div
       class="border border-width border-[var(--border-color)] rounded-[10px] p-[50px]"
     >
