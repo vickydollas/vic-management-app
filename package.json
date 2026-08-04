@@ -11,7 +11,7 @@
     "@syncfusion/ej2-vue-calendars": "^31.2.12",
     "@tailwindcss/vite": "^4.1.18",
     "apexcharts": "^5.3.6",
-    "axios": "^1.13.2",
+    "axios": "^1.18.1",
     "primeicons": "^7.0.0",
     "tailwindcss": "^4.1.18",
     "vue": "^3.2.13",

@@ -34,10 +34,11 @@ const findUser = () => {
       class="border border-width border-[var(--border-color)] rounded-[10px] p-[50px]"
     >
       <h1 class="text-[#ffffff]">Welcome 👋</h1>
-      <p class="text-[#323138] my-3">Please Login Here {{ inputName }}</p>
+      <p class="text-[#323138] my-3">Please Login Here</p>
       <form @submit.prevent="findUser">
         <div>
           <input
+          value="Victor John"
             type="text"
             placeholder="Name"
             v-model="inputName"
@@ -47,6 +48,7 @@ const findUser = () => {
         </div>
         <div>
           <input
+          value="hr_head"
             type="text"
             placeholder="Role"
             v-model="inputRole"
@@ -61,6 +63,10 @@ const findUser = () => {
           >
             Login
           </button>
+        </div>
+        <div>
+          <p>Username: Victor John</p>
+          <p>Role: hr_head</p>
         </div>
       </form>
     </div>
