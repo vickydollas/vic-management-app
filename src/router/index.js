@@ -127,8 +127,9 @@ router.beforeEach((to, from, next) => {
   if (!auth.isLoggedIn.value && to.path !== '/login') {
     return next('/login')
   }
-  if (to.meta.role && auth.state.user.role !== to.meta.role) {
-    return next('/login')
+  if (to.meta.role && auth.state.user?.role !== to.meta.role) {
+    // logged in but not allowed: send to dashboard instead of the login page
+    return next('/')
   }
   // if (auth.state.user?.role !== to.meta.role) {
   //   return next('.login')

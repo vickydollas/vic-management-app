@@ -1,89 +1,77 @@
 <script setup>
-import { defineProps, computed } from "vue"
+import { computed } from "vue";
 
 const props = defineProps({
   details: String,
   numbering: Number,
   icon: String,
-  percentage: Number
-})
-const percentageState = computed(() => {
-  if (props.percentage <= 5 ){
-    return{ backgroundColor: 'var(--puntual-bg)', color: 'var(--puntual-color)'}
-  }
-})
+  percentage: Number,
+});
+
+// a low growth figure is flagged red, anything else green
+const isLow = computed(() => props.percentage <= 5);
+const formatted = computed(() => props.numbering?.toLocaleString());
 </script>
 
 <template>
-  <div class="container">
-    <div class="div1">
-        <i class="pi" :class="`${props.icon}`"></i>
-        <h3>{{ props.details }}</h3>
-    </div>  
-    <div class="div2">
-        <p class="txt1">{{ props.numbering }}</p>
-        <p class="txt2" :style="percentageState">{{ props.percentage }} %</p>
+  <article class="stat card">
+    <div class="stat-head">
+      <span class="icon-tile"><i class="pi" :class="props.icon"></i></span>
+      <h3>{{ props.details }}</h3>
     </div>
-    <p class="txt3">Update: November 21, 2025</p>
-  </div>
+    <div class="stat-body">
+      <p class="value">{{ formatted }}</p>
+      <span class="badge" :class="isLow ? 'badge-danger' : 'badge-success'">
+        <i class="pi" :class="isLow ? 'pi-arrow-down-right' : 'pi-arrow-up-right'"></i>
+        {{ props.percentage }}%
+      </span>
+    </div>
+    <p class="updated">Update: November 21, 2025</p>
+  </article>
 </template>
+
 <style scoped>
-.container{
-  border: 1px solid var(--border-color);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  width: 100%;
-}
-.div1{
+.stat {
   display: flex;
-  padding: 20px 0px 0 20px;
+  flex-direction: column;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
-.div1 h3{
-  color: var(--text-color);
-  align-content: center;
-  padding: 0 0 0 10px;
-  font-family: "roboto", sans-serif;
-  font-weight: 100;
-  font-size: var(--fs-sm);
+.stat:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
-.pi{
-  border: 1px solid var(--icon-color);
-  padding: 10px;
-  border-radius: 10px;
-  color: #7152F3;
-  background-color: var(--icon-bg);
-  font-size: 25px;
-}
-/* second div styling */
-.div2{
+.stat-head {
   display: flex;
-  justify-content: space-between;
-  padding: 10px 20px;
   align-items: center;
+  gap: 12px;
+  padding: 18px 20px 0;
 }
-.txt1{
-  font-family: "roboto", sans-serif;
-  font-size: 25px;
-  font-weight: 700;
-  color: var(--text-color);
+.stat-head h3 {
+  font-size: var(--fs-base);
+  font-weight: 400;
+  color: var(--text-muted);
 }
-.txt2{
-  background-color: var(--percent-bg);
-  color: var(--percent-color);
-  padding: 10px 25px;
-  border-radius: 10px;
+.stat-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 14px 20px 18px;
 }
-.txt3{
-  padding: 10px 0 10px 10px;
-  color: #95A1A8;
-  font-family: "roboto", sans-serif;
-  font-size: var(--fs-sm);
-  font-weight: 100;
-  border-top: 3px solid var(--border-top);
+.value {
+  font-size: var(--fs-2xl);
+  font-weight: 600;
+  line-height: 1;
+  color: var(--text);
 }
-@media screen and (max-width: 768px) {
-  .div1 h3 { font-size: var(--fs-vv);}
-  .pi { font-size: var(--fs-a);}
-  .txt1 { font-size: var(--fs-md);}
+.badge .pi {
+  font-size: 0.65rem;
+}
+.updated {
+  margin-top: auto;
+  padding: 12px 20px;
+  border-top: 1px solid var(--border);
+  font-size: var(--fs-xs);
+  color: var(--text-subtle);
 }
 </style>

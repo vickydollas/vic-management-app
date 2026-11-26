@@ -13,7 +13,7 @@ const logout = () => {
 }
 const isLoggedIn = computed(() => !!state.user)
 const isEmployee = computed(() => state.user?.title === "employee")
-const isAdmin = computed(() => { state.user?.title === "HR Manager"})
+const isAdmin = computed(() => state.user?.title === "HR Manager")
 
 export function useAuth() {
     return {

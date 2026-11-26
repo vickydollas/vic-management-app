@@ -1,123 +1,118 @@
 <script setup>
-import axios from 'axios'
-import { ref, onMounted } from 'vue'
+import axios from "axios";
+import { ref, computed, onMounted } from "vue";
 
-const isLoading = ref(false)
-const error = ref(null)
-const holiday = ref([])
+const isLoading = ref(false);
+const error = ref(null);
+const holiday = ref([]);
+const searchQuery = ref("");
 
 const getHoliday = async () => {
-    isLoading.value = true
-    error.value = null
-    try {
-        const response = await axios.get('/holidays.json')
-        if (!response) {
-            throw new Error("Link Error");
-        }
-        holiday.value = response.data
-    } catch (error) {
-        console.error('error loading', error)
-        error.value = 'loading failed'
-    }finally {
-        isLoading.value = false
-    }
-}
-onMounted(() => {
-    getHoliday()
-})
-const isActive = (status) => {
-    if (status === 'true') {
-        return {
-            borderLeft: '5px solid #7152F3'
-        }
-    }
-}
+  isLoading.value = true;
+  error.value = null;
+  try {
+    const response = await axios.get("/holidays.json");
+    holiday.value = response.data;
+  } catch (err) {
+    console.error(err);
+    error.value = "Could not load holidays";
+  } finally {
+    isLoading.value = false;
+  }
+};
+onMounted(getHoliday);
+
+const filtered = computed(() => {
+  const search = searchQuery.value.trim().toLowerCase();
+  if (!search) return holiday.value;
+  return holiday.value.filter((h) => h.holiday_name?.toLowerCase().includes(search));
+});
+
+// status "true" = upcoming holiday
+const isUpcoming = (h) => h.status === "true";
 </script>
+
 <template>
-  <div class="holidays-record border border-width border-[var(--border-color)] rounded-[7px] px-3 py-4">
-    <div class="div1 flex justify-between ">
-      <div class="search-1">
+  <section class="card">
+    <div class="toolbar">
+      <label class="search">
         <i class="pi pi-search"></i>
-        <input type="text" placeholder="Search..." />
+        <input class="input" type="text" v-model="searchQuery" placeholder="Search holiday..." />
+      </label>
+      <button class="btn btn-primary"><i class="pi pi-plus"></i> Add New Holiday</button>
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Day</th>
+            <th>Holiday Name</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="h in filtered" :key="h.id" :class="{ past: !isUpcoming(h) }">
+            <td>
+              <span class="date" :class="{ upcoming: isUpcoming(h) }">{{ h.date }}</span>
+            </td>
+            <td class="muted">{{ h.day_of_week }}</td>
+            <td>{{ h.holiday_name }}</td>
+            <td>
+              <span class="badge" :class="isUpcoming(h) ? 'badge-accent' : ''">
+                {{ isUpcoming(h) ? "Upcoming" : "Past" }}
+              </span>
+            </td>
+          </tr>
+          <tr v-if="error">
+            <td colspan="4" class="empty-state"><i class="pi pi-exclamation-triangle"></i>{{ error }}</td>
+          </tr>
+          <tr v-else-if="!isLoading && filtered.length === 0">
+            <td colspan="4" class="empty-state"><i class="pi pi-search"></i>No holidays match your search</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card-footer">
+      <div class="legend">
+        <span><i class="dot upcoming-dot"></i> Upcoming</span>
+        <span><i class="dot past-dot"></i> Past Holidays</span>
       </div>
-      <button class="rounded-[8px] bg-[#7152F3] text-white text-[16px] border-none py-4 px-5"><i class="pi text-[15px] mr-2 pi-plus-circle" style="color: #ffffff"></i>Add New Holiday</button>
     </div>
-    <div class="div2 mt-5 ">
-        <div class="flex border-b border-[#323138] py-2">
-            <h3 class="txt1">Date</h3>
-            <h3 class="txt2">Day</h3>
-            <h3 class="txt3">Holiday Name</h3>
-        </div>
-        <div class="flex border-b border-[#323138] " v-for="holidays in holiday" :key="holidays.id">
-            <p class="txt1-1 py-3 pl-2 my-3 " :style="isActive(holidays.status)">{{ holidays.date }}</p>
-            <p class="txt2 py-3 my-3">{{ holidays.day_of_week }}</p>
-            <p class="txt3 py-3 my-3">{{ holidays.holiday_name }}</p>
-        </div>
-    </div>
-    <div class="flex mt-8">
-        <p class="mr-6"><i class="pi pi-circle rounded-[50px] text-[#7152F3] bg-[#7152F3] mr-2"></i>Upcoming</p>
-        <p><i class="pi pi-circle bg-[#322F37] rounded-[50px] text-[#322F37] mr-2" ></i>Past Holidays</p>
-    </div>
-  </div>
+  </section>
 </template>
+
 <style scoped>
-.holidays-record{ box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);}
-.search-1 {
-  position: relative;
-  z-index: 0 !important;
+.date {
+  display: inline-block;
+  padding-left: 12px;
+  border-left: 3px solid var(--border-strong);
 }
-.pi-search {
-  position: absolute;
-  color: var(--text-color);
-  top: 11px;
-  left: 5px;
+.date.upcoming {
+  border-left-color: var(--accent);
+  font-weight: 500;
 }
-input[type="text"] {
-  background-color: inherit;
-  border: 1px solid var(--border-color);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  padding-left: 25px;
-  width: 290px;
-  height: 5.2vh;
-  border-radius: 8px;
+tr.past td {
+  color: var(--text-muted);
 }
-button{
-    font-family: "roboto", sans-serif;
-    cursor: pointer;
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
 }
-.txt1{
-    flex: 0 0 20%;
+.legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
-.txt1-1{
-    flex: 0 0 20%;
-    border-left: 5px solid #322F37;
+.upcoming-dot {
+  color: var(--accent);
 }
-.txt2{
-    flex: 0 0 15%;
-}
-.txt3{
-    flex: 0 0 35%;
-}
-h3{
-    color: #A2A1A8;
-    font-family: "roboto", sans-serif;
-    font-size: var(--fs-v);
-}
-p{
-    color: var(--text-color);
-    font-family: "roboto", sans-serif;
-    font-size: var(--fs-v);
-}
-@media screen and (max-width: 768px) {
-  input[type="text"] {
-  padding-left: 25px;
-  width: 120px;
-  height: 4vh;
-}
-button {font-size: var(--fs-vvv); padding: 10px;}
-h3, p { font-size: var(--fs-vvv);}
-.txt1, .txt1-1 { flex: 0 0 35%;}
-.txt2 { flex: 0 0 25%;}
-.pi-circle { font-size: var(--fs-a);}
+.past-dot {
+  color: var(--border-strong);
 }
 </style>

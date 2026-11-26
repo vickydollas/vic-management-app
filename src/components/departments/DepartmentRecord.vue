@@ -1,60 +1,58 @@
 <script setup>
-import DepartmentCard from './DepartmentCard.vue'
+import { ref, onMounted } from "vue";
+import { useEmployeeStore } from "../../stores/employees";
+import DepartmentCard from "./DepartmentCard.vue";
+
+const departments = [
+  { segment: "Design", path: "/department/design", name: "Design Department" },
+  { segment: "Engineering", path: "/department/engineering", name: "Engineering Department" },
+  { segment: "Sales", path: "/department/sales", name: "Sales Department" },
+  { segment: "Project Management", path: "/department/management", name: "Project Management Department" },
+  { segment: "Marketing", path: "/department/marketing", name: "Marketing Department" },
+];
+
+// employees come from the shared store (file data + added employees)
+const store = useEmployeeStore();
+const searchQuery = ref("");
+onMounted(() => store.fetchEmployees());
 </script>
+
 <template>
-  <div class="department">
-    <div class="div1">
-      <i class="pi pi-search"></i>
-      <input type="text" placeholder="Search..." />
+  <div class="departments">
+    <div class="toolbar card">
+      <label class="search">
+        <i class="pi pi-search"></i>
+        <input class="input" type="text" v-model="searchQuery" placeholder="Search employee..." />
+      </label>
     </div>
-    <div class="div2">
-        <DepartmentCard segment="Design" path="/department/design" department="Design Department" />
-        <DepartmentCard segment="Engineering" path="/department/engineering" department="Engineering Department" />
-        <DepartmentCard segment="Sales" path="/department/sales" department="Sales Department" />
-        <DepartmentCard segment="Project Management" path="/department/management" department="Project management Department" />
-        <DepartmentCard segment="Marketing" path="/department/marketing" department="Marketing Department" />
+    <div class="dept-grid">
+      <DepartmentCard
+        v-for="dept in departments"
+        :key="dept.segment"
+        :segment="dept.segment"
+        :path="dept.path"
+        :department="dept.name"
+        :employees="store.employees"
+        :search="searchQuery"
+      />
     </div>
   </div>
 </template>
+
 <style scoped>
-.div2{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+.departments {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
-.department{
-    border: 1px solid var(--border-color);
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    padding-bottom: 25px;
+.dept-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
 }
-.div1 {
-  position: relative;
-  z-index: 0 !important;
-  margin: 20px 0 0 10px;
-}
-input[type="text"] {
-  background-color: inherit;
-  border: 1px solid var(--border-color);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  padding-left: 25px;
-  width: 290px;
-  height: 5.2vh;
-  border-radius: 8px;
-}
-.pi-search {
-  position: absolute;
-  color: var(--text-color);
-  top: 11px;
-  left: 5px;
-}
-@media screen and (max-width: 768px) {
-  .div2 {
-    gap: 0;
-  }
-  input[type="text"] {
-    width: 170px;
-    height: 4vh;
+@media (max-width: 900px) {
+  .dept-grid {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 </style>

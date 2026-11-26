@@ -1,45 +1,64 @@
 <script setup>
 import BodyDetails from "./BodyDetails.vue";
-import DisplayCalendar from "./DisplayCalendar.vue"
-import DisplayGraph from "./DisplayGraph.vue"
+import DisplayCalendar from "./DisplayCalendar.vue";
+import DisplayGraph from "./DisplayGraph.vue";
+
+const stats = [
+  { icon: "pi-users", details: "Total Employee", numbering: 560, percentage: 16 },
+  { icon: "pi-th-large", details: "Total Applicant", numbering: 1060, percentage: 8 },
+  { icon: "pi-calendar", details: "Total Attendance", numbering: 420, percentage: 10 },
+  { icon: "pi-building-columns", details: "Total Projects", numbering: 600, percentage: 2 },
+];
 </script>
 
 <template>
-  <div class="home">
-    <div class="div1"><BodyDetails :icon="'pi-users'" details="Total Employee" numbering="560" percentage="16" /></div>
-    <div class="div2"><BodyDetails :icon="'pi-th-large'" details="Total Applicant" numbering="1060" percentage="8" /></div>
-    <div class="div3"><BodyDetails :icon="'pi-calendar'" details="Total Attendance" numbering="420" percentage="10" /></div>
-    <div class="div4"><BodyDetails :icon="'pi-building-columns'" details="Total Projects" numbering="600" percentage="2" /></div>
-    <div class="div5"><DisplayGraph /></div>
-    <div class="div6"><DisplayCalendar /></div>
+  <div class="overview">
+    <div class="main-col">
+      <div class="stats">
+        <BodyDetails v-for="stat in stats" :key="stat.details" v-bind="stat" />
+      </div>
+      <DisplayGraph />
+    </div>
+    <DisplayCalendar class="side-col" />
   </div>
 </template>
 
 <style scoped>
-.home{
-display: grid;
-grid-template-columns: 6.5fr 6.5fr 3fr 1fr 1fr;
-grid-column-gap: 20px;
-grid-row-gap: 10px;
-margin-right: 20px;
+.overview {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 20px;
+  align-items: start;
 }
-.div1, .div2, .div3, .div4{
+.main-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
 
-}
-.div1 { grid-area: 1 / 1 / 2 / 2; }
-.div2 { grid-area: 1 / 2 / 2 / 3; }
-.div3 { grid-area: 2 / 1 / 3 / 2; }
-.div4 { grid-area: 2 / 2 / 3 / 3; }
-.div5 { grid-area: 3 / 1 / 5 / 3; }
-.div6 { grid-area: 1 / 3 / 5 / 6; }
-@media screen and (max-width: 768px) {
-  .home {
-    display: block;
-    margin-right: 5px;
+@media (max-width: 1280px) {
+  .overview {
+    grid-template-columns: minmax(0, 1fr);
   }
-  /* .div5, .div6 { display: none;} */
-  div {
-    margin: 0 0 20px 0;
+  .stats {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+@media (max-width: 1100px) {
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 520px) {
+  .stats {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
   }
 }
 </style>

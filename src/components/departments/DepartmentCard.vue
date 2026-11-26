@@ -1,144 +1,80 @@
 <script setup>
-import axios from "axios";
-import { computed, defineProps, ref, onMounted } from "vue";
+import { computed } from "vue";
 import { RouterLink } from "vue-router";
 
 const props = defineProps({
-  path: {
-    type: String,
-  },
+  path: String,
   department: String,
   segment: String,
+  employees: { type: Array, default: () => [] },
+  search: { type: String, default: "" },
 });
-const jobs = ref([]);
-onMounted(async () => {
-  try {
-    const response = await axios.get("/jobs2.json");
-    jobs.value = response.data;
-  } catch (error) {
-    console.log(error);
-  }
-});
-const targetDepartment = ref(props.segment);
-const getDepartment = computed(() => {
-  if (!jobs.value || jobs.value.length === 0) {
-    return [];
-  }
-  return jobs.value.filter((job) => {
-    return job.department === targetDepartment.value;
-  });
+
+const members = computed(() => props.employees.filter((e) => e.department === props.segment));
+const shown = computed(() => {
+  const search = props.search.trim().toLowerCase();
+  return members.value.filter((e) => e.name?.toLowerCase().includes(search)).slice(0, 5);
 });
 </script>
-<template>
-  <div class="department-card">
-    <div class="department-card-1">
-      <div class="card-1">
-        <h3>{{ props.department }}</h3>
-        <p>{{ getDepartment.length }} Members</p>
-      </div>
-      <router-link :to="`${props.path}`">View All</router-link>
-    </div>
-    <div
-      class="department-card-2"
-      v-for="job in getDepartment.slice(0, 5)"
-      :key="job.id"
-    >
-      <div class="card-2">
-        <img :src="`${job.imagePath}`" alt="" />
-        <div>
-          <h2>{{ job.name }}</h2>
-          <p>{{ job.title }}</p>
-        </div>
-      </div>
-      <i class="pi pi-angle-right"></i>
-    </div>
-  </div>
-</template>
-<style scoped>
-.department-card {
-  border: 1px solid var(--border-color);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  margin: 30px 10px 0 10px;
-  border-radius: 8px;
-}
-.department-card-1 {
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px solid #323138;
-  margin: 10px 15px;
-  padding: 10px 0px;
-}
-.department-card-1 a {
-  text-decoration: none;
-  color: #6e52ec;
-  font-size: 17px;
-  font-family: "roboto", sans-serif;
-}
-.card-1 h3 {
-  color: var(--text-color);
-  font-size: var(--fs-md);
-  font-family: "roboto", sans-serif;
-}
-.card-1 p {
-  color: #a2a1a8;
-  font-size: 14px;
-  margin: 5px 0 0 0;
-}
-.department-card-2 {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 20px 20px 8px 20px;
-}
 
-/* testing */
-.card-2 {
+<template>
+  <section class="card dept">
+    <div class="card-header">
+      <div>
+        <h3 class="card-title">{{ props.department }}</h3>
+        <p class="card-subtitle">{{ members.length }} Members</p>
+      </div>
+      <RouterLink :to="props.path" class="link">View All</RouterLink>
+    </div>
+
+    <ul class="members">
+      <li v-for="job in shown" :key="job.id">
+        <RouterLink :to="props.path" class="member">
+          <div class="person">
+            <img class="avatar" :src="job.imagePath" alt="" />
+            <div class="person-text">
+              <p class="person-name">{{ job.name }}</p>
+              <p class="person-meta">{{ job.title }}</p>
+            </div>
+          </div>
+          <i class="pi pi-angle-right"></i>
+        </RouterLink>
+      </li>
+      <li v-if="shown.length === 0" class="empty-state">No matching members</li>
+    </ul>
+  </section>
+</template>
+
+<style scoped>
+.members {
+  list-style: none;
+  padding: 8px;
+}
+.member {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  transition: background-color 0.12s ease;
 }
-.card-2 img {
-  width: 14%;
-  border-radius: 50px;
-  margin-right: 20px;
+.member:hover {
+  background: var(--surface-2);
 }
-.card-2 h2 {
-  color: var(--text-color);
-  font-family: "roboto", sans-serif;
-  font-weight: 400;
-  font-size: var(--fs-v);
+.person-text {
+  min-width: 0;
 }
-.card-2 p {
-  color: #a2a1a8;
+.member .pi {
+  color: var(--text-subtle);
   font-size: var(--fs-sm);
-  font-weight: 200;
+  transition: transform 0.15s ease, color 0.15s ease;
 }
-.pi-angle-right {
-  color: var(--text-color);
+.member:hover .pi {
+  color: var(--accent-text);
+  transform: translateX(2px);
 }
-@media screen and (max-width: 768px) {
-  .card-1 h3 {
-    font-size: var(--fs-aa);
-  }
-  .card-1 p {
-    font-size: var(--fs-aaa);
-  }
-  .department-card a {
-    font-size: var(--fs-a);
-  }
-  .department-card-2 {
-    margin-top: 10px;
-  }
-  .card-2 h2 {
-  color: var(--text-color);
-  font-family: "roboto", sans-serif;
-  font-weight: 400;
-  font-size: var(--fs-aa);
-}
-.card-2 p {
-  font-size: var(--fs-aaa);
-}
-.pi-angle-right {
-  font-size: var(--fs-aaa);
-}
+.empty-state {
+  padding: 24px;
 }
 </style>

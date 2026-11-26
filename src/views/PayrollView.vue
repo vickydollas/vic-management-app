@@ -1,72 +1,10 @@
- <script setup>
- import { useTheme } from '../composables/useTheme'
-import SideBar from "../components/SideBar.vue";
-import FixedHeader from '../components/body/FixedHeader.vue'
+<script setup>
+import AppLayout from "../components/layout/AppLayout.vue";
 import PayrollRecord from "../components/payroll/PayrollRecord.vue";
-
-const { isLight, toggleTheme } = useTheme()
 </script>
+
 <template>
-    <div class="home" :class="[isLight ? 'dark-theme' : 'light-theme']">
-        <div class="home-sidebar">
-            <SideBar @toggle-theme="toggleTheme" :isDark="isLight" />
-        </div>
-        <div class="main-content">
-            <FixedHeader name="Payroll" greeting="All Employee Record" />
-        </div>
-        <div class="payroll-record">
-            <PayrollRecord />
-            <!-- <h1>halleluyah</h1> -->
-        </div>
-    </div>
+  <AppLayout title="Payroll" subtitle="All Employee Payroll">
+    <PayrollRecord />
+  </AppLayout>
 </template>
-<style scoped>
-.home{
-  background-color: var(--bg-color);
-  min-height: 100vh;
-}
-.home-sidebar{
-  /* display: none; */
-  margin: 10px 0 0 15px;
-  border-radius: 10px;
-  width: 250px;
-  position: fixed;
-  background-color: var(--sidebar-bg);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  height: 100vh;
-  z-index: 10000;
-}
-.main-content{
-  margin:0 15px 0 280px;
-}
-.payroll-record{
-    padding: 100px 0 20px 0;
-    margin:0 15px 0 280px;
-
-}
-@media screen and (max-width: 768px) {
-  .home-sidebar {
-    position: static;
-    width: 100%;
-    height: auto;
-    margin: 70px 0 0 0;
-    overflow: scroll;
-    /* display: none; */
-  }
-
-  .main-content {
-    position: absolute;
-    top: 0;
-    margin: 0;
-    width: 100%;
-    padding: 0 10px;
-    /* display: none; */
-  }
-
-  .payroll-record {
-    margin: 0 15px;
-    padding: 20px 0;
-    /* display: none; */
-  }
-}
-</style>

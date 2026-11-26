@@ -1,121 +1,20 @@
-<template>
-  <div class="calendar-container">
-    <header class="calendar-header">
-      <button @click="changeMonth(-1)">&lt;</button>
-      <h2>{{ monthNames[currentMonth] }} {{ currentYear }}</h2>
-      <button @click="changeMonth(1)">&gt;</button>
-    </header>
-
-    <div class="calendar-grid">
-      <div v-for="day in daysOfWeek" :key="day" class="weekday-label">
-        {{ day }}
-      </div>
-
-      <div
-        v-for="blank in firstDayOfMonth"
-        :key="'blank-' + blank"
-        class="calendar-day empty"
-      ></div>
-
-      <div
-        v-for="date in daysInMonth"
-        :key="date"
-        class="calendar-day"
-        :class="{ 'is-today': isToday(date) }"
-        @click="selectDate(date)"
-      >
-        <span class="date-number">{{ date }}</span>
-      </div>
-    </div>
-    <div>
-      <div class="div3">
-        <p>Wednesday, 6TH June 2025</p>
-        <i class="pi pi-ellipsis-v"></i>
-      </div>
-      <div class="div4">
-        <p>9:30</p>
-        <div>
-          <h2>UI/UX Designer</h2>
-          <p>Practical Task Review</p>
-        </div>
-      </div>
-      <div class="div4">
-        <p>9:30</p>
-        <div>
-          <h2>UI/UX Designer</h2>
-          <p>Practical Task Review</p>
-        </div>
-      </div>
-      <div class="div4">
-        <p>9:30</p>
-        <div>
-          <h2>UI/UX Designer</h2>
-          <p>Practical Task Review</p>
-        </div>
-      </div>
-      <div>
-        <div class="div3">
-          <p>Wednesday, 6TH June 2025</p>
-          <i class="pi pi-ellipsis-v"></i>
-        </div>
-        <div class="div4">
-          <p>9:30</p>
-          <div>
-            <h2>UI/UX Designer</h2>
-            <p>Practical Task Review</p>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div class="div3">
-          <p>Wednesday, 6TH June 2025</p>
-          <i class="pi pi-ellipsis-v"></i>
-        </div>
-        <div class="div4">
-          <p>9:30</p>
-          <div>
-            <h2>UI/UX Designer</h2>
-            <p>Practical Task Review</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div></div>
-  </div>
-</template>
-
 <script setup>
 import { ref, computed } from "vue";
 
 const today = new Date();
 const currentMonth = ref(today.getMonth());
 const currentYear = ref(today.getFullYear());
+const selectedDate = ref(null);
 
 const monthNames = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December",
 ];
-const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const daysOfWeek = ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"];
 
-// Calculate how many days are in the current month
-const daysInMonth = computed(() => {
-  return new Date(currentYear.value, currentMonth.value + 1, 0).getDate();
-});
-
-// Find the starting weekday (0-6) of the month
-const firstDayOfMonth = computed(() => {
-  return new Date(currentYear.value, currentMonth.value, 1).getDay();
-});
+// days in the shown month, and the weekday (0-6) it starts on
+const daysInMonth = computed(() => new Date(currentYear.value, currentMonth.value + 1, 0).getDate());
+const firstDayOfMonth = computed(() => new Date(currentYear.value, currentMonth.value, 1).getDay());
 
 const changeMonth = (step) => {
   currentMonth.value += step;
@@ -128,151 +27,175 @@ const changeMonth = (step) => {
   }
 };
 
-const isToday = (date) => {
-  return (
-    today.getDate() === date &&
-    today.getMonth() === currentMonth.value &&
-    today.getFullYear() === currentYear.value
-  );
-};
+const isToday = (date) =>
+  today.getDate() === date &&
+  today.getMonth() === currentMonth.value &&
+  today.getFullYear() === currentYear.value;
+
+const isSelected = (date) =>
+  selectedDate.value &&
+  selectedDate.value.date === date &&
+  selectedDate.value.month === currentMonth.value &&
+  selectedDate.value.year === currentYear.value;
 
 const selectDate = (date) => {
-  alert(
-    `You clicked on ${monthNames[currentMonth.value]} ${date}, ${
-      currentYear.value
-    }`
-  );
+  selectedDate.value = { date, month: currentMonth.value, year: currentYear.value };
 };
+
+const schedule = [
+  {
+    day: "Wednesday, 6th June 2025",
+    items: [
+      { time: "09:30", role: "UI/UX Designer", task: "Practical Task Review" },
+      { time: "12:00", role: "Magento Developer", task: "Resume Review" },
+      { time: "01:30", role: "Sales Manager", task: "Final HR Round" },
+    ],
+  },
+  {
+    day: "Thursday, 7th June 2025",
+    items: [{ time: "09:30", role: "Front End Developer", task: "Practical Task Review" }],
+  },
+  {
+    day: "Friday, 8th June 2025",
+    items: [{ time: "11:00", role: "React JS", task: "TL Meeting" }],
+  },
+];
 </script>
 
+<template>
+  <section class="card calendar">
+    <header class="cal-head">
+      <button class="btn-icon btn-sm" aria-label="Previous month" @click="changeMonth(-1)">
+        <i class="pi pi-angle-left"></i>
+      </button>
+      <h2>{{ monthNames[currentMonth] }} {{ currentYear }}</h2>
+      <button class="btn-icon btn-sm" aria-label="Next month" @click="changeMonth(1)">
+        <i class="pi pi-angle-right"></i>
+      </button>
+    </header>
+
+    <div class="cal-grid">
+      <span v-for="day in daysOfWeek" :key="day" class="weekday">{{ day }}</span>
+      <span v-for="blank in firstDayOfMonth" :key="'blank-' + blank"></span>
+      <button
+        v-for="date in daysInMonth"
+        :key="date"
+        class="day"
+        :class="{ today: isToday(date), selected: isSelected(date) }"
+        @click="selectDate(date)"
+      >
+        {{ date }}
+      </button>
+    </div>
+
+    <div class="schedule">
+      <div v-for="group in schedule" :key="group.day" class="group">
+        <div class="group-head">
+          <p>{{ group.day }}</p>
+          <button class="btn-icon borderless btn-sm" aria-label="More"><i class="pi pi-ellipsis-v"></i></button>
+        </div>
+        <div v-for="item in group.items" :key="item.time + item.role" class="event">
+          <span class="time">{{ item.time }}</span>
+          <div class="event-body">
+            <p class="role">{{ item.role }}</p>
+            <p class="task">{{ item.task }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
+
 <style scoped>
-.calendar-container {
-  max-width: 600px;
-  margin: 0px auto;
-  border: 1px solid var(--border-color);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
-  overflow: hidden;
-  font-family: sans-serif;
-  /* background-color: inherit; */
+.calendar {
+  padding: 18px;
 }
-
-.calendar-header {
+.cal-head {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 1rem;
-  /* background: #f8f9fa; */
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.cal-head h2 {
+  font-size: var(--fs-md);
+  font-weight: 600;
+  color: var(--text);
 }
 
-.calendar-grid {
+.cal-grid {
   display: grid;
-  grid-template-columns: repeat(7, 50px);
-  color: var(--text-color);
-}
-
-.weekday-label {
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 4px;
   text-align: center;
-  font-weight: bold;
-  padding: 10px;
-  /* background: #eee; */
 }
-
-.calendar-day {
-  min-height: 40px;
-  /* border: 0.5px solid #eee; */
-  padding: 5px;
-  cursor: pointer;
-  /* background: #fff; */
+.weekday {
+  padding: 4px 0 8px;
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  color: var(--text-subtle);
 }
-
-.calendar-day:hover {
-  background: #f0f7ff;
+.day {
+  aspect-ratio: 1;
+  max-height: 40px;
   border-radius: 10px;
+  color: var(--text);
+  font-size: var(--fs-sm);
+  transition: background-color 0.12s ease, color 0.12s ease;
+}
+.day:hover {
+  background: var(--surface-2);
+}
+.day.today {
+  background: var(--accent);
+  color: var(--on-accent);
+  font-weight: 600;
+}
+.day.selected:not(.today) {
+  background: var(--accent-soft);
+  color: var(--accent-text);
+  font-weight: 600;
 }
 
-.empty {
-  /* background: #fafafa; */
-  cursor: default;
+.schedule {
+  margin-top: 18px;
+  padding-top: 6px;
+  border-top: 1px solid var(--border);
 }
-
-.is-today {
-  background: var(--bg-color);
-  border-radius: 10px;
-  font-weight: bold;
-  color: #007bff;
-}
-
-.date-number {
-  font-size: 0.9rem;
-}
-
-/* imported */
-.div1 {
+.group-head {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  margin: 10px 20px 20px 20px;
+  margin: 12px 0 6px;
 }
-.div1 h4 {
-  font-family: "roboto", sans-serif;
-  color: #ffffff;
-  font-size: 20px;
-  align-self: center;
+.group-head p {
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--text);
 }
-.pi-calendar {
-  font-size: 28px;
-  color: #7152f3;
-  background-color: #201b32;
-  padding: 15px;
-  border-radius: 10px;
-}
-/* div 3 styling */
-.div3 {
+.event {
   display: flex;
-  justify-content: space-between;
-  margin: 22px 0 0 17px;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 0;
 }
-.div3 p {
-  color: var(--text-color);
-  font-family: "roboto", sans-serif;
-  font-size: var(--fs-v);
-  align-self: center;
+.time {
+  width: 44px;
+  flex-shrink: 0;
+  font-size: var(--fs-base);
+  font-weight: 600;
+  color: var(--text);
 }
-.pi-ellipsis-v {
-  font-size: 18px;
-  color: var(--text-color);
-  margin-right: 10px;
+.event-body {
+  padding-left: 14px;
+  border-left: 3px solid var(--accent);
 }
-/* div 4 styling  */
-.div4 {
-  display: flex;
-
-  /* justify-content: space; */
-  margin: 20px 20px;
+.role {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
 }
-.div4 div {
-  padding-left: 30px;
-}
-.div4 > p {
-  color: var(--text-color);
-  font-family: "roboto", sans-serif;
-  font-size: var(--fs-v);
-  font-weight: 800;
-  padding: 10px 30px 10px 0px;
-  border-right: 3px solid #5e45c4;
-  align-self: center;
-}
-.div4 > div > h2,
-.div4 > div > p {
-  color: var(--text-color);
-  font-family: "roboto", sans-serif;
-  font-size: var(--fs-v);
-  /* font-weight: 200; */
-}
-.div4 > div > h2 {
-  font-weight: 100; 
-}
-.div4 > div > p {
-  font-weight: 800;
+.task {
+  font-size: var(--fs-base);
+  font-weight: 500;
+  color: var(--text);
 }
 </style>

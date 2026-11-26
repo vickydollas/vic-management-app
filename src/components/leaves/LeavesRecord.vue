@@ -1,76 +1,108 @@
 <script setup>
-import axios from 'axios'
-import { ref, onMounted } from 'vue'
+import axios from "axios";
+import { ref, computed, onMounted } from "vue";
 
-const isLoading = ref(false)
-const error = ref(null)
-const notification = ref([])
+const isLoading = ref(false);
+const error = ref(null);
+const notification = ref([]);
+const order = ref("newest");
 
 const getNotification = async () => {
-  isLoading.value = true
-  error.value = null
-
+  isLoading.value = true;
+  error.value = null;
   try {
-    const response = await axios.get('/notification.json')
-    if (!response) {
-      throw new Error("Error fetching");
-    }
-    notification.value = response.data
-  } catch (error) {
-    console.error("404 error", error)
-    error.value = 'Could not fetch data'
+    const response = await axios.get("/notification.json");
+    notification.value = response.data;
+  } catch (err) {
+    console.error("404 error", err);
+    error.value = "Could not fetch data";
   } finally {
-    isLoading.value = false
+    isLoading.value = false;
   }
-}
-onMounted(() => {
-  getNotification()
-})
+};
+onMounted(getNotification);
+
+// the file is already newest-first
+const sorted = computed(() =>
+  order.value === "newest" ? notification.value : [...notification.value].reverse()
+);
 </script>
+
 <template>
-  <div class="border border-solid border-[var(--border-color)] py-3 px-2 rounded-[10px] leaves">
-    <div class="leaves-1 flex justify-between items-center border-b py-2 border-[#323138]">
-      <h2 class="text-[var(--text-color)] font-['roboto'] text-[1.1rem]">Notifications</h2>
-      <select class="bg-[var(--bg-color)] text-[var(--text-color)] py-3 px-3 text-[1rem] font-mono rounded-[7px]" name="" id="">
-        <option value="">Newest First</option>
-        <option value="">Oldest First</option>
+  <section class="card">
+    <div class="card-header">
+      <div>
+        <h2 class="card-title">Notifications</h2>
+        <p class="card-subtitle">Leave requests and updates</p>
+      </div>
+      <select class="select select-sm" v-model="order" aria-label="Sort notifications">
+        <option value="newest">Newest First</option>
+        <option value="oldest">Oldest First</option>
       </select>
     </div>
-    <div
-     class="leaves-2 flex justify-between border-b border-[#323138] items-center py-3"
-     v-for="notifications in notification"
-     :key="notifications.id"
-     >
-      <div class="flex items-center">
-        <img
-        class="w-13 h-13 rounded-[50px] mr-3"
-         :src="`${notifications.imagePath}`" alt="">
-        <div>
-          <h3 class="text-[var(--text-color)] text-[1rem]">{{ notifications.message }}</h3>
-          <p class="text-[#95A1A8] text-[1rem]">{{ notifications.content }}</p>
+
+    <ul class="list">
+      <li v-for="item in sorted" :key="item.id" class="item">
+        <img class="avatar avatar-lg" :src="item.imagePath" alt="" />
+        <div class="body">
+          <p class="title">{{ item.message }}</p>
+          <p class="content">{{ item.content }}</p>
         </div>
-      </div>
-      <p class="text-[14px] text-[var(--text-color)]">{{ notifications.timestamp }}</p>
-    </div>
-  </div>
+        <span class="time">{{ item.timestamp }}</span>
+      </li>
+      <li v-if="error" class="empty-state"><i class="pi pi-exclamation-triangle"></i>{{ error }}</li>
+      <li v-else-if="!isLoading && sorted.length === 0" class="empty-state">
+        <i class="pi pi-bell"></i>You're all caught up
+      </li>
+    </ul>
+  </section>
 </template>
+
 <style scoped>
-.leaves{ box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);}
-.leaves-1 h2{
-  font-family: "roboto", sans-serif;
+.list {
+  list-style: none;
 }
-p, h3{
-  font-family: "roboto", sans-serif;
+.item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  border-top: 1px solid var(--border);
+  transition: background-color 0.12s ease;
 }
-@media screen and (max-width: 768px) {
-  .leaves-1 h2 {
-    font-size: var(--fs-vvv);
+.item:first-child {
+  border-top: none;
+}
+.item:hover {
+  background: var(--surface-2);
+}
+.body {
+  flex: 1;
+  min-width: 0;
+}
+.title {
+  font-weight: 500;
+  color: var(--text);
+}
+.content {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+.time {
+  flex-shrink: 0;
+  font-size: var(--fs-xs);
+  color: var(--text-subtle);
+  white-space: nowrap;
+}
+@media (max-width: 560px) {
+  .item {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 14px 16px;
   }
-  select { font-size: var(--fs-vvv);}
-  .leaves-2 h3 {
-    font-size: var(--fs-vvvv);
+  .time {
+    width: 100%;
+    padding-left: 58px;
   }
-  .leaves-2 img { width:10%; height: 3.5vh;}
-  .leaves-2 p { font-size: var(--fs-aa);}
 }
 </style>

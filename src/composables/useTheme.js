@@ -1,36 +1,39 @@
-import { ref, onMounted } from 'vue'
-const isLight = ref(false)
-const valueSelection = ref('dark')
+import { ref, computed, watchEffect } from 'vue'
+
+// mode: 'light' | 'dark' | 'system'
+const STORAGE_KEY = 'theme-mode'
+
+function readStoredMode () {
+  const saved = localStorage.getItem(STORAGE_KEY)
+  if (saved === 'light' || saved === 'dark' || saved === 'system') return saved
+
+  // one-time migration: the old 'theme' key stored the label inverted
+  // ('light' meant the dark theme was showing)
+  const legacy = localStorage.getItem('theme')
+  if (legacy) {
+    localStorage.removeItem('theme')
+    return legacy === 'light' ? 'dark' : 'light'
+  }
+  return 'system'
+}
+
+const media = window.matchMedia('(prefers-color-scheme: dark)')
+const systemDark = ref(media.matches)
+media.addEventListener('change', (e) => { systemDark.value = e.matches })
+
+const mode = ref(readStoredMode())
+const isDark = computed(() => mode.value === 'dark' || (mode.value === 'system' && systemDark.value))
+
+// apply the theme class to <html> so every page, the body and teleported content all match
+watchEffect(() => {
+  const root = document.documentElement
+  root.classList.toggle('dark-theme', isDark.value)
+  root.classList.toggle('light-theme', !isDark.value)
+  localStorage.setItem(STORAGE_KEY, mode.value)
+})
+
 export function useTheme () {
-    const toggleTheme = () => {
-        isLight.value = !isLight.value
-        if (isLight.value) {
-            localStorage.setItem('theme', 'light')
-        } else {
-            localStorage.setItem('theme', 'dark')
-        }
-    }
-    const optionTheme = (option) => {
-        valueSelection.value = option
-        if (option === 'light') {
-            isLight.value = false
-        }else if (option === 'dark') {
-            isLight.value = true
-        }else{
-            isLight.value = false
-        }
-        localStorage.setItem('theme', isLight.value ? 'light' : 'dark')
-    }
-    onMounted(() => {
-        const savedItem = localStorage.getItem('theme')
-        // const previousTheme = window.matchMedia('(prefers-color-scheme: light)').matches 
-        if (savedItem === 'light') {
-            isLight.value = true
-        }
-    })
-    return{
-        isLight,
-        toggleTheme,
-        optionTheme
-    }
+  const setMode = (value) => { mode.value = value }
+  const toggleTheme = () => { mode.value = isDark.value ? 'light' : 'dark' }
+  return { mode, isDark, setMode, toggleTheme }
 }

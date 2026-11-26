@@ -1,254 +1,215 @@
 <script setup>
-import { RouterLink, useRoute } from "vue-router";
+import { computed } from 'vue'
+import { RouterLink, useRoute } from 'vue-router'
 import { useAuth } from '../composables/auth'
-import { ref } from 'vue'
+import { useTheme } from '../composables/useTheme'
+
+defineProps({
+  open: Boolean,
+})
+defineEmits(['close'])
 
 const auth = useAuth()
-const route = useRoute();
-const isActive = (routePath) => {
-  return route.path === routePath;
-};
-defineProps({
-  isDark: Boolean,
-});
-const emit = defineEmits(["toggle-theme"]);
-const handleToggle = () => {
-  emit("toggle-theme");
-};
-// nav menu 
-const navMenu = ref([
-  {id: 1,name: 'Dashboard', path: '/'},
-  {id: 2,name: 'Employee', path: '/employee'},
-  {id: 3,name: 'All Department', path: '/department'},
-  {id: 4,name: 'Attendance', path: '/attendance', key: 'hr_head'},
-  {id: 5,name: 'Payroll', path: '/payroll', key: 'hr_head'},
-  {id: 6,name: 'Jobs', path: '/jobs', key: 'hr_read'},
-  {id: 7,name: 'Candidate', path: '/candidate', key: 'hr_head'},
-  {id: 8,name: 'Leaves', path: '/leaves'},
-  {id: 9,name: 'Holidays', path: '/holiday'},
-  {id: 10,name: 'Settings', path: '/settings'}
-])
+const route = useRoute()
+const { isDark, setMode } = useTheme()
+
+// one source of truth for the menu; `role` limits an item to that role
+const navMenu = [
+  { name: 'Dashboard', path: '/', icon: 'pi-th-large' },
+  { name: 'All Employees', path: '/employee', icon: 'pi-users', role: 'hr_head' },
+  { name: 'All Departments', path: '/department', icon: 'pi-sitemap' },
+  { name: 'Attendance', path: '/attendance', icon: 'pi-calendar-clock', role: 'hr_head' },
+  { name: 'Payroll', path: '/payroll', icon: 'pi-wallet', role: 'hr_head' },
+  { name: 'Jobs', path: '/jobs', icon: 'pi-briefcase', role: 'hr_head' },
+  { name: 'Candidates', path: '/candidate', icon: 'pi-user-plus', role: 'hr_head' },
+  { name: 'Leaves', path: '/leaves', icon: 'pi-calendar-plus' },
+  { name: 'Holidays', path: '/holiday', icon: 'pi-calendar' },
+  { name: 'Settings', path: '/settings', icon: 'pi-cog' },
+]
+
+const visibleMenu = computed(() =>
+  navMenu.filter((item) => !item.role || auth.state.user?.role === item.role)
+)
+
+// "/" only matches itself; other items also match their sub-pages (e.g. /department/design)
+const isActive = (path) => (path === '/' ? route.path === '/' : route.path.startsWith(path))
 </script>
+
 <template>
-  <div class="sidebar">
-    <div class="header">
-      <i class="pi pi-bitcoin"></i>
-      <h1>SLOTS</h1>
+  <aside class="sidebar" :class="{ open }">
+    <div class="brand">
+      <span class="brand-mark"><i class="pi pi-bolt"></i></span>
+      <span class="brand-name">SLOTS</span>
+      <button class="btn-icon borderless btn-sm close-btn" aria-label="Close menu" @click="$emit('close')">
+        <i class="pi pi-times"></i>
+      </button>
     </div>
-    <!-- <div class="container2">
-      <router-link
-      v-show="auth.state.user?.role === 'hr_head'" 
-      v-for="item in navMenu" :key="item.id" 
-      :class="[isActive(item.path) ? 'bg-active' : 'bg-not']" :to="item.path"
-        ><i class="pi pi-th-large"></i>{{ item.name }}</router-link
-      >
-    </div> -->
-    <div class="container2">
-      <router-link :class="[isActive('/') ? 'bg-active' : 'bg-not']" to="/"
-        ><i class="pi pi-th-large"></i>Dashboard</router-link
-      >
-      <router-link
-        :class="[isActive('/employee') ? 'bg-active' : 'bg-not']"
-        to="/employee"
-        ><i class="pi pi-users"></i>All Employees</router-link
-      >
-      <router-link
-        :class="[isActive('/department') ? 'bg-active' : 'bg-not']"
-        to="/department"
-        ><i class="pi pi-microsoft"></i>All Departments</router-link
-      >
-      <router-link v-if="auth.state.user?.role === 'hr_head'"
-        :class="[isActive('/attendance') ? 'bg-active' : 'bg-not']"
-        to="/attendance"
-        ><i class="pi pi-calendar-clock"></i>Attendance</router-link
-      >
-      <router-link v-if="auth.state.user?.role === 'hr_head'"
-        :class="[isActive('/payroll') ? 'bg-active' : 'bg-not']"
-        to="/payroll"
-        ><i class="pi pi-dollar"></i>Payroll</router-link
-      >
-      <router-link v-if="auth.state.user?.role === 'hr_head'"
-        :class="[isActive('/jobs') ? 'bg-active' : 'bg-not']"
-        to="/jobs"
-        ><i class="pi pi-briefcase"></i>Jobs</router-link
-      >
-      <router-link v-if="auth.state.user?.role === 'hr_head'"
-        :class="[isActive('/candidate') ? 'bg-active' : 'bg-not']"
-        to="/candidate"
-        ><i class="pi pi-user"></i>Candidate</router-link
-      >
-      <router-link
-        :class="[isActive('/leaves') ? 'bg-active' : 'bg-not']"
-        to="/leaves"
-        ><i class="pi pi-calendar-plus"></i>Leaves</router-link
-      >
-      <router-link
-        :class="[isActive('/holiday') ? 'bg-active' : 'bg-not']"
-        to="/holiday"
-        ><i class="pi pi-calendar"></i>Holidays</router-link
-      >
-      <router-link
-        :class="[isActive('/settings') ? 'bg-active' : 'bg-not']"
-        to="/settings"
-        ><i class="pi pi-cog"></i>Settings</router-link
-      >
-    </div>
-    <div class="theme-toggle" @click="handleToggle">
-      <div class="slider" :class="{ 'is-dark': !isLight }"></div>
 
-      <div class="toggle-option" :class="{ active: isLight }">
-        <span class="icon">☀️</span> Light
-      </div>
+    <nav class="nav">
+      <RouterLink
+        v-for="item in visibleMenu"
+        :key="item.path"
+        :to="item.path"
+        class="nav-item"
+        :class="{ active: isActive(item.path) }"
+      >
+        <i class="pi" :class="item.icon"></i>
+        <span>{{ item.name }}</span>
+      </RouterLink>
+    </nav>
 
-      <div class="toggle-option" :class="{ active: !isLight }">
-        <span class="icon">🌙</span> Dark
-      </div>
+    <div class="theme-switch" role="group" aria-label="Theme">
+      <button :class="{ active: !isDark }" @click="setMode('light')">
+        <i class="pi pi-sun"></i> Light
+      </button>
+      <button :class="{ active: isDark }" @click="setMode('dark')">
+        <i class="pi pi-moon"></i> Dark
+      </button>
     </div>
-  </div>
+  </aside>
 </template>
+
 <style scoped>
 .sidebar {
+  position: fixed;
+  top: 16px;
+  bottom: 16px;
+  left: 16px;
+  z-index: 50;
+  width: var(--sidebar-w);
   display: flex;
   flex-direction: column;
-  max-width: 90%;
-  padding: 15px 15px 0 15px;
+  padding: 20px 16px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow-sm);
+  overflow-y: auto;
 }
-.header {
-  margin: 0 0 20px 0;
+
+/* brand */
+.brand {
   display: flex;
-  /* flex-direction: colu; */
   align-items: center;
-  /* font-size: 25px; */
-  color: var(--text-color);
+  gap: 10px;
+  padding: 0 8px 24px;
 }
-.header h1 {
-  font-size: var(--fs-xl);
-  font-weight: 800;
-  font-family: "roboto", sans-serif;
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--accent), #a48bff);
+  color: #fff;
+  box-shadow: 0 6px 16px -6px rgba(113, 82, 243, 0.7);
 }
-.container2 {
-  /* margin: 0 0 0 30px; */
-  /* align-content: center; */
+.brand-name {
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--text);
 }
-a {
-  text-decoration: none;
-  color: var(--text-color);
-  display: block;
-  font-family: "roboto", sans-serif;
-  /* background-color: red; */
-  padding: 10px 0;
-  margin: 5px 20px 0 0;
-  font-size: var(--fs-sm);
-  /* width: 100%; */
-  /* border-color: #ffffff;
-    border-width: 2px; */
-  /* margin: 20px; */
-}
-.pi {
-  text-align: center;
-  font-size: var(--fs-md);
-  padding-right: 20px;
-  padding-left: 5px;
-}
-.pi-bitcoin {
-  /* display: block; */
-  font-size: 30px;
-  /* flex: 0 0 2%; */
-  /* padding: 0; */
-}
-.bg-active {
-  background-color: var(--sidebar-hover);
-  color: #7152f3;
-  border-radius: 6px;
-  border-left: 4px solid #7152f3;
-  font-weight: 600;
-  font-family: "roboto", sans-serif;
+.close-btn {
+  display: none;
+  margin-left: auto;
 }
 
-.theme-toggle {
-  position: absolute;
-  bottom: 50px;
+/* nav */
+.nav {
   display: flex;
-  width: 200px;
-  height: 45px;
-  background-color: white;
-  border: 1px solid #000;
-  border-radius: 10px; /* Rounded corners like your image */
-  cursor: pointer;
-  overflow: hidden; /* Keeps the slider inside the rounded corners */
+  flex-direction: column;
+  gap: 2px;
 }
-
-/* The purple sliding box */
-.slider {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50%; /* Covers half the toggle */
-  height: 100%;
-  background-color: #7b5cfa; /* Purple color */
-  transition: transform 0.3s ease; /* Makes it slide smoothly */
-  z-index: 1;
-}
-
-/* Move the purple box to the right when in Dark mode */
-.slider.is-dark {
-  transform: translateX(100%);
-}
-
-/* Styling the text and icons */
-.toggle-option {
+.nav-item {
   position: relative;
-  z-index: 2; /* Keeps text on top of the purple slider */
-  flex: 1;
   display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 42px;
+  padding: 0 14px;
+  border-radius: 10px;
+  color: var(--text-muted);
+  font-size: var(--fs-base);
+  font-weight: 400;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.nav-item .pi {
+  width: 18px;
+  font-size: 1rem;
+  text-align: center;
+}
+.nav-item:hover {
+  background: var(--surface-2);
+  color: var(--text);
+}
+.nav-item.active {
+  background: var(--accent-soft);
+  color: var(--accent-text);
+  font-weight: 600;
+}
+.nav-item.active::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  bottom: 10px;
+  width: 3px;
+  border-radius: 0 3px 3px 0;
+  background: var(--accent);
+}
+
+/* theme switch */
+.theme-switch {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  margin-top: auto;
+  padding: 4px;
+  border-radius: 12px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+}
+.theme-switch button {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-family: sans-serif;
+  gap: 8px;
+  height: 38px;
+  border-radius: 9px;
+  color: var(--text-muted);
+  font-size: var(--fs-sm);
   font-weight: 500;
-  transition: color 0.3s;
+  transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+.theme-switch button:hover {
+  color: var(--text);
+}
+.theme-switch button.active {
+  background: var(--accent);
+  color: var(--on-accent);
+  box-shadow: 0 4px 12px -4px rgba(113, 82, 243, 0.7);
 }
 
-/* Change text color based on which side is active */
-.toggle-option.active {
-  color: white;
-}
-
-.toggle-option:not(.active) {
-  color: #000;
-}
-@media (max-width: 768px) {
+/* drawer on tablets / phones */
+@media (max-width: 1024px) {
   .sidebar {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    max-width: 0%;
-    padding: 12px 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 0 20px 20px 0;
+    box-shadow: var(--shadow-md);
+    transform: translateX(-105%);
+    transition: transform 0.25s ease;
   }
-  .header{ display: none;}
-  .pi{ font-size: var(--fs-aaa); display: inline; padding: 0 3px 0 0; margin: 0 2px 0 0;}
-  .container2{
-    display: flex;
+  .sidebar.open {
+    transform: translateX(0);
   }
-  a {
-  text-decoration: none;
-  color: var(--text-color);
-  display: block;
-  font-family: "roboto", sans-serif;
-  /* background-color: red; */
-  padding: 5px 5px 0 5px;
-  margin: 0;
-  font-size: var(--fs-aaa);
-  /* width: 100%; */
-  /* border-color: #ffffff;
-    border-width: 2px; */
-  /* margin: 20px; */
-}
-.theme-toggle {
-  position: relative;
-  bottom: 50px;
-  display: none;
-  width: 150px;
-  height: 25px;
-}
+  .close-btn {
+    display: inline-grid;
+  }
+  .nav {
+    margin-bottom: 24px;
+  }
 }
 </style>

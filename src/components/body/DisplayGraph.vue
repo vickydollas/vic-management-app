@@ -1,60 +1,72 @@
 <script setup>
-import { ref } from 'vue'
-const widthNo = ref()
+import { computed } from "vue";
+import { useTheme } from "../../composables/useTheme";
 
-const series = ref([
-    {
-        name: "sales",
-        data: [30, 40, 50, 60, 70, 30, 55]
-    }
-])
+const { isDark } = useTheme();
 
-const options = ref({
+const series = [
+  {
+    name: "Attendance",
+    data: [30, 40, 50, 60, 70, 30, 55],
+  },
+];
+
+// chart colours follow the active theme
+const options = computed(() => {
+  const muted = isDark.value ? "#a6a5b0" : "#605f6b";
+  const grid = isDark.value ? "#2a2931" : "#e7e6ee";
+  return {
     chart: {
-      id: 'vuechart-example'
+      id: "attendance-overview",
+      toolbar: { show: false },
+      fontFamily: "Lexend, system-ui, sans-serif",
+      foreColor: muted,
+      background: "transparent",
+      parentHeightOffset: 0,
     },
+    theme: { mode: isDark.value ? "dark" : "light" },
+    colors: [isDark.value ? "#7c5ff5" : "#7152f3"],
+    plotOptions: {
+      bar: { borderRadius: 6, borderRadiusApplication: "end", columnWidth: "42%" },
+    },
+    fill: {
+      type: "gradient",
+      // accent at the top fading to a lighter violet at the base
+      gradient: { type: "vertical", shadeIntensity: 0, gradientToColors: ["#a48bff"], opacityFrom: 1, opacityTo: 0.9, stops: [0, 100] },
+    },
+    dataLabels: { enabled: false },
+    grid: { borderColor: grid, strokeDashArray: 4, padding: { left: 8, right: 8 } },
     xaxis: {
-      categories: ["Mon", "Tues", "Wed", "Thur", "Fri", "Sat", "Sun"]
-    }
-})
+      categories: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+      axisBorder: { show: false },
+      axisTicks: { show: false },
+    },
+    yaxis: { labels: { formatter: (v) => `${v}%` } },
+    tooltip: { theme: isDark.value ? "dark" : "light", y: { formatter: (v) => `${v}%` } },
+    states: { hover: { filter: { type: "darken", value: 0.9 } } },
+  };
+});
 </script>
 
 <template>
-  <div id="appl" class="container">
-    <div class="div1">
-      <h2>Attendance Overview</h2>
-      <button>Today</button>
+  <section class="card">
+    <div class="card-header">
+      <div>
+        <h2 class="card-title">Attendance Overview</h2>
+        <p class="card-subtitle">Daily attendance rate this week</p>
+      </div>
+      <button class="btn btn-outline btn-sm">
+        <i class="pi pi-calendar"></i> This Week
+      </button>
     </div>
-    <div class="div2"><apexchart width="400" type="bar" :options="options" :series="series" /></div>
-  </div>
+    <div class="chart">
+      <apexchart type="bar" height="290" width="100%" :options="options" :series="series" />
+    </div>
+  </section>
 </template>
+
 <style scoped>
-.container{
-  border: 1px solid var(--border-color);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  margin-top: 10px;
-}
-.div2{
-  justify-self: center;
-}
-.div1{ display: flex; justify-content: space-between; margin: 30px;}
-.div1 h2{
-  color: var(--text-color);
-  font-family: "roboto", sans-serif;
-  font-weight: 700;
-  font-size: var(--fs-lg);
-}
-.div1 button{
-  padding: 10px 25px;
-  color: var(--text-color);
-  background-color: inherit;
-  border: 1px solid #323138;
-  border-radius: 10px;
-  font-family: "roboto", sans-serif;
-  font-size: 15px;
-}
-@media screen and (max-width: 768px) {
-  
+.chart {
+  padding: 12px 12px 4px;
 }
 </style>

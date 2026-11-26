@@ -12,6 +12,8 @@
     "@tailwindcss/vite": "^4.1.18",
     "apexcharts": "^5.3.6",
     "axios": "^1.18.1",
+    "pinia": "^4.1.0",
+    "pinia-plugin-persistedstate": "^4.7.1",
     "primeicons": "^7.0.0",
     "tailwindcss": "^4.1.18",
     "vue": "^3.2.13",

@@ -2,56 +2,73 @@
 import { useAuth } from '../../composables/auth'
 import { useRouter } from 'vue-router'
 
+const emit = defineEmits(['select'])
 const router = useRouter()
 const auth = useAuth()
 
+const goToSettings = () => {
+  emit('select')
+  router.push('/settings')
+}
 const handleLogout = () => {
+  emit('select')
   auth.logout()
   router.push('/login')
 }
 </script>
+
 <template>
-  <div class="logout">
-    <div>
-      <p class="my-profile"><i class="pi pi-user"></i>My Profile</p>
-      <p class="logoutkey cursor-pointer" @click="handleLogout()"><i class="pi pi-sign-out"></i>Logout</p>
-    </div>
+  <div class="dropdown" role="menu">
+    <button class="dropdown-item" role="menuitem" @click="goToSettings">
+      <i class="pi pi-user"></i> My Profile
+    </button>
+    <div class="divider"></div>
+    <button class="dropdown-item danger" role="menuitem" @click="handleLogout">
+      <i class="pi pi-sign-out"></i> Logout
+    </button>
   </div>
 </template>
+
 <style scoped>
-.logout {
-  background-color: #16151c;
-  border-radius: 10px;
+.dropdown {
+  z-index: 60;
+  min-width: 200px;
+  padding: 6px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
 }
-.logout div {
-  padding: 30px 50px;
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  height: 40px;
+  padding: 0 12px;
+  border-radius: 8px;
+  color: var(--text);
+  font-size: var(--fs-base);
+  text-align: left;
+  transition: background-color 0.12s ease;
 }
-/* .pi{ display: block;} */
-.pi {
-  padding-right: 20px;
+.dropdown-item .pi {
+  font-size: var(--fs-base);
+  color: var(--text-muted);
 }
-.pi-sign-out {
-  color: #f45b69;
+.dropdown-item:hover {
+  background: var(--surface-2);
 }
-.pi-user {
-  color: #ddd;
-  margin-bottom: 25px;
+.dropdown-item.danger,
+.dropdown-item.danger .pi {
+  color: var(--danger);
 }
-.my-profile {
-  /* display: inline-block; */
-  color: #ddd;
-  font-family: "roboto", sans-serif;
-  font-size: 20px;
-  padding-right: 20px;
+.dropdown-item.danger:hover {
+  background: var(--danger-soft);
 }
-.logoutkey {
-  display: inline;
-  color: #f45b69;
-  font-family: "roboto", sans-serif;
-  font-size: 20px;
-}
-@media (max-width: 768px) {
-  .my-profile, .logoutkey { font-size: var(--fs-v);}
-  .pi { padding-right: 10px;}
+.divider {
+  height: 1px;
+  margin: 4px 0;
+  background: var(--border);
 }
 </style>
